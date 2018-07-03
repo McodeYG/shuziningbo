@@ -1,0 +1,206 @@
+//
+//  ICity_PrefixHeader.pch
+//  iCity
+//
+//  Created by 王磊 on 2018/4/19.
+//  Copyright © 2018年 LongYuan. All rights reserved.
+//
+
+#ifndef ICity_PrefixHeader_pch
+#define ICity_PrefixHeader_pch
+
+
+#import "WLTextView.h"
+#import "UIColor+XY.h"
+#import "UIView+XY.h"
+#import "UIView+AnotherView.h"
+#import "NSDate+Util.h"
+#import "UIImage+Extension.h"
+#import "UIButton+EnlargeTouchArea.h"
+#import "ICityApi.h"
+#import "JstyleNewsBaseViewController.h"
+#import "JstyleNewsNetworkManager.h"
+#import "UIImageView+JstyleWebCache.h"
+#import "UILabel+Instancetype.h"
+#import "UIButton+Instancetype.h"
+#import "NSString+Extension.h"
+#import "NSString+attributedString.h"
+#import "ZTShowMessage.h"
+#import "ZTAlertView.h"
+#import "JstyleLabel.h"
+#import "JstyleToolManager.h"
+#import "ActionSheetView.h"
+#import "NTESActionSheet.h"
+#import "WRNavigationBar.h"
+#import "ThumbUpSpecialEffec.h"
+#import "UITabBarController+tabBarController.h"
+#import "SDCycleScrollView.h"
+#import "JstyleNewsApplicationManager.h"
+#import "UINavigationBar+JstyleNews.h"
+#import "LEETheme.h"
+#import "JstyleNewsThemeConstance.h"
+#import "NightModeManager.h"
+#import "JstyleNewsBase.h"
+#import "JstyleNewsNoSinglePlaceholderView.h"
+#import "WLNewDataCountTipLabel.h"
+
+#import <UIImageView+WebCache.h>
+#import <Masonry.h>
+#import <SVProgressHUD.h>
+#import <MJExtension.h>
+#import <MJRefresh.h>
+#import <SDAutoLayout.h>
+#import <JPUSHService.h>
+#import <UMCommon/UMCommon.h>
+#import <UMAnalytics/MobClick.h>
+#import <UShareUI/UShareUI.h>
+#import <UMSocialQQHandler.h>
+#import <YYKit.h>
+#import <FMDB.h>
+#import <UIImageView+WebCache.h>
+#import <UIButton+WebCache.h>
+
+#import "NinaPagerView.h"
+#import "UIViewController+BarButton.h"
+#import "JstyleRefreshGiftHeader.h"
+#import "JstyleRefreshNormalHeader.h"
+#import "JstyleRefreshAutoNormalFooter.h"
+#import "ICityBaseViewController.h"
+#import "ThemeTool.h"
+
+
+
+#define ISNightMode           [[NightModeManager defaultManager] isNightMode]
+
+#define kNightModeBackColor   (ISNightMode)?[UIColor colorFromHexString:@"#252525"]:kWhiteColor
+#define kNightBackColor(a)    (ISNightMode)?[UIColor colorFromHexString:@"#252525" alpha:a]:[UIColor colorWithWhite:1 alpha:a]
+#define KNightModeTitle       (ISNightMode)?@"日间":@"夜间"
+#define kNightModeLineColor   (ISNightMode)?KFourALineColor:kDayLineColor
+
+#define kNightModeTextColor   (ISNightMode)?kDarkCCCColor:kDarkTwoColor //cell上标题
+#define kNightModeDescColor   kDarkNineColor   //小字不用变
+#define kThemeeModeTitleColor  ([ThemeTool isWhiteModel])?KFourALineColor:kWhiteColor //不同主题navigation标题
+#define kNightModeTitleColor  (ISNightMode)?kWhiteColor:kDarkOneColor //不同夜间navigation标题
+
+#define kRedSearchTextColor   [UIColor colorFromHexString:@"#E70F0A"]  //红色搜索关键字
+
+
+#define kManagementGrayColor  [UIColor colorFromHexString:@"#F5F5F5"]
+#define kManagementRedColor   [UIColor colorFromHexString:@"#EB6A64"]
+#define kManagementGoldColor  [UIColor colorFromHexString:@"#A89145"]
+
+#define kNavigationBarColor [UIColor colorFromHexString:@"#231815"]
+
+
+#define kLightRedColor    [UIColor colorFromHexString:@"#E93B39"]
+#define kBackGroundColor  [UIColor colorFromHexString:@"#F8F8F8"]
+#define kPlaceholderColor [UIColor colorFromHexString:@"#cac9d1"]
+
+#define kLightLineColor   [UIColor colorFromHexString:@"#979797"]//夜间分割线
+#define kSingleLineColor  [kLightLineColor colorWithAlphaComponent:0.2]//分割线
+#define KFourALineColor   [UIColor colorFromHexString:@"#4a4a4a"]//夜间分割线
+
+#define kDayLineColor   [UIColor colorFromHexString:@"#f0f0f0"]//日间分割线
+
+
+#define kGlobalGoldColor  [UIColor colorFromHexString:@"#bb996c"]
+#define kLightGoldColor   [UIColor colorFromHexString:@"#B0A377"]
+#define kDarkZeroColor    [UIColor colorFromHexString:@"#000000"]
+#define kDarkOneColor     [UIColor colorFromHexString:@"#111111"]
+#define kDarkTwoColor     [UIColor colorFromHexString:@"#222222"] //深黑
+#define kDarkThreeColor   [UIColor colorFromHexString:@"#333333"]
+#define kDarkFiveColor    [UIColor colorFromHexString:@"#555555"]
+#define kDarkSixColor     [UIColor colorFromHexString:@"#666666"]  
+#define kDarkNineColor    [UIColor colorFromHexString:@"#999999"]  //浅灰色
+#define kDarkCCCColor     [UIColor colorFromHexString:@"#cccccc"]  //更浅灰色
+#define kDarkEightColor   [UIColor colorFromHexString:@"#888888"]
+#define kNormalRedColor   [UIColor colorFromHexString:@"#DE0019"]
+#define UnSelectBgColor   [UIColor colorFromHexString:@"#F3F4F6"]
+#define SearchBgColor     [UIColor colorFromHexString:@"#f3f3f3"]
+#define kLightWhiteColor  [UIColor colorFromHexString:@"#FFFFFF"]
+#define kSearchBackColor  [UIColor colorFromHexString:@"#f0f0f0"]
+#define kPinkColor        [UIColor colorFromHexString:@"#EE6767"]               //粉红色按钮
+#define kDeepPinkColor    [UIColor colorFromHexString:@"#FF252F"]
+
+#define kLightBlueColor   ISNightMode?JSColor(@"#4D6D97"):JSColor(@"#7293BF")
+#define kPurpleColor      [UIColor colorFromHexString:@"#9F82C3"]
+#define kWhiteColor       [UIColor whiteColor]
+#define JSFont(font)      [UIFont systemFontOfSize:font]
+#define JSFontWithWeight(font, UIFontWeight)  [UIFont systemFontOfSize:font weight:UIFontWeight]
+
+/**标题字体大小*/
+#define JSTitleFont                 [JstyleToolManager sharedManager].titleFontSize
+#define JSTitleFontNumber           [JstyleToolManager sharedManager].getFontNumber
+
+#define JSImage(imageName)   [UIImage imageNamed:imageName]
+//预览图
+#define SZ_Place  [UIImage imageNamed:@"placeholder"]
+//阅览室预览图4：3
+#define SZ_Place_F_T  [UIImage imageNamed:@"placeholder_four_three"]
+//相关推荐视频预览图16：9
+#define SZ_Place_S_N  [UIImage imageNamed:@"placeholder_six_nine"]
+
+//生活轮播图
+#define SZ_Place_LIFE  [UIImage imageNamed:@"placeholder_life_banner"]
+//电视台
+#define SZ_Place_TV  [UIImage imageNamed:@"placeholder_tv"]
+//头像等预览图1：1
+#define SZ_Place_Header  [UIImage imageNamed:@"placeholder_zheng"]
+
+
+
+#define JSColor(colorName)   [UIColor colorFromHexString:colorName]
+#define UIRGBAColor(r, g, b,a)     [UIColor colorWithRed:r/255.f green:g/255.f blue:b/255.f alpha:a]
+#define UIRGBColor(r, g, b)     [UIColor colorWithRed:r/255.f green:g/255.f blue:b/255.f alpha:1.f]
+#define RGBACOLOR(r,g,b,a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
+#define SCREEN_W  ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_H  ([UIScreen mainScreen].bounds.size.height)
+#define kScale (SCREEN_W/375.0)
+#define IPhone4_Scale (SCREEN_W == 320?SCREEN_W/414.0:1.0)
+#define kweakSelf __weak typeof(self) weakSelf = self;
+/**---------iphoneX--------*/
+
+#define IS_iPhoneX ((SCREEN_W == 375.f && SCREEN_H == 812.f) || (SCREEN_H == 375.f && SCREEN_W == 812.f) ? YES : NO)
+
+
+#define StatusBarHeight                  (IS_iPhoneX ? 44.f : 20.f)
+#define NavigationBarHeight              44.f
+#define TabbarHeight                     (IS_iPhoneX ? (49.f+34.f) : 49.f)
+
+#define YG_SafeBottom_H           (IS_iPhoneX ? 34.f : 0.f)
+#define YG_StatusAndNavightion_H  (IS_iPhoneX ? 88.f : 64.f)
+#define Ipaid_bar  (IS_iPhoneX ? 88.f : 64.f)
+
+#define kStatusBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define kTopMargin (SYSTEM_VERSION_LESS_THAN(@"11.0") ? 0 : YG_StatusAndNavightion_H)
+
+#define kCurrentTheme @"currentTheme"
+
+#define KJstyleNewsChangeFontSizeNotification @"JSTYLENEWSCHANGEFONTSIZENOTIFICATION"
+/*++++++++++++++++++++++++++++++++++++*/
+
+#define ArticleImg_W    (SCREEN_W-20-10)/3.0f
+#define ArticleImg_H    (ArticleImg_W/16.0f*10)
+
+
+/**开放平台*/
+//微信
+#define WXAPPKey        @"wx2d08b9bd349eaedb"
+#define WXAPPSecret     @"54c142299bddd4da47a36bd2bc7e67d3"
+
+
+/**QQ*/
+#define QQAPPKey        @"1106806431"
+
+
+/**新浪*/
+#define SinaAPPKey      @"3449170107"
+#define SinaAPPSecret   @"4bffa8f6849900d2fb5450ca3dd353dc"
+
+
+
+
+#endif /* ICity_PrefixHeader_pch */

@@ -1,0 +1,13 @@
+//
+//  JstyleNotVipAlertView.h
+//  Exquisite
+//
+//  Created by JingHongMuYun on 2018/3/7.
+//  Copyright © 2018年 JstyleStar. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface JstyleNotVipAlertView : UIView
+
+@end

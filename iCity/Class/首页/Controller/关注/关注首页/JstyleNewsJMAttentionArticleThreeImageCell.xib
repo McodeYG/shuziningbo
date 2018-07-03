@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="175" id="MjO-Tm-EoW" customClass="JstyleNewsJMAttentionArticleThreeImageCell">
+            <rect key="frame" x="0.0" y="0.0" width="365" height="175"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MjO-Tm-EoW" id="I0P-zo-Rxw">
+                <rect key="frame" x="0.0" y="0.0" width="365" height="174.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈哈哈" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X81-2Z-Ej6" customClass="JstyleNewsBaseTitleLabel">
+                        <rect key="frame" x="15" y="65" width="335" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1Rl-CC-K5C">
+                        <rect key="frame" x="292" y="138" width="51" height="23"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="图片数" translatesAutoresizingMaskIntoConstraints="NO" id="dTI-5e-ip6">
+                        <rect key="frame" x="297" y="143" width="15" height="15"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8图" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lMh-eb-c47">
+                        <rect key="frame" x="320" y="140" width="29" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="自媒体" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koN-FA-63V" customClass="JstyleNewsBaseTitleLabel">
+                        <rect key="frame" x="60" y="18" width="212" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dhp-7o-zTt">
+                        <rect key="frame" x="15" y="18" width="30" height="30"/>
+                        <color key="backgroundColor" red="0.91930901330000003" green="0.91930901330000003" blue="0.91930901330000003" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="2Xh-Cf-AfY"/>
+                            <constraint firstAttribute="width" constant="30" id="FNJ-EM-8v8"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfI-Vi-qkV" customClass="JstyleNewsBaseCTitleLabel">
+                        <rect key="frame" x="60" y="34.5" width="212" height="13.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m30-yE-sfw" customClass="JstyleNewsBaseAttentionButton">
+                        <rect key="frame" x="287" y="19" width="63" height="27"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="27" id="OzU-dm-kTl"/>
+                            <constraint firstAttribute="width" constant="63" id="mtr-QQ-Eb9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="+ 关注">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="QfI-Vi-qkV" firstAttribute="leading" secondItem="dhp-7o-zTt" secondAttribute="trailing" constant="15" id="4Dn-Zo-xgI"/>
+                    <constraint firstItem="m30-yE-sfw" firstAttribute="leading" secondItem="koN-FA-63V" secondAttribute="trailing" constant="15" id="Bu9-ir-Of5"/>
+                    <constraint firstItem="dhp-7o-zTt" firstAttribute="leading" secondItem="I0P-zo-Rxw" secondAttribute="leading" constant="15" id="PrU-m2-1Kc"/>
+                    <constraint firstItem="m30-yE-sfw" firstAttribute="leading" secondItem="QfI-Vi-qkV" secondAttribute="trailing" constant="15" id="QwW-6O-xzD"/>
+                    <constraint firstAttribute="trailing" secondItem="m30-yE-sfw" secondAttribute="trailing" constant="15" id="SIf-H5-fq2"/>
+                    <constraint firstItem="dhp-7o-zTt" firstAttribute="top" secondItem="I0P-zo-Rxw" secondAttribute="top" constant="18" id="jZF-kh-e7E"/>
+                    <constraint firstItem="koN-FA-63V" firstAttribute="leading" secondItem="dhp-7o-zTt" secondAttribute="trailing" constant="15" id="qWA-b0-V1c"/>
+                    <constraint firstItem="m30-yE-sfw" firstAttribute="centerY" secondItem="dhp-7o-zTt" secondAttribute="centerY" id="rHQ-5W-uF7"/>
+                    <constraint firstItem="QfI-Vi-qkV" firstAttribute="bottom" secondItem="dhp-7o-zTt" secondAttribute="bottom" id="uIl-yy-x8c"/>
+                    <constraint firstItem="koN-FA-63V" firstAttribute="top" secondItem="dhp-7o-zTt" secondAttribute="top" id="v0o-YO-BHB"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="authorImageView" destination="dhp-7o-zTt" id="k5J-jc-13q"/>
+                <outlet property="authorNameLabel" destination="koN-FA-63V" id="Es7-RP-Y5X"/>
+                <outlet property="focusBtn" destination="m30-yE-sfw" id="8Zo-qX-Kbe"/>
+                <outlet property="holdView" destination="1Rl-CC-K5C" id="mtx-YK-wqy"/>
+                <outlet property="iconImageView" destination="dTI-5e-ip6" id="3Wf-s4-47u"/>
+                <outlet property="imageNumLabel" destination="lMh-eb-c47" id="deh-He-1Ny"/>
+                <outlet property="nameLabel" destination="X81-2Z-Ej6" id="0KF-Tj-Baz"/>
+                <outlet property="timeLabel" destination="QfI-Vi-qkV" id="7EG-8z-37H"/>
+            </connections>
+            <point key="canvasLocation" x="11.5" y="157.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="图片数" width="11" height="11"/>
+    </resources>
+</document>

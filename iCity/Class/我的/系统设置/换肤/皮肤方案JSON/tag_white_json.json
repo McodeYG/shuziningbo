@@ -1,0 +1,35 @@
+{
+    "color": {
+        "found_button_title_normalColor":"#777777",
+        "found_button_title_selectedColor":"#888888",
+        "ThemeChannelTagBackgroundColor":"#F6F6F6",
+        "ThemeChannelTagTitleNormalColor":"#666666",
+        "ThemeChannelTagTitleSelectColor":"#222222",
+        "ThemeMainBtnTitleOrBorderColor":"#373737",
+        "ThemeDiscoveryNavigationBarTitleColor":"#000000",
+        "setupLabelLayer":"#ee6767",
+        "homeSearchBar":"#CCCCCC"
+    },
+    "image": {
+        "found_button_image":"粉色按钮未选中.png",
+        "tabbar_image_1":"精选-白色",
+        "tabbar_image_2":"视频-白色",
+        "tabbar_image_3":"发现-白色",
+        "tabbar_image_4":"我的-白色",
+        "ThemeLogoHeaderImage":"首页渐变背景-白色",
+        "ThemeChannelBarBackgroundImage":"首页渐变背景-白色",
+        "ThemeLogoImage":"顶部logo-白色",
+        "ThemeChannelBarExtraBtnImage":"频道管理-白色",
+        "ThemeChannelBarSearchBtnImage":"搜索-白色",
+        "ThemeDiscoveryBottomBlurredImage":"发现测试类详情底部渐变背景-白色",
+        "ThemeDiscoveryBottomBlurredImage_iPhoneX":"发现测试类详情底部渐变背景-iPhone X-白色",
+        "ThemeDiscoveryBottomBlurredImageDisable":"发现测试类详情底部渐变背景灰色",
+        "ThemeDiscoveryBottomBlurredImageDisable_iPhoneX":"发现测试类详情底部渐变背景灰色-iPhone X",
+        "ThemeDiscoveryVoteButtonSelectedImage":"勾选-白色",
+        "ThemeManagementNavigationBarBottomImage":"我的-管理我的iCity号头部背景下-白色"
+
+    },
+    "other": {
+        
+    }
+}

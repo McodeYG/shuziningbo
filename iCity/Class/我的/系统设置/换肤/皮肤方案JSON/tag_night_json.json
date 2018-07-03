@@ -1,0 +1,19 @@
+{
+    "color": {
+        "ident1": "#c22b4f",
+        "ident2": "#9a1938",
+        "ident7": "#FFFFFF",
+        "ident8": "#000000",
+        "setupLabelLayer":"#ee6767",
+        "searchBarBack":"#555555",
+        
+    },
+    "image": {
+        "ident3": "image.png",
+        "ident4": "true.png"
+    },
+    "other": {
+        "ident5": "1.0",
+        "ident6": "1.0"
+    }
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hT1-YF-DfP" customClass="JstyleMySubscribeTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="351" height="66"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hT1-YF-DfP" id="ebp-Xh-Cve">
+                <rect key="frame" x="0.0" y="0.0" width="351" height="65.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qKq-8M-ZMe" customClass="JstyleNewsBaseColumnView">
+                        <rect key="frame" x="0.0" y="55.5" width="351" height="10"/>
+                        <color key="backgroundColor" red="0.84634451389999998" green="0.84634451389999998" blue="0.84634451389999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="U5j-ue-Bom"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="订阅更多iCity号" translatesAutoresizingMaskIntoConstraints="NO" id="0FK-ya-Wli">
+                        <rect key="frame" x="112.5" y="18" width="16" height="16"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关注更多iCity号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WdC-72-Kd1" customClass="JstyleNewsBaseTitleLabel">
+                        <rect key="frame" x="136.5" y="17.5" width="100" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="0FK-ya-Wli" firstAttribute="top" secondItem="ebp-Xh-Cve" secondAttribute="top" constant="18" id="1ci-tc-dQg"/>
+                    <constraint firstItem="0FK-ya-Wli" firstAttribute="centerX" secondItem="ebp-Xh-Cve" secondAttribute="centerX" constant="-55" id="1jz-WZ-Xz6"/>
+                    <constraint firstAttribute="trailing" secondItem="qKq-8M-ZMe" secondAttribute="trailing" id="6nF-Ny-rct"/>
+                    <constraint firstItem="WdC-72-Kd1" firstAttribute="centerY" secondItem="0FK-ya-Wli" secondAttribute="centerY" id="G6X-eb-bc3"/>
+                    <constraint firstAttribute="bottom" secondItem="qKq-8M-ZMe" secondAttribute="bottom" id="Nq7-VT-Bid"/>
+                    <constraint firstItem="WdC-72-Kd1" firstAttribute="leading" secondItem="0FK-ya-Wli" secondAttribute="trailing" constant="8" id="e7N-ps-6XC"/>
+                    <constraint firstItem="qKq-8M-ZMe" firstAttribute="leading" secondItem="ebp-Xh-Cve" secondAttribute="leading" id="zVd-YV-lHt"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="22" y="-8"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="订阅更多iCity号" width="16" height="16"/>
+    </resources>
+</document>

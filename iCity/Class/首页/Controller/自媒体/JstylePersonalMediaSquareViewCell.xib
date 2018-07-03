@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="JstylePersonalMediaSquareViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="160" height="256"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="160" height="256"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c8M-zI-lgd" customClass="YYAnimatedImageView">
+                        <rect key="frame" x="40" y="30" width="80" height="80"/>
+                        <color key="backgroundColor" red="0.91930901330000003" green="0.91930901330000003" blue="0.91930901330000003" alpha="0.39439747429999999" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="I2X-Kv-cES"/>
+                            <constraint firstAttribute="width" constant="80" id="RDc-ld-cQc"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="40"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="哈哈哈哈" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ZX-nP-YeB" customClass="JstyleNewsBaseTitleLabel">
+                        <rect key="frame" x="15" y="130" width="130" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="13" id="QZP-mb-clq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0人关注" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEF-wK-qwB">
+                        <rect key="frame" x="15" y="153" width="129.5" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="11" id="upo-19-ikF"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="哈哈哈哈哈哈哈哈哈哈哈哈啊哈哈哈哈哈哈" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4JO-Pi-7bs" customClass="JstyleLabel">
+                        <rect key="frame" x="20" y="174" width="120" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="cPa-mQ-OJ9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jzj-AJ-tDj" customClass="JstyleNewsBaseLineView">
+                        <rect key="frame" x="159.5" y="0.0" width="1" height="256"/>
+                        <color key="backgroundColor" red="0.84634451389999998" green="0.84634451389999998" blue="0.84634451389999998" alpha="0.59356271400000005" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="0.5" id="tes-mQ-ahB"/>
+                        </constraints>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WAp-JB-M3W" customClass="JstyleNewsBaseLineView">
+                        <rect key="frame" x="0.0" y="255.5" width="160" height="0.5"/>
+                        <color key="backgroundColor" red="0.84634451389999998" green="0.84634451389999998" blue="0.84634451389999998" alpha="0.59356271400000005" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="K7c-LN-SG0"/>
+                        </constraints>
+                    </view>
+                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UbB-QG-UyS">
+                        <rect key="frame" x="40" y="30" width="80" height="80"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="Jzj-AJ-tDj" firstAttribute="leading" secondItem="PEF-wK-qwB" secondAttribute="trailing" constant="15" id="17b-Cp-R4i"/>
+                <constraint firstItem="4ZX-nP-YeB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="38U-ek-yU0"/>
+                <constraint firstAttribute="trailing" secondItem="WAp-JB-M3W" secondAttribute="trailing" id="D2A-Vv-pQG"/>
+                <constraint firstItem="c8M-zI-lgd" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="EuN-6O-khx"/>
+                <constraint firstItem="PEF-wK-qwB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="Gyg-z2-Cgp"/>
+                <constraint firstAttribute="bottom" secondItem="Jzj-AJ-tDj" secondAttribute="bottom" id="Hvo-2h-Q8M"/>
+                <constraint firstItem="UbB-QG-UyS" firstAttribute="trailing" secondItem="c8M-zI-lgd" secondAttribute="trailing" id="JjZ-a3-yuS"/>
+                <constraint firstItem="4ZX-nP-YeB" firstAttribute="top" secondItem="c8M-zI-lgd" secondAttribute="bottom" constant="20" id="Kem-6N-ybp"/>
+                <constraint firstItem="PEF-wK-qwB" firstAttribute="top" secondItem="4ZX-nP-YeB" secondAttribute="bottom" constant="10" id="LDT-eS-ofD"/>
+                <constraint firstAttribute="trailing" secondItem="4JO-Pi-7bs" secondAttribute="trailing" constant="20" id="LMk-9v-YHV"/>
+                <constraint firstItem="UbB-QG-UyS" firstAttribute="top" secondItem="c8M-zI-lgd" secondAttribute="top" id="TYQ-Uv-q7X"/>
+                <constraint firstItem="Jzj-AJ-tDj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="a1d-gW-8ot"/>
+                <constraint firstAttribute="bottom" secondItem="WAp-JB-M3W" secondAttribute="bottom" id="cPg-3h-Waf"/>
+                <constraint firstItem="UbB-QG-UyS" firstAttribute="bottom" secondItem="c8M-zI-lgd" secondAttribute="bottom" id="hNr-lj-YmM"/>
+                <constraint firstItem="WAp-JB-M3W" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mhi-7p-uLN"/>
+                <constraint firstAttribute="trailing" secondItem="Jzj-AJ-tDj" secondAttribute="trailing" id="n2m-jd-PIY"/>
+                <constraint firstItem="4JO-Pi-7bs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="nhL-Tz-s4U"/>
+                <constraint firstItem="4JO-Pi-7bs" firstAttribute="top" secondItem="PEF-wK-qwB" secondAttribute="bottom" constant="10" id="npW-YI-HgO"/>
+                <constraint firstItem="c8M-zI-lgd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="30" id="q2w-J3-BzB"/>
+                <constraint firstItem="UbB-QG-UyS" firstAttribute="leading" secondItem="c8M-zI-lgd" secondAttribute="leading" id="q6j-gb-Cqt"/>
+                <constraint firstAttribute="trailing" secondItem="4ZX-nP-YeB" secondAttribute="trailing" constant="15" id="tKj-E0-fz9"/>
+            </constraints>
+            <size key="customSize" width="160" height="256"/>
+            <connections>
+                <outlet property="alphaView" destination="UbB-QG-UyS" id="Pc0-9B-s3y"/>
+                <outlet property="backImageView" destination="c8M-zI-lgd" id="Gnk-7O-3Sr"/>
+                <outlet property="followNumLabel" destination="PEF-wK-qwB" id="hNJ-gm-5Kb"/>
+                <outlet property="introLabel" destination="4JO-Pi-7bs" id="qhx-Yl-dJz"/>
+                <outlet property="nameLabel" destination="4ZX-nP-YeB" id="5Vb-cP-XkX"/>
+            </connections>
+            <point key="canvasLocation" x="-52" y="126"/>
+        </collectionViewCell>
+    </objects>
+</document>

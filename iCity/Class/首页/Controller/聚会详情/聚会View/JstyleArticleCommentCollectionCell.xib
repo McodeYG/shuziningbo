@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="JstyleArticleCommentCollectionCell">
+            <rect key="frame" x="0.0" y="0.0" width="333" height="139"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="333" height="139"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OFg-Ol-8yK" customClass="YYAnimatedImageView">
+                        <rect key="frame" x="15" y="15" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="1oN-8Z-ECS"/>
+                            <constraint firstAttribute="height" constant="40" id="a8C-pB-8Vb"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="宋仲基" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaT-RP-C4H">
+                        <rect key="frame" x="65" y="15" width="258" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="cyN-XC-wvH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2016-05-20 12:31" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qL-Kh-1HZ">
+                        <rect key="frame" x="65" y="41" width="258" height="10"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="10" id="BFS-RL-qeQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.58823529409999997" green="0.58823529409999997" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="OaT-RP-C4H" firstAttribute="leading" secondItem="OFg-Ol-8yK" secondAttribute="trailing" constant="10" id="CDL-2C-sCZ"/>
+                <constraint firstItem="OFg-Ol-8yK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="Ug8-I8-mtj"/>
+                <constraint firstItem="OaT-RP-C4H" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="Wox-N1-6Td"/>
+                <constraint firstItem="0qL-Kh-1HZ" firstAttribute="top" secondItem="OaT-RP-C4H" secondAttribute="bottom" constant="10" id="lOe-Ra-S5w"/>
+                <constraint firstItem="0qL-Kh-1HZ" firstAttribute="leading" secondItem="OFg-Ol-8yK" secondAttribute="trailing" constant="10" id="qVo-rq-37s"/>
+                <constraint firstItem="OFg-Ol-8yK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="uKg-I5-dmh"/>
+                <constraint firstAttribute="trailing" secondItem="0qL-Kh-1HZ" secondAttribute="trailing" constant="10" id="v9e-4r-a89"/>
+                <constraint firstAttribute="trailing" secondItem="OaT-RP-C4H" secondAttribute="trailing" constant="10" id="wvR-Um-YGX"/>
+            </constraints>
+            <size key="customSize" width="333" height="139"/>
+            <connections>
+                <outlet property="headerImageView" destination="OFg-Ol-8yK" id="kEe-54-bmE"/>
+                <outlet property="nameLabel" destination="OaT-RP-C4H" id="HQ8-Mm-PqU"/>
+                <outlet property="timeLabel" destination="0qL-Kh-1HZ" id="AB7-yB-KjB"/>
+            </connections>
+            <point key="canvasLocation" x="35.5" y="126.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

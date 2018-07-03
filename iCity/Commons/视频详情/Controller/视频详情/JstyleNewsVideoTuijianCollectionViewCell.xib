@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="JstyleNewsVideoTuijianCollectionViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="157" height="152"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="157" height="152"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kRC-Mv-Aje">
+                        <rect key="frame" x="0.0" y="0.0" width="157" height="88.5"/>
+                        <color key="backgroundColor" red="0.88431947970000002" green="0.88431947970000002" blue="0.88431947970000002" alpha="0.80131635270000001" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="kRC-Mv-Aje" secondAttribute="height" multiplier="16:9" id="D4j-jU-VDO"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HLV-so-h5b" customClass="JstyleNewsBaseTitleLabel">
+                        <rect key="frame" x="0.0" y="103.5" width="157" height="0.0"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="kRC-Mv-Aje" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="AfN-H9-F8V"/>
+                <constraint firstAttribute="trailing" secondItem="kRC-Mv-Aje" secondAttribute="trailing" id="Eg4-dh-M4F"/>
+                <constraint firstItem="HLV-so-h5b" firstAttribute="top" secondItem="kRC-Mv-Aje" secondAttribute="bottom" constant="15" id="Qw7-EF-s7O"/>
+                <constraint firstItem="kRC-Mv-Aje" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="VGM-Cb-m6e"/>
+                <constraint firstItem="HLV-so-h5b" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="rU1-xg-MnF"/>
+                <constraint firstAttribute="trailing" secondItem="HLV-so-h5b" secondAttribute="trailing" id="zff-K1-g4m"/>
+            </constraints>
+            <size key="customSize" width="157" height="152"/>
+            <connections>
+                <outlet property="backImageView" destination="kRC-Mv-Aje" id="Ri4-Yq-jGb"/>
+                <outlet property="nameLabel" destination="HLV-so-h5b" id="s6n-R5-aTN"/>
+            </connections>
+            <point key="canvasLocation" x="-33.5" y="111"/>
+        </collectionViewCell>
+    </objects>
+</document>
