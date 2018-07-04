@@ -113,13 +113,14 @@
         if (i < menuArray.count) {
             NSURL *imageUrl = [NSURL URLWithString:[menuArray[i] icon]];
             NSString *title = [menuArray[i] name];
-            [button setImageWithURL:imageUrl forState:UIControlStateNormal placeholder:SZ_Place_LIFE];
+            [button setImageWithURL:imageUrl forState:UIControlStateNormal placeholder:SZ_Place_Header];
             [button setTitle:title forState:UIControlStateNormal];
         }
     }
 }
 
 - (void)applyTheme {
+    
     self.backgroundColor = kNightModeBackColor;
     self.bannerView.backgroundColor = kNightModeBackColor;
     self.line.backgroundColor = kNightModeLineColor;//JSColor(@"#F2F2F2");

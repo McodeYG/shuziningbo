@@ -18,35 +18,29 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="108.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="哈哈哈哈哈哈啊哈哈哈哈哈哈" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJZ-bN-2Jn" customClass="JstyleNewsBaseTitleLabel">
-                        <rect key="frame" x="10" y="15" width="175" height="43"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="哈啊哈哈哈哈哈哈" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJZ-bN-2Jn" customClass="JstyleNewsBaseTitleLabel">
+                        <rect key="frame" x="10" y="15" width="147" height="21.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#触电 · 不错" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgO-xj-67z">
-                        <rect key="frame" x="10" y="70.5" width="67.5" height="14.5"/>
+                        <rect key="frame" x="12" y="84" width="67.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TsI-rq-m1e">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TsI-rq-m1e">
                         <rect key="frame" x="193" y="15" width="117" height="73"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.91930901330000003" green="0.91930901330000003" blue="0.91930901330000003" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="117" id="1PT-Hg-Fis"/>
-                            <constraint firstAttribute="height" constant="73" id="kwU-oV-ygG"/>
-                        </constraints>
                     </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="EgO-xj-67z" firstAttribute="leading" secondItem="cJZ-bN-2Jn" secondAttribute="leading" id="5pz-hL-DOk"/>
                     <constraint firstItem="cJZ-bN-2Jn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="AHe-Mw-veo"/>
-                    <constraint firstAttribute="trailing" secondItem="TsI-rq-m1e" secondAttribute="trailing" constant="10" id="Jg3-mv-Vu5"/>
-                    <constraint firstItem="TsI-rq-m1e" firstAttribute="leading" secondItem="cJZ-bN-2Jn" secondAttribute="trailing" constant="8" id="Q0k-g6-S4Y"/>
-                    <constraint firstItem="TsI-rq-m1e" firstAttribute="bottom" secondItem="EgO-xj-67z" secondAttribute="bottom" constant="3" id="QcI-MT-yJn"/>
+                    <constraint firstAttribute="bottom" secondItem="EgO-xj-67z" secondAttribute="bottom" constant="10" id="Nww-E6-vSt"/>
+                    <constraint firstItem="EgO-xj-67z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Ona-Bc-b1R"/>
                     <constraint firstItem="cJZ-bN-2Jn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="biv-33-Ig3"/>
-                    <constraint firstItem="TsI-rq-m1e" firstAttribute="top" secondItem="cJZ-bN-2Jn" secondAttribute="top" id="eUB-Of-jLa"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

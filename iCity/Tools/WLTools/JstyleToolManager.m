@@ -642,21 +642,21 @@ static id _instance = nil;
 - (UIFont *)getListFontSize
 {
     NSString *fontSize = [[NSUserDefaults standardUserDefaults] valueForKey:@"JstyleNewsFontSize"];
-    if (fontSize == nil || [fontSize isKindOfClass:[NSNull class]] || fontSize.length == 0) return JSFont(18.0);
-    if ([fontSize isEqualToString:@"小"]) return JSFont(15.0);
+    if (fontSize == nil || [fontSize isKindOfClass:[NSNull class]] || fontSize.length == 0) return JSFont(18.0);//中
+    if ([fontSize isEqualToString:@"小"]) return JSFont(18.0);
     if ([fontSize isEqualToString:@"大"]) return JSFont(20.0);
-    if ([fontSize isEqualToString:@"特大"]) return JSFont(22.0);
-    return JSFont(17.0);
+    if ([fontSize isEqualToString:@"特大"]) return JSFont(24.0);
+    return JSFont(18.0);//中
 }
 
 - (CGFloat )getFontNumber
 {
     NSString *fontSize = [[NSUserDefaults standardUserDefaults] valueForKey:@"JstyleNewsFontSize"];
-    if (fontSize == nil || [fontSize isKindOfClass:[NSNull class]] || fontSize.length == 0) return (18.0);
-    if ([fontSize isEqualToString:@"小"]) return (15.0);
+    if (fontSize == nil || [fontSize isKindOfClass:[NSNull class]] || fontSize.length == 0) return (18.0);//中
+    if ([fontSize isEqualToString:@"小"]) return (18.0);
     if ([fontSize isEqualToString:@"大"]) return (20.0);
-    if ([fontSize isEqualToString:@"特大"]) return (22.0);
-    return (17.0);
+    if ([fontSize isEqualToString:@"特大"]) return (24.0);
+    return (18.0);//中
 }
 
 - (UIFont *)titleFontSize

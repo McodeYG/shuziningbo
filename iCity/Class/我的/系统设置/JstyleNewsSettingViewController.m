@@ -90,12 +90,12 @@
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.translucent = YES;
     if ([[JstyleToolManager sharedManager] isTourist]) { // 游客
-        self.titleArray = @[@"清除缓存",@"字体大小",@"推送通知",@"仅WiFi播放视频",@"关于我们",@"当前版本"];
+        self.titleArray = @[@"清除缓存",@"推送通知",@"仅WiFi播放视频",@"关于我们",@"当前版本"];
     } else { // 非游客
         if ([[JstyleToolManager sharedManager] isAllreadySettedPWD]) { // 设置过密码
-            self.titleArray = @[@"编辑资料",@"账号绑定",@"修改密码",@"清除缓存",@"字体大小",@"推送通知",@"仅WiFi播放视频",@"关于我们",@"当前版本"];
+            self.titleArray = @[@"编辑资料",@"账号绑定",@"修改密码",@"清除缓存",@"推送通知",@"仅WiFi播放视频",@"关于我们",@"当前版本"];
         } else { // 没密码
-            self.titleArray = @[@"编辑资料",@"账号绑定",@"设置密码" ,@"清除缓存",@"字体大小",@"推送通知",@"仅WiFi播放视频",@"关于我们",@"当前版本"];
+            self.titleArray = @[@"编辑资料",@"账号绑定",@"设置密码" ,@"清除缓存",@"推送通知",@"仅WiFi播放视频",@"关于我们",@"当前版本"];
         }
     }
     
@@ -145,218 +145,96 @@
     }
     
     cell.titleName.text = _titleArray[indexPath.row];
+    NSString * name = _titleArray[indexPath.row];
     
-    if ([[JstyleToolManager sharedManager] isTourist]) {
-        //游客
-        switch (indexPath.row) {
-            case 0:{
-                //清除缓存
-                [cell.rightImageView removeFromSuperview];
-                if (_cacheLabel == nil) {
-                    CGFloat cacheCount = [self filePathSize];
-                    NSString *cacheSize = [NSString stringWithFormat:@"%.2fM",cacheCount];
-                    _cacheLabel = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth - 15 - [cacheSize length]*12, 22, [cacheSize length]*12, 20)];
-                    _cacheLabel.text = cacheSize;
-                    _cacheLabel.textColor = kDarkNineColor;
-                    _cacheLabel.font = [UIFont systemFontOfSize:12];
-                    _cacheLabel.textAlignment = NSTextAlignmentRight;
-                    
-                    [cell.contentView addSubview:_cacheLabel];
-                }
-            }
-                break;
-            case 1:{
-                //字体大小
-                [cell.rightImageView removeFromSuperview];
-                
-                if (_fontSizeLabel == nil) {
-                    NSString *fontSize = [[NSUserDefaults standardUserDefaults]objectForKey:@"JstyleNewsFontSize"];
-                    if (fontSize == nil || [fontSize isEqualToString:@""]) {
-                        fontSize = @"中";
-                    }
-                    
-                    _fontSizeLabel = [[UILabel alloc] init];
-                    _fontSizeLabel.text = fontSize;
-                    _fontSizeLabel.textColor = kDarkNineColor;
-                    _fontSizeLabel.font = [UIFont systemFontOfSize:12];
-                    _fontSizeLabel.textAlignment = NSTextAlignmentRight;
-                    [cell.contentView addSubview:_fontSizeLabel];
-                    [_fontSizeLabel sizeToFit];
-                    [_fontSizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                        make.centerY.offset(0);
-                        make.right.offset(-15);
-                    }];
-                }
-            }
-                break;
-            case 2:{
-                //推送开关
-                [cell.rightImageView removeFromSuperview];
-                
-                if (_messageSwitch == nil) {
-                    _messageSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(kScreenWidth - 65, 12, 50, 30)];
-                    if ([[UIApplication sharedApplication] currentUserNotificationSettings].types  == UIUserNotificationTypeNone) {
-                        [_messageSwitch setOn:NO];
-                    }else{
-                        [_messageSwitch setOn:YES];
-                    }
-                    [_messageSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
-                    [cell.contentView addSubview:_messageSwitch];
-                }
-            }
-                break;
-            case 3:{
-                //wifi开关
-                [cell.rightImageView removeFromSuperview];
-                if (_wifiSwitch == nil) {
-                    
-                    _wifiSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(kScreenWidth - 65, 12, 50, 30)];
-                    if ([[NSUserDefaults standardUserDefaults] stringForKey:@"PlayVideoOnlyWiFi"]) {
-                        [_wifiSwitch setOn:YES];
-                    } else {
-                        [_wifiSwitch setOn:NO];
-                    }
-                    [_wifiSwitch addTarget:self action:@selector(wifiSwitchAction:) forControlEvents:UIControlEventValueChanged];
-                    
-                    [cell.contentView addSubview:_wifiSwitch];
-                }
-            }
-                break;
-            case 5: {
-                //当前版本
-                [cell.rightImageView removeFromSuperview];
-                if (_versionLabel == nil) {
-                    
-                    NSString *versionString = [UIApplication sharedApplication].appVersion;
-                    _versionLabel = [[UILabel alloc]init];
-                    _versionLabel.text = versionString;
-                    _versionLabel.textColor = kDarkNineColor;
-                    _versionLabel.font = [UIFont systemFontOfSize:12];
-                    _versionLabel.textAlignment = NSTextAlignmentRight;
-                    [cell.contentView addSubview:_versionLabel];
-                    [_versionLabel sizeToFit];
-                    [_versionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                        make.centerY.offset(0);
-                        make.right.offset(-15);
-                    }];
-                }
-            }
-                break;
-            default:
-                break;
+    if ([name isEqualToString:@"清除缓存"]) {
+        [cell.rightImageView removeFromSuperview];
+        if (_cacheLabel == nil) {
+            CGFloat cacheCount = [self filePathSize];
+            NSString *cacheSize = [NSString stringWithFormat:@"%.2fM",cacheCount];
+            _cacheLabel = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth - 15 - [cacheSize length]*12, 22, [cacheSize length]*12, 20)];
+            _cacheLabel.text = cacheSize;
+            _cacheLabel.textColor = kDarkNineColor;
+            _cacheLabel.font = [UIFont systemFontOfSize:12];
+            _cacheLabel.textAlignment = NSTextAlignmentRight;
+            
+            [cell.contentView addSubview:_cacheLabel];
         }
-    } else {
-        switch (indexPath.row) {
-            case 0:{
-                //编辑资料
+    }else if ([name isEqualToString:@"字体大小"]) {
+        [cell.rightImageView removeFromSuperview];
+        
+        if (_fontSizeLabel == nil) {
+            NSString *fontSize = [[NSUserDefaults standardUserDefaults]objectForKey:@"JstyleNewsFontSize"];
+            if (fontSize == nil || [fontSize isEqualToString:@""]) {
+                fontSize = @"中";
             }
-                break;
-            case 1:{
-                //改绑手机号
-            }
-                break;
-            case 2:{
-                //修改密码 或 设置密码
-            }
-                break;
-            case 3:{
-                //清除缓存
-                [cell.rightImageView removeFromSuperview];
-                if (_cacheLabel == nil) {
-                    
-                    CGFloat cacheCount = [self filePathSize];
-                    NSString *cacheSize = [NSString stringWithFormat:@"%.2fM",cacheCount];
-                    _cacheLabel = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth - 15 - [cacheSize length]*12, 22, [cacheSize length]*12, 20)];
-                    _cacheLabel.text = cacheSize;
-                    _cacheLabel.textColor = kDarkNineColor;
-                    _cacheLabel.font = [UIFont systemFontOfSize:12];
-                    _cacheLabel.textAlignment = NSTextAlignmentRight;
-                    
-                    [cell.contentView addSubview:_cacheLabel];
-                }
-            }
-                break;
-            case 4:{
-                //字体大小
-                [cell.rightImageView removeFromSuperview];
-                
-                if (_fontSizeLabel == nil) {
-                    NSString *fontSize = [[NSUserDefaults standardUserDefaults]objectForKey:@"JstyleNewsFontSize"];
-                    if (fontSize == nil || [fontSize isEqualToString:@""]) {
-                        fontSize = @"中";
-                    }
-                    
-                    _fontSizeLabel = [[UILabel alloc] init];
-                    _fontSizeLabel.text = fontSize;
-                    _fontSizeLabel.textColor = kDarkNineColor;
-                    _fontSizeLabel.font = [UIFont systemFontOfSize:12];
-                    _fontSizeLabel.textAlignment = NSTextAlignmentRight;
-                    [cell.contentView addSubview:_fontSizeLabel];
-                    [_fontSizeLabel sizeToFit];
-                    [_fontSizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                        make.centerY.offset(0);
-                        make.right.offset(-15);
-                    }];
-                }
-            }
-                break;
-            case 5:{
-                //推送开关
-                [cell.rightImageView removeFromSuperview];
-                
-                if (_messageSwitch == nil) {
-                    _messageSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(kScreenWidth - 65, 12, 50, 30)];
-                    if ([[UIApplication sharedApplication] currentUserNotificationSettings].types  == UIUserNotificationTypeNone) {
-                        [_messageSwitch setOn:NO];
-                    }else{
-                        [_messageSwitch setOn:YES];
-                    }
-                    [_messageSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
-                    [cell.contentView addSubview:_messageSwitch];
-                }
-            }
-                break;
-            case 6:{
-                //wifi开关
-                [cell.rightImageView removeFromSuperview];
-                if (_wifiSwitch == nil) {
-                    
-                    _wifiSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(kScreenWidth - 65, 12, 50, 30)];
-                    if ([[NSUserDefaults standardUserDefaults] stringForKey:@"PlayVideoOnlyWiFi"]) {
-                        [_wifiSwitch setOn:YES];
-                    }else{
-                        [_wifiSwitch setOn:NO];
-                    }
-                    [_wifiSwitch addTarget:self action:@selector(wifiSwitchAction:) forControlEvents:UIControlEventValueChanged];
-                    [cell.contentView addSubview:_wifiSwitch];
-                }
-            }
-                break;
-            case 8: {
-                //当前版本
-                [cell.rightImageView removeFromSuperview];
-                if (_versionLabel == nil) {
-                    
-                    NSString *versionString = [UIApplication sharedApplication].appVersion;
-                    _versionLabel = [[UILabel alloc]init];
-                    _versionLabel.text = versionString;
-                    _versionLabel.textColor = kDarkNineColor;
-                    _versionLabel.font = [UIFont systemFontOfSize:12];
-                    _versionLabel.textAlignment = NSTextAlignmentRight;
-                    [cell.contentView addSubview:_versionLabel];
-                    [_versionLabel sizeToFit];
-                    [_versionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-                        make.centerY.offset(0);
-                        make.right.offset(-15);
-                    }];
-                }
-            }
-                break;
-            default:
-                break;
+            
+            _fontSizeLabel = [[UILabel alloc] init];
+            _fontSizeLabel.text = fontSize;
+            _fontSizeLabel.textColor = kDarkNineColor;
+            _fontSizeLabel.font = [UIFont systemFontOfSize:12];
+            _fontSizeLabel.textAlignment = NSTextAlignmentRight;
+            [cell.contentView addSubview:_fontSizeLabel];
+            [_fontSizeLabel sizeToFit];
+            [_fontSizeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.offset(0);
+                make.right.offset(-15);
+            }];
         }
+    
+    }else if ([name isEqualToString:@"推送通知"]) {
+        [cell.rightImageView removeFromSuperview];
+        
+        if (_messageSwitch == nil) {
+            _messageSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(kScreenWidth - 65, 12, 50, 30)];
+            if ([[UIApplication sharedApplication] currentUserNotificationSettings].types  == UIUserNotificationTypeNone) {
+                [_messageSwitch setOn:NO];
+            }else{
+                [_messageSwitch setOn:YES];
+            }
+            [_messageSwitch addTarget:self action:@selector(switchAction:) forControlEvents:UIControlEventValueChanged];
+            [cell.contentView addSubview:_messageSwitch];
+        }
+        
+    }else if ([name isEqualToString:@"仅WiFi播放视频"]) {
+        [cell.rightImageView removeFromSuperview];
+        if (_wifiSwitch == nil) {
+            
+            _wifiSwitch = [[UISwitch alloc]initWithFrame:CGRectMake(kScreenWidth - 65, 12, 50, 30)];
+            if ([[NSUserDefaults standardUserDefaults] stringForKey:@"PlayVideoOnlyWiFi"]) {
+                [_wifiSwitch setOn:YES];
+            } else {
+                [_wifiSwitch setOn:NO];
+            }
+            [_wifiSwitch addTarget:self action:@selector(wifiSwitchAction:) forControlEvents:UIControlEventValueChanged];
+            
+            [cell.contentView addSubview:_wifiSwitch];
+        }
+    }else if ([name isEqualToString:@"关于我们"]) {
+
+    }else if ([name isEqualToString:@"当前版本"]) {
+        [cell.rightImageView removeFromSuperview];
+        if (_versionLabel == nil) {
+            
+            NSString *versionString = [UIApplication sharedApplication].appVersion;
+            _versionLabel = [[UILabel alloc]init];
+            _versionLabel.text = versionString;
+            _versionLabel.textColor = kDarkNineColor;
+            _versionLabel.font = [UIFont systemFontOfSize:12];
+            _versionLabel.textAlignment = NSTextAlignmentRight;
+            [cell.contentView addSubview:_versionLabel];
+            [_versionLabel sizeToFit];
+            [_versionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.centerY.offset(0);
+                make.right.offset(-15);
+            }];
+        }
+        
+    }else if ([name isEqualToString:@"编辑资料"]) {
+    }else if ([name isEqualToString:@"账号绑定"]) {
+    }else if ([name isEqualToString:@"修改密码"]) {
     }
-    
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -386,101 +264,40 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[JstyleToolManager sharedManager] isTourist]) {
-        switch (indexPath.row) {
-            case 0:{
-                //清除缓存
-                [self cleanCache];
-            }
-                break;
-            case 1:{
-                //字体大小
-                [self settingFontSize];
-            }
-                break;
-            case 2:{
-                //推送通知
-                
-            }
-                break;
-            case 3:{
-                //仅WiFi播放视频
-                
-            }
-                break;
-            case 4:{
-                //关于我们
-                JMAboutJingMeiViewController *jmAboutJingMeiVC = [JMAboutJingMeiViewController new];
-                [self.navigationController pushViewController:jmAboutJingMeiVC animated:YES];
-            }
-                break;
-            case 5:{
-                //当前版本
-                
-            }
-                break;
-            default:
-                break;
-        }
+    
+    NSString * name = _titleArray[indexPath.row];
+    if ([name isEqualToString:@"清除缓存"]) {
+        //清除缓存
+        [self cleanCache];
+    }else if ([name isEqualToString:@"字体大小"]) {
+        //字体大小
+        [self settingFontSize];
+    }else if ([name isEqualToString:@"推送通知"]) {
         
-    } else {
-        switch (indexPath.row) {
-            case 0:{
-                //编辑资料
-                JMMyInformationViewController *jmInformationVC = [JMMyInformationViewController new];
-                [self.navigationController pushViewController:jmInformationVC animated:YES];
-            }
-                break;
-            case 1:{
-                //账号绑定
-                JstyleNewsAccountBindingViewController *accountBindingVC = [JstyleNewsAccountBindingViewController new];
-                [self.navigationController pushViewController:accountBindingVC animated:YES];
-            }
-                break;
-            case 2:{
-                //设置密码 或 修改密码
-                if ([[JstyleToolManager sharedManager] isAllreadySettedPWD]) {
-                    JstyleNewsChangePassworldViewController *changePWDVC = [JstyleNewsChangePassworldViewController new];
-                    [self.navigationController pushViewController:changePWDVC animated:YES];
-                } else {
-                    JstyleNewsSettingPasswordViewController *settingPWDVC = [JstyleNewsSettingPasswordViewController new];
-                    [self.navigationController pushViewController:settingPWDVC animated:YES];
-                }
-            }
-                break;
-            case 3:{
-                //清除缓存
-                [self cleanCache];
-            }
-                break;
-            case 4:{
-                //字体大小
-                [self settingFontSize];
-            }
-                break;
-            case 5:{
-                //推送通知
-                
-            }
-                break;
-            case 6:{
-                //仅WiFi播放视频
-                
-            }
-                break;
-            case 7:{
-                //关于我们
-                JMAboutJingMeiViewController *jmAboutJingMeiVC = [JMAboutJingMeiViewController new];
-                [self.navigationController pushViewController:jmAboutJingMeiVC animated:YES];
-                
-            }
-                break;
-            case 8:{
-                //当前版本
-            }
-                break;
-            default:
-                break;
+    }else if ([name isEqualToString:@"仅WiFi播放视频"]) {
+        
+    }else if ([name isEqualToString:@"关于我们"]) {
+        //关于我们
+        JMAboutJingMeiViewController *jmAboutJingMeiVC = [JMAboutJingMeiViewController new];
+        [self.navigationController pushViewController:jmAboutJingMeiVC animated:YES];
+        
+    }else if ([name isEqualToString:@"当前版本"]) {
+        
+        
+    }else if ([name isEqualToString:@"编辑资料"]) {
+        JMMyInformationViewController *jmInformationVC = [JMMyInformationViewController new];
+        [self.navigationController pushViewController:jmInformationVC animated:YES];
+    }else if ([name isEqualToString:@"账号绑定"]) {
+        JstyleNewsAccountBindingViewController *accountBindingVC = [JstyleNewsAccountBindingViewController new];
+        [self.navigationController pushViewController:accountBindingVC animated:YES];
+    }else if ([name isEqualToString:@"修改密码"]||[name isEqualToString:@"设置密码"]) {
+        //设置密码 或 修改密码
+        if ([[JstyleToolManager sharedManager] isAllreadySettedPWD]) {
+            JstyleNewsChangePassworldViewController *changePWDVC = [JstyleNewsChangePassworldViewController new];
+            [self.navigationController pushViewController:changePWDVC animated:YES];
+        } else {
+            JstyleNewsSettingPasswordViewController *settingPWDVC = [JstyleNewsSettingPasswordViewController new];
+            [self.navigationController pushViewController:settingPWDVC animated:YES];
         }
     }
 }
