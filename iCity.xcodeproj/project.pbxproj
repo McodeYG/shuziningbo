@@ -5664,7 +5664,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = iCity/iCity.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Shuzi Yuedong Technology Co., Ltd. (K4WM9Z287T)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = K4WM9Z287T;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -5782,7 +5782,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = iCity/iCity.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Beijing Shuzi Yuedong Technology Co., Ltd. (K4WM9Z287T)";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = K4WM9Z287T;
 				FRAMEWORK_SEARCH_PATHS = (
