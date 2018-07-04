@@ -56,13 +56,13 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(10);
         make.right.mas_equalTo(self.contentView).offset(-(ArticleImg_W+30));
-        make.top.mas_equalTo(self.contentView).offset(10);
+        make.top.mas_equalTo(self.contentView).offset(13);
     }];
     //时间
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(10);
         make.right.mas_equalTo(self.contentView).offset(-(ArticleImg_W+30));
-        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-10);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-13);
     }];
     
     self.lineView = [[UIView alloc]init];

@@ -63,11 +63,11 @@
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.contentView).offset(10);
         make.right.mas_equalTo(self.posterImageView.mas_left).offset(-20);
-        make.top.mas_equalTo(self.contentView).offset(10);
+        make.top.mas_equalTo(self.contentView).offset(13);
     }];
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self.titleLabel);
-        make.bottom.mas_equalTo(self.contentView).mas_offset(-10);
+        make.bottom.mas_equalTo(self.contentView).mas_offset(-13);
         make.right.mas_equalTo(self.posterImageView.mas_left).offset(-20);
     }];
     

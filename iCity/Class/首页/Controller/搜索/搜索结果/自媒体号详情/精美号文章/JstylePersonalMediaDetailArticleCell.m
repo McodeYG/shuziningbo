@@ -32,13 +32,13 @@
     [self.introLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(10);
         make.right.mas_equalTo(self.contentView).offset(-(ArticleImg_W+20));
-        make.top.mas_equalTo(self.contentView).offset(10);
+        make.top.mas_equalTo(self.contentView).offset(13);
     }];
     //时间
     [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(10);
         make.right.mas_equalTo(self.contentView.mas_right).offset(-(ArticleImg_W+20));
-        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-10);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-13);
     }];
 }
 

@@ -80,12 +80,12 @@
     [self.contentView addSubview:self.setTopLab];
     
     //置顶
-    [self.setTopLab mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-10);
-        make.left.mas_equalTo(self.contentView).mas_equalTo(10);
-        make.width.mas_equalTo(30);
-        make.height.mas_equalTo(16);
-    }];
+    self.setTopLab.sd_layout
+    .centerYEqualToView(self.subjectLabel)
+    .leftSpaceToView(self.contentView, 10)
+    .widthIs(30)
+    .heightIs(16);
+  
     
     self.footerView = [[UIView alloc]init];
     self.footerView.backgroundColor = kNightModeLineColor;
@@ -146,15 +146,20 @@
     if (index.section==0&&index.row<3) {
         self.setTopLab.hidden = NO;
         
-        [self.subjectLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.contentView.mas_left).mas_equalTo(10+30+8);
-            
-        }];
+        self.subjectLabel.sd_resetLayout
+        .leftSpaceToView(self.contentView, 10+30+8)
+        .rightSpaceToView(self.closeBtn, 10)
+        .centerYEqualToView(self.closeBtn)
+        .heightIs(12);
+        
     }else{
         self.setTopLab.hidden = YES;
-        [self.subjectLabel mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.left.mas_equalTo(self.contentView.mas_left).mas_equalTo(10);
-        }];
+        
+        self.subjectLabel.sd_resetLayout
+        .leftSpaceToView(self.contentView, 10)
+        .rightSpaceToView(self.closeBtn, 10)
+        .centerYEqualToView(self.closeBtn)
+        .heightIs(12);
     }
     if (index.section==0) {
         self.subjectLabel.text = [[NSString stringWithFormat:@"%@",model.author_name] stringByAppendingString:[NSString stringWithFormat:@"   %@",@"刚刚"]];

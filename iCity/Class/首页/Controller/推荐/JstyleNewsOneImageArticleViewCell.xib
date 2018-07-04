@@ -25,7 +25,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#触电 · 不错" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgO-xj-67z">
-                        <rect key="frame" x="12" y="84" width="67.5" height="14.5"/>
+                        <rect key="frame" x="12" y="79" width="67.5" height="14.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -38,7 +38,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="cJZ-bN-2Jn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="AHe-Mw-veo"/>
-                    <constraint firstAttribute="bottom" secondItem="EgO-xj-67z" secondAttribute="bottom" constant="10" id="Nww-E6-vSt"/>
+                    <constraint firstAttribute="bottom" secondItem="EgO-xj-67z" secondAttribute="bottom" constant="15" id="Nww-E6-vSt"/>
                     <constraint firstItem="EgO-xj-67z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="Ona-Bc-b1R"/>
                     <constraint firstItem="cJZ-bN-2Jn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="biv-33-Ig3"/>
                 </constraints>

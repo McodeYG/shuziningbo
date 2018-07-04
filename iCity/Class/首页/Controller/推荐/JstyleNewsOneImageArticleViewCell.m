@@ -29,13 +29,13 @@
     [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(10);
         make.right.mas_equalTo(self.contentView.mas_right).offset(-(ArticleImg_W+20));
-        make.top.mas_equalTo(self.contentView.mas_top).offset(10);
+        make.top.mas_equalTo(self.contentView.mas_top).offset(13);
     }];
     //时间
     [self.subjectLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(10);
         make.right.mas_equalTo(self.contentView.mas_right).offset(-(ArticleImg_W+20));
-        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-10);
+        make.bottom.mas_equalTo(self.contentView.mas_bottom).offset(-13);
     }];
     //置顶
     self.setTopLab = [[UILabel alloc]init];
@@ -65,12 +65,13 @@
     self.footerView.backgroundColor = kNightModeLineColor;
     [self.contentView addSubview:self.footerView];
     
-    self.footerView.sd_layout
-    .leftSpaceToView(self.contentView, 10)
-    .rightSpaceToView(self.contentView, 10)
-    .bottomEqualToView(self.contentView)
-    .heightIs(0.5);
-    
+    [self.footerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.mas_equalTo(self.contentView);
+        make.left.mas_equalTo(self.contentView).mas_equalTo(10);
+        make.right.mas_equalTo(self.contentView).mas_equalTo(-10);
+        make.height.mas_equalTo(0.5);
+    }];
+
 
 }
 
