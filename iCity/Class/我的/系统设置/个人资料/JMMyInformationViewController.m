@@ -118,23 +118,27 @@
             _headerImageView.layer.cornerRadius = 19;
             _headerImageView.layer.masksToBounds = YES;
             if ([self.inforDict[@"avator"] isEqualToString:@""]) {
-                _headerImageView.image = [UIImage imageNamed:@"140*140"];
+                _headerImageView.image = SZ_Place_Header;
             }
-            [_headerImageView setImageWithURL:[NSURL URLWithString:self.inforDict[@"avator"]] placeholder:[UIImage imageNamed:@"140*140"] options:(YYWebImageOptionSetImageWithFadeAnimation) completion:nil];
+            [_headerImageView setImageWithURL:[NSURL URLWithString:self.inforDict[@"avator"]] placeholder:SZ_Place_Header options:(YYWebImageOptionSetImageWithFadeAnimation) completion:nil];
             _headerImageView.contentMode = UIViewContentModeScaleAspectFill;
             [cell addSubview:_headerImageView];
         }
             break;
         case 1:{
-            cell.nameLabel.text = [NSString stringWithFormat:@"%@",self.inforDict[@"nick_name"]];
+            NSString * str = [NSString stringWithFormat:@"%@",self.inforDict[@"nick_name"]];
+            cell.nameLabel.text = [self nameLabelString:str];
         }
             break;
         case 2:{
-            cell.nameLabel.text = [NSString stringWithFormat:@"%@",self.inforDict[@"sex"]];
+            NSString * str = [NSString stringWithFormat:@"%@",self.inforDict[@"sex"]];
+            cell.nameLabel.text = [self nameLabelString:str];
         }
             break;
         case 3:{
-            cell.nameLabel.text = [NSString stringWithFormat:@"%@",self.inforDict[@"birth"]];
+            
+            NSString * str = [NSString stringWithFormat:@"%@",self.inforDict[@"birth"]];
+            cell.nameLabel.text = [self nameLabelString:str];
         }
             break;
         default:
@@ -144,6 +148,19 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
+}
+
+- (NSString *)nameLabelString:(NSString *)string {
+    
+    if ([string isNotBlank]) {
+        if ([string isEqualToString:@"(null)"]) {
+            return @"";
+        }else {
+            return string;
+        }
+    }else {
+        return @" ";
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -469,6 +486,30 @@
     }];
 }
 
+#pragma mark - 关于IOS 11 下，图片编辑界面左下角的cancel 按钮很难点击的问题
+//https://blog.csdn.net/gzgengzhen/article/details/80320518
+-(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    
+    if ([UIDevice currentDevice].systemVersion.floatValue < 11)
+    {
+        return;
+    }
+    if ([viewController isKindOfClass:NSClassFromString(@"PUPhotoPickerHostViewController")])
+    {
+        [viewController.view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
+         {
+             // iOS 11之后，图片编辑界面最上层会出现一个宽度<42的view，会遮盖住左下方的cancel按钮，使cancel按钮很难被点击到，故改变该view的层级结构
+             if (obj.frame.size.width < 42)
+             {
+                 [viewController.view sendSubviewToBack:obj];
+                 *stop = YES;
+             }
+         }];
+    }
+}
+
+
 /**修改性别数据*/
 - (void)getJMGenderDataSource
 {
@@ -517,5 +558,7 @@
     
     return ISNightMode?UIStatusBarStyleLightContent:UIStatusBarStyleDefault;
 }
+
+
 
 @end

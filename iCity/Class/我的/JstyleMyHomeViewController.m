@@ -810,6 +810,28 @@ static NSString *JstyleMyHomeMenuCollectionViewCellID = @"JstyleMyHomeMenuCollec
     }
     
 }
+//关于IOS 11 下，图片编辑界面左下角的cancel 按钮很难点击的问题
+//https://blog.csdn.net/gzgengzhen/article/details/80320518
+-(void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    
+    if ([UIDevice currentDevice].systemVersion.floatValue < 11)
+    {
+        return;
+    }
+    if ([viewController isKindOfClass:NSClassFromString(@"PUPhotoPickerHostViewController")])
+    {
+        [viewController.view.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop)
+         {
+             // iOS 11之后，图片编辑界面最上层会出现一个宽度<42的view，会遮盖住左下方的cancel按钮，使cancel按钮很难被点击到，故改变该view的层级结构
+             if (obj.frame.size.width < 42)
+             {
+                 [viewController.view sendSubviewToBack:obj];
+                 *stop = YES;
+             }
+         }];
+    }
+}
 
 
 @end
