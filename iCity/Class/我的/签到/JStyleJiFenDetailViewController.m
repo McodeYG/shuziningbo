@@ -26,7 +26,7 @@ static NSUInteger page = 1;
     [super viewDidLoad];
     self.title = @"积分明细";
     self.view.backgroundColor = kWhiteColor;
-    [self addRightBarButtonItemWithTitle:@"积分规则" action:@selector(rightBarButtonAction)];
+//    [self addRightBarButtonItemWithTitle:@"积分规则" action:@selector(rightBarButtonAction)];
     
     [self addJiFenTableView];
     [self addReshAction];

@@ -202,16 +202,17 @@ static NSString *JstyleMyHomeMenuCollectionViewCellID = @"JstyleMyHomeMenuCollec
     UIButton *settingBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.settingBtn = settingBtn;
     [settingBtn setImage:JSImage(@"我的-设置") forState:UIControlStateNormal];
-    [settingBtn sizeToFit];
-    settingBtn.frame = CGRectMake(15, 15+StatusBarHeight, settingBtn.width, settingBtn.height);
+    
+    settingBtn.frame = CGRectMake(5, StatusBarHeight, 40, 44);
+    
     [settingBtn addTarget:self action:@selector(settingItemClick) forControlEvents:UIControlEventTouchUpInside];
     [navigationBarView addSubview:settingBtn];
     
     UIButton *messageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.messageBtn = messageBtn;
     [messageBtn setImage:JSImage(@"推荐-消息铃铛_white") forState:UIControlStateNormal];
-    [messageBtn sizeToFit];
-    messageBtn.frame = CGRectMake((kScreenWidth-(settingBtn.width+20)), settingBtn.y , messageBtn.width, messageBtn.height);
+    messageBtn.frame = CGRectMake((kScreenWidth-45), StatusBarHeight , 40, 44);
+    
     [messageBtn addTarget:self action:@selector(messageItemClick) forControlEvents:UIControlEventTouchUpInside];
     [navigationBarView addSubview:messageBtn];
     
