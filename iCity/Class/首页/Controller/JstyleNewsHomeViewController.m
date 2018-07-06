@@ -335,6 +335,7 @@ static NSString *refresh = @"1";
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
+    
 
     JstyleNewsHomePageModel *model = [JstyleNewsHomePageModel new];
     
@@ -346,7 +347,11 @@ static NSString *refresh = @"1";
     }else{
         NSLog(@"超了");
     }
-        
+//    if (indexPath.section == 1) {
+//        NSLog(@"---%ld----%ld",(long)indexPath.section,(long)indexPath.row);
+//        NSLog(@"type=%@--head_type=%@--\n-isImageArticle=%@--\n-title=%@---poster=%@",model.type,model.head_type,model.isImageArticle ,model.title,model.poster);
+//    }
+    
     switch ([model.type integerValue]) {
         case 1:{//
             if ([model.head_type integerValue] == 1 && [model.isImageArticle integerValue] == 1) {
@@ -452,8 +457,15 @@ static NSString *refresh = @"1";
             
         }
             break;
-        default:
-            return nil;
+        default: {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+            if (!cell) {
+                cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+            
+        }
             break;
     }
    
@@ -463,15 +475,16 @@ static NSString *refresh = @"1";
 {
     
     if (indexPath.section==0) {
-        if (!(indexPath.row < self.setTopArray.count)) return 0;
+        if (!(indexPath.row <= self.setTopArray.count)) return 0;
     } else {
-        if (!(indexPath.row < self.dataArray.count)) return 0;
+        if (!(indexPath.row <=self.dataArray.count)) return 0;
     }
     JstyleNewsHomePageModel *model = [JstyleNewsHomePageModel new];
     if (indexPath.section == 0) {
         model = self.setTopArray[indexPath.row];
     }else{
         model = self.dataArray[indexPath.row];
+
     }
     
     
@@ -498,6 +511,7 @@ static NSString *refresh = @"1";
             break;
         case 2:{
             return [self.tableView cellHeightForIndexPath:indexPath model:model keyPath:@"model" cellClass:[JstyleNewsOnePlusImageVideoViewCell class] contentViewWidth:kScreenWidth];
+            
         }
             break;
         case 3:{

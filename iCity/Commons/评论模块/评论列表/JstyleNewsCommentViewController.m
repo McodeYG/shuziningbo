@@ -280,6 +280,14 @@ static NSInteger page = 1;
         ZTShowAlertMessage(@"评论内容不能为空");
         return;
     }
+    if (comment.length>2000) {
+        ZTShowAlertMessage(@"字数限制最多2000字，请调整后再发。");
+        return;
+    }
+    if ([NSString stringContainsEmoji:comment]) {
+        ZTShowAlertMessage(@"昵称不能含有表情等特殊字符");
+        return;
+    }
     if (self.contentId) {
         [self addJstyleNewsVideoCommentWithPid:self.contentId];
     }else{

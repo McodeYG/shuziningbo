@@ -24,7 +24,8 @@
 // 分享
 #import "ActionSheetView.h"
 typedef void (^KeyboardDidMoveBlock)(CGRect keyboardFrameInView, BOOL opening, BOOL closing);
-@interface JstylePartyDetailsViewController ()<UIScrollViewDelegate,WKUIDelegate,WKNavigationDelegate,WKScriptMessageHandler,UICollectionViewDelegate,UICollectionViewDataSource, UITextViewDelegate>
+@interface JstylePartyDetailsViewController ()<UIScrollViewDelegate,WKUIDelegate,WKNavigationDelegate,
+WKScriptMessageHandler,UICollectionViewDelegate,UICollectionViewDataSource, UITextViewDelegate>
 
 /**推荐文章的collectionview*/
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -181,7 +182,7 @@ static NSInteger typeInt;
     [self.navigationController setNavigationBarHidden:NO animated:YES];
     [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:kNightModeBackColor] forBarMetrics:UIBarMetricsDefault];
     
-    NSDictionary *navbarTitleTextAttributes = @{ NSForegroundColorAttributeName:kNightModeTitleColor,
+    NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName:kNightModeTitleColor,
                                                 NSFontAttributeName:[UIFont systemFontOfSize:18] };
     [self.navigationController.navigationBar setTitleTextAttributes:navbarTitleTextAttributes];
     
@@ -246,6 +247,20 @@ static NSInteger typeInt;
 {
     if ([[JstyleToolManager sharedManager] isTourist]) {
         [[JstyleToolManager sharedManager] loginInViewController];
+        return;
+    }
+    NSString *comment = [self.commentTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    self.commentTextView.text = comment;
+    if (comment == nil || [comment isEqualToString:@""]) {
+        ZTShowAlertMessage(@"评论内容不能为空");
+        return;
+    }
+    if (comment.length>2000) {
+        ZTShowAlertMessage(@"字数限制最多2000字，请调整后再发。");
+        return;
+    }
+    if ([NSString stringContainsEmoji:comment]) {
+         ZTShowAlertMessage(@"昵称不能含有表情等特殊字符");
         return;
     }
     if (!(self.commentTextView.text == nil || [self.commentTextView.text isEqualToString:@""])) {
@@ -612,7 +627,10 @@ static NSInteger typeInt;
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    if (section == 1) return self.commentArray.count;
+    if (section == 1) {
+        
+        return self.commentArray.count;
+    }
     return 1;
 }
 
@@ -795,7 +813,7 @@ static NSInteger typeInt;
     }];
 }
 
-/**获取评论的数据*/
+#pragma mark - 获取评论的数据
 - (void)getJstylePartyCommentDataSource
 {
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:self.partyId,@"id",[NSString stringWithFormat:@"%ld",(long)page],@"page", nil];
@@ -804,6 +822,7 @@ static NSInteger typeInt;
     
     [manager GETURL:JSTYLE_PARTY_COMMENT_URL parameters:parameters success:^(id responseObject) {
         if ([responseObject[@"code"] integerValue] != 1) {
+            
             if (page != 1) {
                 [self.collectionView.mj_header endRefreshing];
                 [self.collectionView.mj_footer endRefreshingWithNoMoreData];
@@ -816,7 +835,6 @@ static NSInteger typeInt;
         
         if (page == 1) {
             [self.commentArray removeAllObjects];
-            [self.collectionView.mj_footer resetNoMoreData];
         }
         
         for (NSDictionary *dict in responseObject[@"data"]) {
@@ -835,9 +853,10 @@ static NSInteger typeInt;
     }];
 }
 
-/**添加评论的数据*/
+#pragma mark - 添加评论的数据
 - (void)addJstyleArticleCommentDataSource
 {
+   
     NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[[JstyleToolManager sharedManager] getUserId],@"uid",self.partyId,@"id",self.commentTextView.text,@"comment", nil];
     // 初始化Manager
     JstyleNewsNetworkManager *manager = [JstyleNewsNetworkManager shareManager];;
@@ -845,8 +864,11 @@ static NSInteger typeInt;
     
     [manager POSTURL:JSTYLE_PARTY_ADDCOMMENT_URL parameters:parameters success:^(id responseObject) {
         if ([responseObject[@"code"] integerValue] == 1) {
+            page = 1;
+            [self getJstylePartyCommentDataSource];
             ZTShowAlertMessage(responseObject[@"data"]);
             self.commentTextView.text = nil;
+        
         }
     } failure:^(NSError *error) {
         NSLog(@"%@",error);

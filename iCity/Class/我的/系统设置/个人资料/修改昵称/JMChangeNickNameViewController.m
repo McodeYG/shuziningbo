@@ -63,6 +63,8 @@
     
     if (self.nickNameField.text == nil || [self.nickNameField.text isEqualToString:@""]) {
         ZTShowAlertMessage(@"昵称不能为空");
+    }else if (self.nickNameField.text.length <= 4){
+        ZTShowAlertMessage(@"请保证昵称长度正确");
     }else if (self.nickNameField.text.length >= 16){
         ZTShowAlertMessage(@"请保证昵称长度正确");
     } else if ([NSString stringContainsEmoji:self.nickNameField.text]) {

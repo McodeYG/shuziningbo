@@ -53,14 +53,15 @@ static CGFloat segmentViewHeight = 40;
 
 - (void)setupTableViews {
     
+    CGFloat y = SYSTEM_VERSION_LESS_THAN(@"11.0") ? (kTableViewY + YG_StatusAndNavightion_H) : kTableViewY;
     [self addChildViewController:self.articleTableVC];
-    self.articleTableVC.tableView.frame = CGRectMake(0, kTableViewY, kScreenWidth, kScreenHeight - kTableViewY);
+    self.articleTableVC.tableView.frame = CGRectMake(0, y, kScreenWidth, kScreenHeight - kTableViewY);
     [self.view addSubview:self.articleTableVC.tableView];
     [self.articleTableVC didMoveToParentViewController:self];
     self.articleTableVC.tableView.hidden = NO;
     
     [self addChildViewController:self.videoTableVC];
-    CGFloat y = SYSTEM_VERSION_LESS_THAN(@"11.0") ? (kTableViewY + YG_StatusAndNavightion_H) : kTableViewY;
+    
     self.videoTableVC.tableView.frame = CGRectMake(0, y, kScreenWidth, kScreenHeight - y);
     [self.view addSubview:self.videoTableVC.tableView];
     [self.videoTableVC didMoveToParentViewController:self];

@@ -970,7 +970,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
 #pragma mark - 添加评论输入框
 - (void)addCommentToolBar
 {
-    _commentBar = [[JstyleNewsBaseBottomView alloc] initWithFrame:CGRectMake(0, kScreenHeight - 124, kScreenWidth, 124)];
+    _commentBar = [[JstyleNewsBaseBottomView alloc] initWithFrame:CGRectMake(0, kScreenHeight - 124-YG_SafeBottom_H/2, kScreenWidth, 124)];
     _commentTextView = [[UITextView alloc] initWithFrame:CGRectMake(15, 15, kScreenWidth - 30, 60)];
     _commentTextView.tintColor = kNormalRedColor;
     _commentTextView.returnKeyType = UIReturnKeyDefault;
@@ -1188,6 +1188,14 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
     self.commentTextView.text = comment;
     if (comment == nil || [comment isEqualToString:@""]) {
         ZTShowAlertMessage(@"评论内容不能为空");
+        return;
+    }
+    if (comment.length>2000) {
+        ZTShowAlertMessage(@"字数限制最多2000字，请调整后再发。");
+        return;
+    }
+    if ([NSString stringContainsEmoji:comment]) {
+        ZTShowAlertMessage(@"昵称不能含有表情等特殊字符");
         return;
     }
     if (self.contentId) {

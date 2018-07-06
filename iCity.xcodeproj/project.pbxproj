@@ -679,7 +679,6 @@
 		FB425AE320D0F43D00286A9C /* AboutSearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB425AE220D0F43D00286A9C /* AboutSearchCollectionViewCell.m */; };
 		FB4FC93220C666070083E682 /* MyHomeBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4FC93120C666070083E682 /* MyHomeBaseViewController.m */; };
 		FB4FC93520C699B50083E682 /* ThemeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4FC93420C699B50083E682 /* ThemeTool.m */; };
-		FB54599420C8D09C0021C8CE /* SGPlayer.h in Sources */ = {isa = PBXBuildFile; fileRef = FBF3CD9120C7DDC700391F69 /* SGPlayer.h */; };
 		FB6BE9E420D12DD3007666CD /* SearchPicturesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6BE9E320D12DD3007666CD /* SearchPicturesCell.m */; };
 		FB6BE9E720D13B25007666CD /* SearchAllCityUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6BE9E620D13B24007666CD /* SearchAllCityUserCell.m */; };
 		FB7BA71120C527690089FE7B /* HomeRecommendSetTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7BA70F20C527690089FE7B /* HomeRecommendSetTopCell.m */; };
@@ -4964,7 +4963,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB54599420C8D09C0021C8CE /* SGPlayer.h in Sources */,
 				9B637C8920972F6400EFFC5F /* JstyleNewsRecentReadModel.m in Sources */,
 				9B2FD80D2089D7D200D319F0 /* HXDatePhotoViewPresentTransition.m in Sources */,
 				9B637BCD2097291300EFFC5F /* JMAboutJingMeiViewController.m in Sources */,
