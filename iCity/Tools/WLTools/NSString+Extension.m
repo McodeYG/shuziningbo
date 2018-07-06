@@ -123,5 +123,13 @@
     return returnValue;
 }
 
+//-(float)heightWithfont:(float)font width:(float)width
+//{
+//    CGSize sizeToFit = [self sizeWithFont:[UIFont systemFontOfSize:font] constrainedToSize:CGSizeMake(width, CGFLOAT_MAX) lineBreakMode:NSLineBreakByCharWrapping];//此处的换行类型（lineBreakMode）可根据自己的实际情况进行设置
+//    
+//    return sizeToFit.height;
+//}
+
+
 
 @end

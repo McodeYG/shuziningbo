@@ -43,7 +43,7 @@ static NSString *JstyleNewsMyCommentTableViewCellID = @"JstyleNewsMyCommentTable
 - (UITableView *)tableView {
     if (_tableView == nil) {
         
-        _tableView = [[JstyleNewsBaseTableView alloc] initWithFrame:CGRectMake(0, kTopMargin, kScreenWidth, kScreenHeight - kTopMargin) style:UITableViewStylePlain];
+        _tableView = [[JstyleNewsBaseTableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - kTopMargin) style:UITableViewStylePlain];
         _tableView.delegate = self;
         _tableView.dataSource = self;
         _tableView.separatorStyle = UITableViewCellSelectionStyleNone;

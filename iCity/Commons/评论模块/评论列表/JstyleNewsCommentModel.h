@@ -10,6 +10,10 @@
 
 @interface JstyleNewsCommentModel : NSObject
 
+
+/**是否展示“全文”按钮,默认展示*/
+@property (nonatomic, assign) BOOL                  isShowBtn;
+
 @property (nonatomic , copy) NSString              * is_praise;
 @property (nonatomic , copy) NSString              * id;
 @property (nonatomic , copy) NSString              * uid;

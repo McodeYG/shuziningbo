@@ -12,10 +12,19 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
     self.commentLabel.textColor = ISNightMode?kDarkNineColor:kDarkTwoColor;
     self.headerImageView.layer.cornerRadius = 16;
     self.headerImageView.layer.borderColor = kPurpleColor.CGColor;
     self.headerImageView.layer.borderWidth = 1;
+    
+    self.showBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    //    self.showBtn.hidden = YES;
+    [self.showBtn setTitle:@"全文" forState:(UIControlStateNormal)];
+    [self.showBtn setTitleColor:[UIColor colorFromHexString:@"#43669c"] forState:(UIControlStateNormal)];
+    [self.showBtn.titleLabel setFont:[UIFont systemFontOfSize:15]];
+    [self.contentView addSubview:self.showBtn];
+    [self.showBtn addTarget:self action:@selector(showBtnAction:) forControlEvents:(UIControlEventTouchUpInside)];
     
     [self.thumbBtn addTarget:self action:@selector(thumbBtnClicked:) forControlEvents:(UIControlEventTouchUpInside)];
     
@@ -56,11 +65,23 @@
     .rightSpaceToView(self.thumbNumLabel, 10)
     .heightIs(11);
     
-    self.commentLabel.sd_layout
-    .topSpaceToView(self.headerImageView, 15)
-    .leftSpaceToView(self.headerImageView, 10)
+//    self.commentLabel.sd_layout
+//    .topSpaceToView(self.headerImageView, 15)
+//    .leftSpaceToView(self.headerImageView, 10)
+//    .rightSpaceToView(self.contentView, 10)
+//    .autoHeightRatio(0);
+    
+    [self.commentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self.contentView).offset(15+32+10);
+        make.right.mas_equalTo(self.contentView).offset(-10);
+        make.top.mas_equalTo(self.contentView).offset(15+32+15);
+    }];
+    
+    self.showBtn.sd_layout
+    .topSpaceToView(self.commentLabel, 5)
     .rightSpaceToView(self.contentView, 10)
-    .autoHeightRatio(0);
+    .heightIs(25)
+    .widthIs(45);
 }
 
 - (void)setModel:(JstyleNewsCommentModel *)model
@@ -71,6 +92,21 @@
     self.timeLabel.text = [NSString stringWithFormat:@"%@",model.ctime];
     self.thumbNumLabel.text = [NSString stringWithFormat:@"%@",model.praise_num];
     self.commentLabel.attributedText = [self attributedTextWithText:[NSString stringWithFormat:@"%@",model.content]];
+    
+    
+    NSString * comment = [NSString stringWithFormat:@"%@",model.content];
+    self.commentLabel.text = comment;
+    CGFloat comH = [comment heightForFont:[UIFont systemFontOfSize:14] width:SCREEN_W-32-35];
+    
+    if (model.isShowBtn&&comH>70) {
+        self.showBtn.hidden = NO;//显示按钮
+        self.commentLabel.numberOfLines = 4;
+    } else {
+        self.showBtn.hidden = YES;
+        self.commentLabel.numberOfLines = 0;
+    }
+    
+    
     
     if ([model.isbetauser integerValue] == 1) {
         _crownImageView.hidden = NO;
@@ -88,7 +124,7 @@
         [self.thumbBtn setImage:JSImage(@"点赞-线") forState:(UIControlStateNormal)];
     }
     
-    [self setupAutoHeightWithBottomView:self.commentLabel bottomMargin:10];
+    
 }
 
 - (void)thumbBtnClicked:(UIButton *)sender
@@ -118,6 +154,14 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)showBtnAction:(UIButton *)btn {
+    btn.hidden = YES;
+    if (_delegate && [_delegate respondsToSelector:@selector(coverCell:unflodBtnAction:)]) {
+        [_delegate coverCell:self unflodBtnAction:btn];
+    }
+    
 }
 
 @end

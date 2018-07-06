@@ -140,7 +140,7 @@
     
     [self setupAutoHeightWithBottomView:self.tagsView bottomMargin:10];
 }
-
+#pragma mark - 关注
 - (void)praiseAction:(UIButton *)sender
 {
     if (self.focusBlock) {

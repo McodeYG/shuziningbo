@@ -49,23 +49,30 @@
     [button setBackgroundImage:[UIImage imageWithColor:[UIColor blackColor]] forState:UIControlStateNormal];
     [button setBackgroundImage:[UIImage imageWithColor:kWhiteColor] forState:UIControlStateSelected];
     
-    button.lee_theme
-    .LeeCustomConfig(ThemeMainBtnTitleOrBorderColor, ^(id item, id value) {
-        UIButton *button = (UIButton *)item;
-        [button setTitleColor:kWhiteColor forState:UIControlStateNormal];
-        [button setBackgroundImage:[UIImage imageWithColor:value] forState:UIControlStateNormal];
-    });
+    //主题换肤
+//    button.lee_theme
+//    .LeeCustomConfig(ThemeMainBtnTitleOrBorderColor, ^(id item, id value) {
+//        UIButton *button = (UIButton *)item;
+//        [button setTitleColor:kWhiteColor forState:UIControlStateNormal];
+//        [button setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+//        [button setBackgroundImage:[UIImage imageWithColor:value] forState:UIControlStateNormal];
+//        [button setBackgroundImage:[UIImage imageWithColor:kWhiteColor] forState:UIControlStateSelected];
+//    });
 }
 
 - (void)setSelected:(BOOL)selected {
     [super setSelected:selected];
     
+
     if (selected) {
-//        self.layer.borderColor = JSColor(@"#DEDEDE").CGColor;
+        //        self.layer.borderColor = JSColor(@"#DEDEDE").CGColor;
         self.layer.borderColor = [UIColor blackColor].CGColor;
     } else {
         self.layer.borderColor = [UIColor clearColor].CGColor;
+        
     }
+    
+
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
@@ -76,5 +83,7 @@
     _normal_title = normal_title;
     [self setTitle:normal_title forState:UIControlStateNormal];
 }
+
+
 
 @end

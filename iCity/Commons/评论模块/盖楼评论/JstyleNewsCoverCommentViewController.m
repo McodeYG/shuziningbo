@@ -8,7 +8,7 @@
 
 #import "JstyleNewsCoverCommentViewController.h"
 
-@interface JstyleNewsCoverCommentViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface JstyleNewsCoverCommentViewController ()<UITableViewDelegate,UITableViewDataSource,CommentViewCellDelegate,CoverCommentViewCellDelegate>
 
 @property (nonatomic, strong) UITableView *tableView;
 
@@ -149,8 +149,12 @@ static NSInteger page = 1;
         };
         
         if (self.model) {
+            self.model.isShowBtn = NO;
             cell.model = self.model;
         }
+
+        cell.delegate = self;
+        cell.index = indexPath;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else{
@@ -168,18 +172,51 @@ static NSInteger page = 1;
         if (indexPath.row < self.dataArray.count) {
             cell.model = self.dataArray[indexPath.row];
         }
+        cell.index = indexPath;
+        cell.delegate = self;
         cell.backgroundColor = [UIColor colorFromHexString:@"#F4F4F4"];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
 }
+#pragma mark - 展开按钮
+-(void)cell:(JstyleNewsCommentViewCell *)cell unflodBtnAction:(UIButton *)button {
+    
+    cell.model.isShowBtn = NO;
+    [self.tableView reloadRowsAtIndexPaths:@[cell.index] withRowAnimation:(UITableViewRowAnimationFade)];
+}
+
+-(void)coverCell:(JstyleNewsCoverCommentViewCell *)cell unflodBtnAction:(UIButton *)button {
+    cell.model.isShowBtn = NO;
+    [self.tableView reloadRowsAtIndexPaths:@[cell.index] withRowAnimation:(UITableViewRowAnimationFade)];
+}
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return [self.tableView cellHeightForIndexPath:indexPath model:self.model keyPath:@"model" cellClass:[JstyleNewsCommentViewCell class] contentViewWidth:kScreenWidth];
+//        return [self.tableView cellHeightForIndexPath:indexPath model:self.model keyPath:@"model" cellClass:[JstyleNewsCommentViewCell class] contentViewWidth:kScreenWidth];
+        
+        JstyleNewsCommentModel * model = self.model;
+        NSString * comment = [NSString stringWithFormat:@"%@",model.content];
+        
+        CGFloat comH = [comment heightForFont:[UIFont systemFontOfSize:14] width:SCREEN_W-35-32];
+        if (comH>70&&model.isShowBtn) {
+            return 15+32+15+70+ 5+22+10;
+        } else {
+            return 15+32+15+comH+10;
+        }
+        
     }else{
-        return [self.tableView cellHeightForIndexPath:indexPath model:self.dataArray[indexPath.row] keyPath:@"model" cellClass:[JstyleNewsCoverCommentViewCell class] contentViewWidth:kScreenWidth];
+        JstyleNewsCommentModel * model = self.dataArray[indexPath.row];
+        NSString * comment = [NSString stringWithFormat:@"%@",model.content];
+        
+        CGFloat comH = [comment heightForFont:[UIFont systemFontOfSize:14] width:SCREEN_W-35-32];
+        if (comH>70&&model.isShowBtn) {
+            return 15+32+15+70+ 5+22+10;
+        } else {
+            return 15+32+15+comH+10;
+        }
+//        return [self.tableView cellHeightForIndexPath:indexPath model:self.dataArray[indexPath.row] keyPath:@"model" cellClass:[JstyleNewsCoverCommentViewCell class] contentViewWidth:kScreenWidth];
     }
 }
 
@@ -423,6 +460,7 @@ static NSInteger page = 1;
             page = 1;
             [self.dataArray removeAllObjects];
             [self loadJstyleNewsCoverCommentData];
+            
         }
         
     } failure:^(NSError *error) {

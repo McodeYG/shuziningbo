@@ -148,8 +148,18 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
+    
     [self.searchBar resignFirstResponder];
     NSString *searchStr = [self.searchBar.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if ([NSString stringContainsEmoji:searchStr]) {
+        ZTShowAlertMessage(@"不能搜索表情等特殊字符");
+        return NO;
+    }
+    
+    if (searchStr.length >38) {
+        searchStr = [searchStr substringToIndex:38];
+    }
+    
     if (searchStr == nil || [searchStr isEqualToString:@""]) {
         ZTShowAlertMessage(@"搜索内容不能为空");
         self.searchBar.text = nil;
@@ -157,7 +167,7 @@
     }else if (self.searchBar.text == nil || [self.searchBar.text isEqualToString:@""]) {
         ZTShowAlertMessage(@"搜索内容不能为空");
         return NO;
-    }else{
+    }else {
         self.keyword = searchStr;
         self.searchBar.text = searchStr;
         [self.view removeAllSubviews];

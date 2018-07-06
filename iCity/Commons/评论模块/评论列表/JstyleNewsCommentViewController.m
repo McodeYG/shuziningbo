@@ -11,7 +11,7 @@
 #import "JstyleNewsCoverCommentViewController.h"
 #import "JstyleNewsPlaceholderView.h"
 
-@interface JstyleNewsCommentViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface JstyleNewsCommentViewController ()<UITableViewDelegate, UITableViewDataSource,CommentViewCellDelegate>
 
 @property (nonatomic, strong) JstyleNewsBaseTableView *tableView;
 
@@ -142,18 +142,45 @@ static NSInteger page = 1;
     cell.praiseBlock = ^(NSString *contentId, BOOL isSelected) {
         [weakSelf addJstyleNewsVideoPraiseWithRid:contentId indexPath:indexPath];
     };
+    //
+    
     
     if (indexPath.row < self.dataArray.count) {
         cell.model = self.dataArray[indexPath.row];
     }
+    cell.delegate = self;
+    cell.index = indexPath;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
+#pragma mark - 展开按钮
+-(void)cell:(JstyleNewsCommentViewCell *)cell unflodBtnAction:(UIButton *)button {
+    
+    if (cell.model.isShowBtn) {
+        cell.model.isShowBtn = NO;
+    }
+    button.hidden = YES;
+    
+    [self.tableView reloadRowsAtIndexPaths:@[cell.index] withRowAnimation:(UITableViewRowAnimationFade)];
+}
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.row >= self.dataArray.count) return 0;
-    return [self.tableView cellHeightForIndexPath:indexPath model:self.dataArray[indexPath.row] keyPath:@"model" cellClass:[JstyleNewsCommentViewCell class] contentViewWidth:kScreenWidth];
+    
+    JstyleNewsCommentModel * model = self.dataArray[indexPath.row];
+    NSString * comment = [NSString stringWithFormat:@"%@",model.content];
+    
+    CGFloat comH = [comment heightForFont:[UIFont systemFontOfSize:14] width:SCREEN_W-35-32];
+    if (comH>70&&model.isShowBtn) {
+        return 15+32+15+70+ 5+22+10;
+    } else {
+        return 15+32+15+comH+10;
+    }
+    
+//    return [self.tableView cellHeightForIndexPath:indexPath model:self.dataArray[indexPath.row] keyPath:@"model" cellClass:[JstyleNewsCommentViewCell class] contentViewWidth:kScreenWidth];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

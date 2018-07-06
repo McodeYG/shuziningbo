@@ -198,14 +198,14 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
     [self.view addSubview:self.naviBar];
     //返回
     self.backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.backBtn.frame = CGRectMake(0, StatusBarHeight, 64, 44);
+    self.backBtn.frame = CGRectMake(0, StatusBarHeight, 54, 44);
     [self.backBtn addTarget:self action:@selector(leftBarButtonAction) forControlEvents:UIControlEventTouchUpInside];
     
     [self.backBtn setContentMode:(UIViewContentModeCenter)];
     [self.naviBar addSubview:self.backBtn];
     //分享
     self.shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.shareBtn.frame = CGRectMake(kScreenWidth-64, StatusBarHeight, 44, 44);
+    self.shareBtn.frame = CGRectMake(kScreenWidth-54, StatusBarHeight, 54, 44);
     [self.shareBtn addTarget:self action:@selector(rightBarButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [self.shareBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 5 * kScreenWidth / 375.0, 0, 0)];
     [self.naviBar addSubview:self.shareBtn];
@@ -454,6 +454,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
         }
             break;
         case 2:{
+            //webView文章
             static NSString *ID = @"WKWebViewCellID";
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
             if (!cell) {
@@ -504,25 +505,31 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 return cell;
             }else{
+                
                 static NSString *ID = @"JstyleNewsCommentViewCell";
                 JstyleNewsCommentViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
                 if (!cell) {
                     cell = [[JstyleNewsCommentViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
                 }
                 __weak typeof(self)weakSelf = self;
+                //回复
                 cell.replyBtn.userInteractionEnabled = NO;
                 cell.replyBlock = ^(NSString *userName, NSString *contentId) {
                     weakSelf.placeHolder.text = [NSString stringWithFormat:@"回复给%@:", userName];
                     [weakSelf.commentTextView becomeFirstResponder];
                     weakSelf.contentId = contentId;
                 };
+                //点赞
                 cell.praiseBlock = ^(NSString *contentId, BOOL isSelected) {
                     [weakSelf addJstyleNewsArticlePraiseWithRid:contentId indexPath:indexPath];
                 };
+             
                 
                 if (indexPath.row < self.commentArray.count) {
                     cell.model = self.commentArray[indexPath.row];
                 }
+                cell.delegate = self;
+                cell.index = indexPath;
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 return cell;
             }
@@ -535,6 +542,14 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
         }
             break;
     }
+}
+
+#pragma mark - 展开按钮
+-(void)cell:(JstyleNewsCommentViewCell *)cell unflodBtnAction:(UIButton *)button {
+    
+    cell.model.isShowBtn = NO;
+    
+    [self.tableView reloadRowsAtIndexPaths:@[cell.index] withRowAnimation:(UITableViewRowAnimationFade)];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -568,8 +583,19 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
             
             break;
         case 4:
+        {
             if (!self.commentArray.count) return 250;
-            return [self.tableView cellHeightForIndexPath:indexPath model:self.commentArray[indexPath.row] keyPath:@"model" cellClass:[JstyleNewsCommentViewCell class] contentViewWidth:kScreenWidth];
+            JstyleNewsCommentModel * model = self.commentArray[indexPath.row];
+            NSString * comment = [NSString stringWithFormat:@"%@",model.content];
+            CGFloat comH = [comment heightForFont:[UIFont systemFontOfSize:14] width:SCREEN_W-35-32];
+            if (comH>70&&model.isShowBtn) {
+                return 15+32+15+70+ 5+22+10;
+            } else {
+                return 15+32+15+comH+10;
+            }
+        
+//            return [self.tableView cellHeightForIndexPath:indexPath model:self.commentArray[indexPath.row] keyPath:@"model" cellClass:[JstyleNewsCommentViewCell class] contentViewWidth:kScreenWidth];
+        }
             break;
         default:
             return 0;
@@ -907,7 +933,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
             model.is_praise = responseObject[@"data"][@"praise_type"];
             model.praise_num = [NSString stringWithFormat:@"%ld",[model.praise_num integerValue] + ([model.is_praise integerValue] == 1 ? 1: - 1)];
             
-            JstyleNewsCommentViewCell *cell = [_tableView cellForRowAtIndexPath:indexPath];
+            JstyleNewsCommentViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
             cell.thumbNumLabel.text = [NSString stringWithFormat:@"%@",model.praise_num];
             if ([model.is_praise integerValue] == 1) {
                 [cell.thumbBtn setImage:JSImage(@"点赞-面") forState:(UIControlStateNormal)];
@@ -919,14 +945,17 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
     } failure:nil];
 }
 
-#pragma mark - 添加订阅*/
+#pragma mark - 添加订阅 - 或者关注/
 - (void)addJstyleNewsManagerSubscriptionWithDid:(NSString *)did
 {
     if ([[JstyleToolManager sharedManager] isTourist]) {
         [[JstyleToolManager sharedManager] loginInViewController];
         return;
     }
-    
+    if (@available(iOS 10.0, *)) {
+        UIImpactFeedbackGenerator *impactFeedback = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
+        [impactFeedback impactOccurred];
+    }
     NSDictionary *parameters = @{@"platform_type":@"2",
                                  @"did":[NSString stringWithFormat:@"%@",did],
                                  @"uid":[[JstyleToolManager sharedManager] getUserId],

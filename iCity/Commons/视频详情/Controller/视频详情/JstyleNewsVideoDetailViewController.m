@@ -19,7 +19,7 @@
 #import "JstyleNewsJMNumDetailsViewController.h"
 #import "JstyleNewsVideoFullScreenShareView.h"
 
-@interface JstyleNewsVideoDetailViewController ()<UITableViewDelegate, UITableViewDataSource, VRPlayerViewDelegate, UIGestureRecognizerDelegate, UITextViewDelegate>
+@interface JstyleNewsVideoDetailViewController ()<UITableViewDelegate, UITableViewDataSource, VRPlayerViewDelegate, UIGestureRecognizerDelegate, UITextViewDelegate,CommentViewCellDelegate>
 
 @property (nonatomic, strong) JstyleNewsBaseTableView *tableView;
 
@@ -318,6 +318,8 @@
                 if (indexPath.row < self.commentArray.count) {
                     cell.model = self.commentArray[indexPath.row];
                 }
+                cell.index = indexPath;
+                cell.delegate = self;
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 return cell;
             }
@@ -327,6 +329,13 @@
             return nil;
             break;
     }
+}
+#pragma mark - 展开按钮
+-(void)cell:(JstyleNewsCommentViewCell *)cell unflodBtnAction:(UIButton *)button {
+    
+    cell.model.isShowBtn = NO;
+    
+    [self.tableView reloadRowsAtIndexPaths:@[cell.index] withRowAnimation:(UITableViewRowAnimationFade)];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -344,8 +353,20 @@
             return 160;
             break;
         case 2:
-            if (!self.commentArray.count) return 250;
-            return [self.tableView cellHeightForIndexPath:indexPath model:self.commentArray[indexPath.row] keyPath:@"model" cellClass:[JstyleNewsCommentViewCell class] contentViewWidth:kScreenWidth];
+        {
+            if (!self.commentArray.count) return 10;
+            
+            JstyleNewsCommentModel * model = self.commentArray[indexPath.row];
+            NSString * comment = [NSString stringWithFormat:@"%@",model.content];
+            
+            CGFloat comH = [comment heightForFont:[UIFont systemFontOfSize:14] width:SCREEN_W-35-32];
+            if (comH>70&&model.isShowBtn) {
+                return 15+32+15+70+ 5+22+10;
+            } else {
+                return 15+32+15+comH+10;
+            }
+//            return [self.tableView cellHeightForIndexPath:indexPath model:self.commentArray[indexPath.row] keyPath:@"model" cellClass:[JstyleNewsCommentViewCell class] contentViewWidth:kScreenWidth];
+        }
             break;
         default:
             return 0;
@@ -578,6 +599,13 @@
                                  };
     [[JstyleNewsNetworkManager shareManager] GETURL:MANAGER_SUBSCRIPTION_URL parameters:parameters success:^(id responseObject) {
         if ([responseObject[@"code"] integerValue] == 1) {
+            
+            if (@available(iOS 10.0, *)) {
+                UIImpactFeedbackGenerator *impactFeedback = [[UIImpactFeedbackGenerator alloc] initWithStyle:UIImpactFeedbackStyleLight];
+                [impactFeedback impactOccurred];
+            }
+            
+            
             NSString *followType = responseObject[@"data"][@"follow_type"];
             self.model.isShowAuthor = followType;
             [self.tableView reloadRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] withRowAnimation:(UITableViewRowAnimationNone)];

@@ -32,5 +32,7 @@
 
 /**判断是否有emoji*/
 +(BOOL)stringContainsEmoji:(NSString *)string;
+///**获取字符创高度*/
+//-(float)heightWithfont:(float)font width:(float)width
 
 @end

@@ -37,34 +37,40 @@
         UIButton*tagBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         tagBtn.frame = CGRectZero;
         
-        if(_signalTagColor){
+        if(self.signalTagColor){
             //可以单一设置tag的颜色
-            tagBtn.backgroundColor=_signalTagColor;
+            tagBtn.backgroundColor=self.signalTagColor;
         }else{
             //tag颜色多样
             tagBtn.backgroundColor=[UIColor colorWithRed:random()%255/255.0 green:random()%255/255.0 blue:random()%255/255.0 alpha:1];
         }
-        if(_canTouch){
+        if(self.canTouch){
             tagBtn.userInteractionEnabled = YES;
         }else{
             tagBtn.userInteractionEnabled = NO;
         }
         [tagBtn setTitleColor:self.titleColor?self.titleColor:kDarkOneColor forState:UIControlStateNormal];
-        tagBtn.titleLabel.font = [UIFont systemFontOfSize:_tagFont?_tagFont:13];
+        tagBtn.titleLabel.font = [UIFont systemFontOfSize:self.tagFont?self.tagFont:13];
         [tagBtn addTarget:self action:@selector(tagBtnClick:) forControlEvents:UIControlEventTouchUpInside];
         [tagBtn setTitle:str forState:UIControlStateNormal];
         tagBtn.tag = KBtnTag+idx;
         tagBtn.layer.cornerRadius = self.cornerRadius?self.cornerRadius:2;
         tagBtn.backgroundColor = self.tagBackgroundColor?self.tagBackgroundColor:[UIColor colorFromHexString:@"#F6F7FB"];
         tagBtn.clipsToBounds = YES;
-        NSDictionary *attrs = @{NSFontAttributeName : [UIFont systemFontOfSize:_tagFont?_tagFont:13]};
+        NSDictionary *attrs = @{NSFontAttributeName : [UIFont systemFontOfSize:self.tagFont?self.tagFont:13]};
         CGSize Size_str = [str sizeWithAttributes:attrs];
-        Size_str.width += (_horizontalPadding?_horizontalPadding:7)*2.5;
-        Size_str.height += (_verticalPadding?_verticalPadding:17);
+        Size_str.width += (self.horizontalPadding?self.horizontalPadding:7)*2.5;
+        
+        if (Size_str.width>SCREEN_W-2*15) {
+            Size_str.width = SCREEN_W-2*15;
+        }
+        
+        
+        Size_str.height += (self.verticalPadding?self.verticalPadding:17);
         
         CGRect newRect = CGRectZero;
         
-        if (previousFrame.origin.x + previousFrame.size.width + Size_str.width + LABEL_MARGIN > self.bounds.size.width - 20) {
+        if (self->previousFrame.origin.x + previousFrame.size.width + Size_str.width + LABEL_MARGIN > self.bounds.size.width - 20) {
             
             newRect.origin = CGPointMake(10, previousFrame.origin.y + Size_str.height + BOTTOM_MARGIN);
             totalHeight +=Size_str.height + BOTTOM_MARGIN;

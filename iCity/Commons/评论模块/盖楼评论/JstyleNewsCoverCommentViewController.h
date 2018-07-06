@@ -10,6 +10,8 @@
 #import "JstyleNewsCommentViewCell.h"
 #import "JstyleNewsCoverCommentViewCell.h"
 
+
+
 @interface JstyleNewsCoverCommentViewController : UIViewController
 
 @property (nonatomic, strong) JstyleNewsCommentModel *model;
