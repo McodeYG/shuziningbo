@@ -179,13 +179,13 @@ static NSInteger page = 1;
         return cell;
     }
 }
-#pragma mark - 展开按钮
+#pragma mark - 评论展开按钮
 -(void)cell:(JstyleNewsCommentViewCell *)cell unflodBtnAction:(UIButton *)button {
     
     cell.model.isShowBtn = NO;
     [self.tableView reloadRowsAtIndexPaths:@[cell.index] withRowAnimation:(UITableViewRowAnimationFade)];
 }
-
+#pragma mark - 回复展开按钮
 -(void)coverCell:(JstyleNewsCoverCommentViewCell *)cell unflodBtnAction:(UIButton *)button {
     cell.model.isShowBtn = NO;
     [self.tableView reloadRowsAtIndexPaths:@[cell.index] withRowAnimation:(UITableViewRowAnimationFade)];

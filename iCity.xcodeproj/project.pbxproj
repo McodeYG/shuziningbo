@@ -682,8 +682,8 @@
 		FB6BE9E420D12DD3007666CD /* SearchPicturesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6BE9E320D12DD3007666CD /* SearchPicturesCell.m */; };
 		FB6BE9E720D13B25007666CD /* SearchAllCityUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6BE9E620D13B24007666CD /* SearchAllCityUserCell.m */; };
 		FB7BA71120C527690089FE7B /* HomeRecommendSetTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7BA70F20C527690089FE7B /* HomeRecommendSetTopCell.m */; };
-		FBA4AC4A20C5212A00C3686B /* SGPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA4AC4920C5212A00C3686B /* SGPlayer.framework */; };
-		FBA4AC4C20C521D200C3686B /* SGPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA4AC4B20C521D200C3686B /* SGPlatform.framework */; };
+		FBA4AC4A20C5212A00C3686B /* SGPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA4AC4920C5212A00C3686B /* SGPlayer.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		FBA4AC4C20C521D200C3686B /* SGPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA4AC4B20C521D200C3686B /* SGPlatform.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		FBDCF49920DBF92400B87346 /* ICityTVMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCF49820DBF92400B87346 /* ICityTVMenuViewController.m */; };
 		FBDCF49C20DBFEA200B87346 /* TVListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCF49B20DBFEA200B87346 /* TVListTableViewController.m */; };
 		FBE6A22C20D25ACF00D757D7 /* CitysCultureCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE6A22B20D25ACF00D757D7 /* CitysCultureCollectionViewController.m */; };
