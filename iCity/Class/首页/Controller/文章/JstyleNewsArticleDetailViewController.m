@@ -67,7 +67,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
             _webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
             _webView.scrollView.scrollIndicatorInsets = _webView.scrollView.contentInset;
         }
-        
+
         CGFloat h = self.topContentInset>100?200*kScreenWidth/375.0:0;
         _progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, h, kScreenWidth, 2)];
         _progressView.tintColor = kGlobalGoldColor;
@@ -118,14 +118,15 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.view.backgroundColor = kNightModeBackColor;
-    self.webView.backgroundColor = kNightModeBackColor;
-    
     if ([self.titleModel.poster isNotBlank]) {
         self.topContentInset = 200*kScreenWidth/375.0;
     }else{
         self.topContentInset = YG_StatusAndNavightion_H;
     }
+    
+    self.view.backgroundColor = kNightModeBackColor;
+    self.webView.backgroundColor = kNightModeBackColor;
+    
     
     [self addScaleImageView];
     [self setBottomViewAndButtons];

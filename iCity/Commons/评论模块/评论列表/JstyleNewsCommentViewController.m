@@ -33,7 +33,7 @@ static NSInteger page = 1;
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    self.view.backgroundColor = kWhiteColor;
-//    self.title = @"评论";
+//    self.title = @"评论";//评论列表
     
     [self addCommentToolBar];
     [self addTableView];

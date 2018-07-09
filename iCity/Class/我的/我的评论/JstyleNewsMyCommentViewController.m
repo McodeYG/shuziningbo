@@ -79,7 +79,7 @@ static NSString *JstyleNewsMyCommentTableViewCellID = @"JstyleNewsMyCommentTable
 }
 
 - (void)setupNavigationBar {
-    self.navigationItem.title = @"评论";
+    self.navigationItem.title = @"评论";//我的评论
     self.automaticallyAdjustsScrollViewInsets = YES;
 }
 
@@ -111,7 +111,20 @@ static NSString *JstyleNewsMyCommentTableViewCellID = @"JstyleNewsMyCommentTable
             {
                 ///跳转文章详情
                 JstyleNewsArticleDetailViewController *articleDetailVC = [JstyleNewsArticleDetailViewController new];
+                
+                JstyleNewsArticleDetailModel * detail_model = [JstyleNewsArticleDetailModel new];
                 articleDetailVC.rid = model.id;
+                detail_model.title = model.article_title;
+                detail_model.content = model.article_content;
+                detail_model.author_img = model.author_img;
+                detail_model.author_did = model.author_did;
+                detail_model.author_name = model.author_name;
+                detail_model.poster = model.poster;
+                detail_model.ctime = model.article_ctime;
+                detail_model.cname = model.cname;
+                detail_model.isShowAuthor = model.isShowAuthor;
+                detail_model.TOrFOriginal = model.TOrFOriginal;
+                articleDetailVC.titleModel = detail_model;
                 [weakSelf.navigationController pushViewController:articleDetailVC animated:YES];
             }
                 break;

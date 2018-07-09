@@ -29,4 +29,20 @@
 ///评论内容
 @property (nonatomic, copy) NSString *content;
 
+/**跳转需要的字段*/
+@property (nonatomic, copy) NSString * article_title;
+@property (nonatomic, copy) NSString * article_content;
+@property (nonatomic, copy) NSString * article_ctime;
+
+@property (nonatomic, copy) NSString *author_img;
+@property (nonatomic, copy) NSString *author_did;
+@property (nonatomic, copy) NSString *author_name;
+
+@property (nonatomic, copy) NSString *poster;
+@property (nonatomic, copy) NSString *cname;
+@property (nonatomic, copy) NSString *isShowAuthor;
+//
+@property (nonatomic, copy) NSString *TOrFOriginal;
+
+
 @end
