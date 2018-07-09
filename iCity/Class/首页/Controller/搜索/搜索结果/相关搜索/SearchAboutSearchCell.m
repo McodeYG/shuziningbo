@@ -56,7 +56,7 @@
     
     UIView * bottomLine = [[UIView alloc]init];
     
-    self.collectionView = [[AboutSearchCollectionView alloc] initWithFrame:CGRectMake(0, 6, SCREEN_W, 41*4) collectionViewItemSize:CGSizeMake(SCREEN_W/2-0.2, 41)];
+    self.collectionView = [[AboutSearchCollectionView alloc] initWithFrame:CGRectMake(0, 6, SCREEN_W, 41*4) collectionViewItemSize:CGSizeMake(SCREEN_W/2-0.3, 41)];
     
     [self.contentView addSubview:self.collectionView];
     
