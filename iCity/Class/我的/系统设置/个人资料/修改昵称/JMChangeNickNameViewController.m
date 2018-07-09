@@ -60,12 +60,13 @@
 #pragma mark - 保存
 - (void)completeBtnAction
 {
-    
+    self.nickNameField.text = [self.nickNameField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
     if (self.nickNameField.text == nil || [self.nickNameField.text isEqualToString:@""]) {
         ZTShowAlertMessage(@"昵称不能为空");
-    }else if (self.nickNameField.text.length <= 4){
+    }else if ([self textLength:self.nickNameField.text] <= 4){
         ZTShowAlertMessage(@"请保证昵称长度正确");
-    }else if (self.nickNameField.text.length >= 16){
+    }else if ([self textLength:self.nickNameField.text] >= 16){
         ZTShowAlertMessage(@"请保证昵称长度正确");
     } else if ([NSString stringContainsEmoji:self.nickNameField.text]) {
         ZTShowAlertMessage(@"昵称不能含有表情等特殊字符");
@@ -73,6 +74,19 @@
         [self.nickNameField resignFirstResponder];
         [self getJMChangeNickNameDataSource];
     }
+}
+
+//测量文字长度，汉字是2个，英文是1个
+-(NSUInteger)textLength:(NSString *)text {
+    
+    NSUInteger asciiLength = 0;
+    for (NSUInteger i = 0; i < text.length; i++) {
+        unichar uc = [text characterAtIndex: i];
+        asciiLength += isascii(uc) ? 1 : 2;
+    }
+    
+    NSUInteger unicodeLength = asciiLength;
+    return unicodeLength;
 }
 
 #pragma mark - 获取数据
