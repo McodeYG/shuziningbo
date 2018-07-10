@@ -67,7 +67,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
             _webView.scrollView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
             _webView.scrollView.scrollIndicatorInsets = _webView.scrollView.contentInset;
         }
-
+        
         CGFloat h = self.topContentInset>100?200*kScreenWidth/375.0:0;
         _progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, h, kScreenWidth, 2)];
         _progressView.tintColor = kGlobalGoldColor;
@@ -117,16 +117,15 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-    if ([self.titleModel.poster isNotBlank]) {
-        self.topContentInset = 200*kScreenWidth/375.0;
-    }else{
-        self.topContentInset = YG_StatusAndNavightion_H;
-    }
     
     self.view.backgroundColor = kNightModeBackColor;
     self.webView.backgroundColor = kNightModeBackColor;
     
+    if ([self.titleModel.poster isNotBlank]) {//先从列表判断有没有图片，再从[self setupWKWebView];判断一下
+        self.topContentInset = 200*kScreenWidth/375.0;
+    }else{
+        self.topContentInset = YG_StatusAndNavightion_H;
+    }
     
     [self addScaleImageView];
     [self setBottomViewAndButtons];
@@ -143,9 +142,19 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-
-    [self.navigationController setNavigationBarHidden:YES animated:YES];
     
+    [self adjustNavigationBarWithImage];
+    
+    [_webView.scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
+    [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
+    
+    [self getJstyleNewsArticlePraiseStatus];
+}
+
+#pragma mark - 判断导航栏
+- (void)adjustNavigationBarWithImage {
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     
     if (self.topContentInset>100) {//无图iphoneX是88，别的是64；有图是200*KScale
@@ -159,7 +168,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
         }
         
         self.naviBar.backgroundColor = kNightBackColor(_alphaMemory);
-
+        
         
     }else{
         //无图文章
@@ -175,18 +184,11 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
             [self.shareBtn setImage:JSImage(@"图集分享白") forState:(UIControlStateNormal)];
         }
     }
-    
-
-    
-    [_webView.scrollView addObserver:self forKeyPath:@"contentSize" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
-    [_webView addObserver:self forKeyPath:@"estimatedProgress" options:NSKeyValueObservingOptionNew context:nil];
-
-    [self getJstyleNewsArticlePraiseStatus];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-
+    
     [self.webView removeObserver:self forKeyPath:@"estimatedProgress"];
     [self.webView.scrollView removeObserver:self forKeyPath:@"contentSize"];
 }
@@ -256,10 +258,11 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
 #pragma mark - 动态选择加载方式(本地预加载 or 当前页请求)
 - (void)setupWKWebView {
     
-    if (self.titleModel == nil) {
+    if (self.titleModel == nil||self.titleModel.title == nil) {
+        
         [self loadNetworkContent];
     } else {
-        [self loadLocalContent];
+        [self loadLocalContent];//本地
     }
     
     //图片浏览器需要一个View
@@ -327,7 +330,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
     [_tableView registerNib:[UINib nibWithNibName:@"JstyleNewsCommentViewCell" bundle:nil] forCellReuseIdentifier:@"JstyleNewsCommentViewCell"];
     [_tableView registerNib:[UINib nibWithNibName:@"JstyleNewsCommentPlaceHolderCell" bundle:nil] forCellReuseIdentifier:@"JstyleNewsCommentPlaceHolderCell"];
     
-     [self.tableView registerNib:[UINib nibWithNibName:@"JstyleNewsMyCollectionArticleTableViewCell" bundle:nil] forCellReuseIdentifier:@"article_cell_id"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"JstyleNewsMyCollectionArticleTableViewCell" bundle:nil] forCellReuseIdentifier:@"article_cell_id"];
     
     [self.view addSubview:_tableView];
     _tableView.sd_layout
@@ -397,8 +400,8 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
             return 1;
             break;
         case 3:
-//            if (!self.dataArray.count) return 0;
-//            return 1;
+            //            if (!self.dataArray.count) return 0;
+            //            return 1;
             return self.dataArray.count;
             break;
         case 4:
@@ -469,13 +472,13 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
         case 3:{
             //推荐的文章
             
-//            static NSString *ID = @"JstyleNewsVideoDetailTuijianTableViewCell";
-//            JstyleNewsVideoDetailTuijianTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-//            if (!cell) {
-//                cell = [[JstyleNewsVideoDetailTuijianTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
-//            }
-//            [cell.articleCollectionView reloadDataWithDataArray:self.dataArray];
-//            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            //            static NSString *ID = @"JstyleNewsVideoDetailTuijianTableViewCell";
+            //            JstyleNewsVideoDetailTuijianTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+            //            if (!cell) {
+            //                cell = [[JstyleNewsVideoDetailTuijianTableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:ID];
+            //            }
+            //            [cell.articleCollectionView reloadDataWithDataArray:self.dataArray];
+            //            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             if (!self.dataArray.count) {
                 static NSString *ID = @"cellID";
                 UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
@@ -524,7 +527,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
                 cell.praiseBlock = ^(NSString *contentId, BOOL isSelected) {
                     [weakSelf addJstyleNewsArticlePraiseWithRid:contentId indexPath:indexPath];
                 };
-             
+                
                 
                 if (indexPath.row < self.commentArray.count) {
                     cell.model = self.commentArray[indexPath.row];
@@ -594,8 +597,8 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
             } else {
                 return 15+32+15+comH+10;
             }
-        
-//            return [self.tableView cellHeightForIndexPath:indexPath model:self.commentArray[indexPath.row] keyPath:@"model" cellClass:[JstyleNewsCommentViewCell class] contentViewWidth:kScreenWidth];
+            
+            //            return [self.tableView cellHeightForIndexPath:indexPath model:self.commentArray[indexPath.row] keyPath:@"model" cellClass:[JstyleNewsCommentViewCell class] contentViewWidth:kScreenWidth];
         }
             break;
         default:
@@ -684,23 +687,25 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
 {
     if (scrollView == self.tableView) {
         [self.webView setNeedsLayout];
-   
-    
+        
         CGFloat offsetY = scrollView.contentOffset.y + _tableView.contentInset.top;//注意
         if (self.topContentInset>100) {
-        
+            
             [self imageArticalWithoffsetY:offsetY];
-
+            
         }else{
             [self textArticalWithoffsetY:offsetY];
         }
         
-    
+        
     }
 }
 
 #pragma mark - 滑动有图的文章
 - (void)imageArticalWithoffsetY:(CGFloat)offsetY {
+    if (self.titleLab.alpha<1) {
+        self.titleLab.alpha = 1;
+    }
     
     if (offsetY <= self.topContentInset) {
         if (ISNightMode) {
@@ -725,7 +730,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
         self.naviBar.backgroundColor = kNightBackColor(1);
         
         if (self.detailModel || self.titleModel) {
-            self.titleLab.text = (self.titleModel?self.titleModel.title:self.detailModel.title);
+            self.titleLab.text = (self.titleModel.title?self.titleModel.title:self.detailModel.title);
         }
         if (!ISNightMode) {
             [self.backBtn setImage:JSImage(@"文章返回黑") forState:(UIControlStateNormal)];
@@ -754,16 +759,16 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
     if (offsetY <= self.topContentInset) {
         _alphaMemory = offsetY/(self.topContentInset) >= 1 ? 1 : offsetY/(self.topContentInset);
         self.titleLab.alpha = _alphaMemory;
-       
-//        self.titleLab.text = @"";
+        
+        //        self.titleLab.text = @"";
         
     }else if (offsetY > self.topContentInset) {
         _alphaMemory = 1;
         self.titleLab.alpha = _alphaMemory;
         if (self.detailModel || self.titleModel) {
-            self.titleLab.text = (self.titleModel?self.titleModel.title:self.detailModel.title);
+            self.titleLab.text = (self.titleModel.title?self.titleModel.title:self.detailModel.title);
         }
-       
+        
     }
     
 }
@@ -1039,7 +1044,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
     [self.toolBarHoldView addSubview:_commentBar];
     [self.view addSubview:_toolBarHoldView];
     _toolBarHoldView.hidden = YES;
-   
+    
     [self registKeyboardNotifications];
 }
 
@@ -1173,7 +1178,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
     JstyleNewsCommentViewController *jstyleNewsVideoCVC = [JstyleNewsCommentViewController new];
     jstyleNewsVideoCVC.type = @"1";
     jstyleNewsVideoCVC.vid = self.rid;
-
+    
     self.isPushToCommentVC = YES;
     [self.navigationController pushViewController:jstyleNewsVideoCVC animated:YES];
 }
@@ -1213,7 +1218,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
         [[JstyleToolManager sharedManager] loginInViewController];
         return;
     }
-
+    
     NSString *comment = [self.commentTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     self.commentTextView.text = comment;
     if (comment == nil || [comment isEqualToString:@""]) {
@@ -1362,15 +1367,13 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
 
 #pragma mark - 加载文章模板并加载本地内容数据
 - (void)loadLocalContent {
+    
     if ([self.titleModel.poster isNotBlank]) {
-         [self.headerImageView setImageWithURL:[NSURL URLWithString:self.titleModel.poster] placeholder:[UIImage imageNamed:@"placeholder"]];
+        [self.headerImageView setImageWithURL:[NSURL URLWithString:self.titleModel.poster] placeholder:SZ_Place_S_N];
     }else {
-        
-        [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:self.titleModel.poster]];
-        
+        [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:self.titleModel.poster]];//删除图片
     }
     
-   
     
     NSString *path = [[NSBundle mainBundle] bundlePath];
     NSURL *baseURL = [NSURL fileURLWithPath:path];
@@ -1409,16 +1412,23 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
             return ;
         }
         self.detailModel = [JstyleNewsArticleDetailModel modelWithJSON:responseObject[@"data"][@"article"]];
+        if ([self.detailModel.title isNotBlank]) {
+            self.titleLab.text = self.detailModel.title;
+            self.titleModel.title = self.detailModel.title;
+        }
+        
         if ([self.detailModel.poster isNotBlank]) {
             self.headerImageView.hidden = NO;
+            self.headerImageView.frame = CGRectMake(0, 0, kScreenWidth, 200*kScreenWidth/375.0);
+            self.titleModel.poster = self.detailModel.poster;
             self.topContentInset = 200*kScreenWidth/375.0;
-            [self.headerImageView setImageWithURL:[NSURL URLWithString:self.detailModel.poster] placeholder:[UIImage imageNamed:@"placeholder"]];
+            [self.headerImageView setImageWithURL:[NSURL URLWithString:self.detailModel.poster] placeholder:SZ_Place_S_N];
         }else{
             self.headerImageView.hidden = YES;
             self.topContentInset = YG_StatusAndNavightion_H;
             self.headerImageView.frame = CGRectMake(0, 0, SCREEN_W, 0);
         }
-       
+        
         
         NSString *titleString = self.detailModel.title;
         NSString *contentString = self.detailModel.content;
@@ -1439,6 +1449,9 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
         [self.noSingleView removeFromSuperview];
         self.noSingleView = nil;
         self.tableView.scrollEnabled = YES;
+        
+        [self adjustNavigationBarWithImage];
+        [self.tableView reloadData];
         [SVProgressHUD dismiss];
         
     } failure:^(NSError *error) {
@@ -1469,5 +1482,6 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
 }
 
 @end
+
 
 
