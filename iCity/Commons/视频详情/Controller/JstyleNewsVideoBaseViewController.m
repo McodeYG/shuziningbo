@@ -148,7 +148,7 @@
     // 当标题宽度总和小于ZJScrollPageView的宽度的时候, 标题会自适应宽度
     
     // 初始化
-    CGRect scrollPageViewFrame = CGRectMake(0, StatusBarHeight+4, kScreenWidth, kScreenHeight);
+    CGRect scrollPageViewFrame = CGRectMake(0, YG_StatusBarH+4, kScreenWidth, kScreenHeight);
     
     ZJScrollPageView *scrollPageView = [[ZJScrollPageView alloc] initWithFrame:scrollPageViewFrame segmentStyle:style titles:self.myTitlesArray parentViewController:self delegate:self];
     scrollPageView.segmentView.isChannelTags = YES;

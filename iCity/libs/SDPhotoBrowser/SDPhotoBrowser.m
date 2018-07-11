@@ -249,7 +249,7 @@
         [self showFirstImage];
     }
     
-    _indexLabel.center = CGPointMake(self.bounds.size.width * 0.5, 15 + StatusBarHeight);
+    _indexLabel.center = CGPointMake(self.bounds.size.width * 0.5, 15 + YG_StatusBarH);
     _saveButton.frame = CGRectMake(30, self.bounds.size.height - 70, 50, 25);
 }
 

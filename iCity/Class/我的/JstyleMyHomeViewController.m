@@ -194,7 +194,7 @@ static NSString *JstyleMyHomeMenuCollectionViewCellID = @"JstyleMyHomeMenuCollec
     
     [self setNeedsStatusBarAppearanceUpdate];
     
-    UIView *navigationBarView = [[UIView alloc] initWithFrame:CGRectMake(0, -StatusBarHeight, kScreenWidth, YG_StatusAndNavightion_H)];
+    UIView *navigationBarView = [[UIView alloc] initWithFrame:CGRectMake(0, -YG_StatusBarH, kScreenWidth, YG_StatusAndNavightion_H)];
     self.navigationBarView = navigationBarView;
     navigationBarView.backgroundColor = [UIColor clearColor];
     [self.navigationController.navigationBar addSubview:navigationBarView];
@@ -203,7 +203,7 @@ static NSString *JstyleMyHomeMenuCollectionViewCellID = @"JstyleMyHomeMenuCollec
     self.settingBtn = settingBtn;
     [settingBtn setImage:JSImage(@"我的-设置") forState:UIControlStateNormal];
     
-    settingBtn.frame = CGRectMake(5, StatusBarHeight, 40, 44);
+    settingBtn.frame = CGRectMake(5, YG_StatusBarH, 40, 44);
     
     [settingBtn addTarget:self action:@selector(settingItemClick) forControlEvents:UIControlEventTouchUpInside];
     [navigationBarView addSubview:settingBtn];
@@ -211,7 +211,7 @@ static NSString *JstyleMyHomeMenuCollectionViewCellID = @"JstyleMyHomeMenuCollec
     UIButton *messageBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.messageBtn = messageBtn;
     [messageBtn setImage:JSImage(@"推荐-消息铃铛_white") forState:UIControlStateNormal];
-    messageBtn.frame = CGRectMake((kScreenWidth-45), StatusBarHeight , 40, 44);
+    messageBtn.frame = CGRectMake((kScreenWidth-45), YG_StatusBarH , 40, 44);
     
     [messageBtn addTarget:self action:@selector(messageItemClick) forControlEvents:UIControlEventTouchUpInside];
     [navigationBarView addSubview:messageBtn];

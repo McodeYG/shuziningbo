@@ -26,11 +26,12 @@ static NSInteger page = 1;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"报纸";
+    
     self.view.backgroundColor = kNightModeBackColor;
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H-YG_StatusAndNavightion_H-YG_SafeBottom_H) style:(UITableViewStylePlain)];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, SCREEN_H-YG_StatusAndNavightion_H-YG_SafeBottom_H-37) style:(UITableViewStylePlain)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.tableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:self.tableView];
     
     __weak typeof(self) weakSelf = self;

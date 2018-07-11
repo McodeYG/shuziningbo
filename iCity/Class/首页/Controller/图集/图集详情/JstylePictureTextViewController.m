@@ -53,7 +53,8 @@
 @property (nonatomic, strong) UIView *holdView;
 @property (nonatomic, strong) NSMutableArray *commentArray;
 @property (nonatomic, strong) UIView *toolBarHoldView;
-
+//自定义导航栏
+@property (nonatomic, strong) UIView *customNavBarView;
 @property (nonatomic, strong) UIButton *headerBtn;
 
 @end
@@ -77,7 +78,6 @@
     [super viewDidLoad];
     
     self.view.backgroundColor = kWhiteColor;
-    self.navigationController.navigationBar.translucent = YES;
     
     [self addRightTwoBarsWithFirstImage:JSImage(@"图集分享白") firstAction:@selector(firstBarButtonAction) secondImage:[UIImage imageNamed:@"图集下载白"] secondAction:@selector(secondBarButtonAction)];
     
@@ -85,48 +85,42 @@
     [self addBottomView];
     [self addToolBarView];
     [self addCommentToolBar];
-//    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-    [self getShareData];
-    [self loadJstylePictureArticleDataSource];
-    [self getJstyleNewsArticlePraiseStatus];
-//    });
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [self getShareData];
+        [self loadJstylePictureArticleDataSource];
+        [self getJstyleNewsArticlePraiseStatus];
+    });
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.navigationController setNavigationBarHidden:NO animated:YES];
-    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithColor:[UIColor blackColor]] forBarMetrics:(UIBarMetricsDefault)];
-
-    [self.navigationController.view addSubview:self.headerBtn];
-    [self addLeftBarButtonWithImage:[UIImage imageNamed:@"文章返回白"] action:@selector(leftBarButtonAction)];
-    [self removeBarBackgroundView];
+    
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
+    
+    [self.view bringSubviewToFront: self.customNavBarView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self wr_setNavBarBackgroundAlpha:1];
-    [self.headerBtn removeFromSuperview];
+    
     [self.activityIndicator stopAnimating];
     [self.activityIndicator removeFromSuperview];
 }
 
-- (void)removeBarBackgroundView {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//        [self wr_setNavBarBackgroundAlpha:0];
-        [self wr_setNavBarShadowImageHidden:YES];
-        UIView *barBackgroundView = self.navigationController.navigationBar.subviews.firstObject;
-        if (@available(iOS 11.0, *))
-        {   // sometimes we can't change _UIBarBackground alpha
-            for (UIView *view in barBackgroundView.subviews) {
-                view.alpha = 0;
-            }
-        } else {
-            barBackgroundView.alpha = 0;
-        }
-    });
+- (UIView *)customNavBarView {
+    
+    if (!_customNavBarView) {
+        _customNavBarView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_W, YG_StatusAndNavightion_H)];
+        _customNavBarView.backgroundColor = [UIColor clearColor];
+        
+        [self.view addSubview:_customNavBarView];
+    }
+    return _customNavBarView;
 }
+
+
 
 - (NSArray<id<UIPreviewActionItem>> *)previewActionItems {
     
@@ -489,14 +483,14 @@
         if (self.dataArray.count > 0) {
             PictureModel *model = self.dataArray[0];
             if (!(model.head_img == nil || [model.head_img isEqualToString:@""])) {
-                self.headerBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 130, 9 + StatusBarHeight, 24, 24)];
+                self.headerBtn = [[UIButton alloc] initWithFrame:CGRectMake(kScreenWidth - 130, 9 + YG_StatusBarH, 24, 24)];
                 [self.headerBtn setImageWithURL:[NSURL URLWithString:model.head_img] forState:(UIControlStateNormal) options:(YYWebImageOptionSetImageWithFadeAnimation)];
                 self.headerBtn.layer.cornerRadius = 12;
                 self.headerBtn.layer.masksToBounds = YES;
                 self.headerBtn.layer.borderWidth = 1;
                 self.headerBtn.layer.borderColor = kWhiteColor.CGColor;
                 [self.headerBtn addTarget:self action:@selector(headerBtnClicked:) forControlEvents:(UIControlEventTouchUpInside)];
-                [self.navigationController.view addSubview:self.headerBtn];
+                 [self.customNavBarView addSubview:self.headerBtn];
             }else{
                 self.headerBtn.hidden = YES;
             }
@@ -734,7 +728,7 @@
 
 - (void)addRightTwoBarsWithFirstImage:(UIImage *)firstImage firstAction:(SEL)firstAction secondImage:(UIImage *)secondImage secondAction:(SEL)secondAction
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 90, 44)];
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(SCREEN_W-90, YG_StatusBarH, 90, 44)];
     view.backgroundColor = [UIColor clearColor];
     
     UIButton *firstButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -753,8 +747,16 @@
     [secondButton setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, - 15 * kScreenWidth/375.0)];
     [view addSubview:secondButton];
     
-    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:view];
-    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    [self.customNavBarView addSubview:view];
+    
+    //
+    UIButton * leftBtn = [UIButton buttonWithType:(UIButtonTypeCustom)];
+    leftBtn.frame = CGRectMake(0, YG_StatusBarH, 44, 44);
+    [leftBtn setImage:[UIImage imageNamed:@"文章返回白"] forState:(UIControlStateNormal)];
+    [leftBtn addTarget:self action:@selector(leftBarButtonAction) forControlEvents:(UIControlEventTouchUpInside)];
+    [self.customNavBarView addSubview:leftBtn];
+    
+
 }
 
 - (void)didReceiveMemoryWarning {

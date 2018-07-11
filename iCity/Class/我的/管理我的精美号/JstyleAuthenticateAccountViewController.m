@@ -248,7 +248,7 @@ static NSString *JstyleManagementVerificationAgreeProtocolViewCellID = @"JstyleM
     });
     [self.view addSubview:navigationBarView];
     
-    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake((kScreenWidth - 80)/2, StatusBarHeight, 80, NavigationBarHeight)];
+    UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake((kScreenWidth - 80)/2, YG_StatusBarH, 80, NavigationBarHeight)];
     titleLabel.text = @"iCity号";//管理我的
     titleLabel.textColor = kWhiteColor;
     titleLabel.font = JSFontWithWeight(16, UIFontWeightRegular);

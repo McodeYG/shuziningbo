@@ -151,7 +151,7 @@
         [cell.rightImageView removeFromSuperview];
         if (_cacheLabel == nil) {
             CGFloat cacheCount = [self filePathSize];
-            NSString *cacheSize = [NSString stringWithFormat:@"%.2fM",cacheCount];
+            NSString *cacheSize = [NSString stringWithFormat:@"%.2fM",cacheCount/10.00f];
             _cacheLabel = [[UILabel alloc]initWithFrame:CGRectMake(kScreenWidth - 15 - [cacheSize length]*12, 22, [cacheSize length]*12, 20)];
             _cacheLabel.text = cacheSize;
             _cacheLabel.textColor = kDarkNineColor;

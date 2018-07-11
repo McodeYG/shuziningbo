@@ -164,7 +164,7 @@
 #define IS_iPhoneX ((SCREEN_W == 375.f && SCREEN_H == 812.f) || (SCREEN_H == 375.f && SCREEN_W == 812.f) ? YES : NO)
 
 
-#define StatusBarHeight                  (IS_iPhoneX ? 44.f : 20.f)
+#define YG_StatusBarH                  (IS_iPhoneX ? 44.f : 20.f)
 #define NavigationBarHeight              44.f
 #define TabbarHeight                     (IS_iPhoneX ? (49.f+34.f) : 49.f)
 

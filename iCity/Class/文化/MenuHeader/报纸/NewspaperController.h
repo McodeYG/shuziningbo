@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZJScrollPageView.h"
 
 
+@interface NewspaperController : UIViewController<ZJScrollPageViewChildVcDelegate>
 
-@interface NewspaperController : UIViewController
-
-
+@property (nonatomic, copy) NSString *sendId;
 
 @end

@@ -53,7 +53,7 @@
         make.left.top.right.offset(0);
         make.height.offset(ReadImg_h);
     }];
-    //上边书名
+    //上边书名（改成第几期）
     UILabel *nameLabel = [UILabel labelWithColor:kNightModeTextColor fontSize:15 text:@"" alignment:NSTextAlignmentLeft];
     self.nameLabel = nameLabel;
     nameLabel.numberOfLines = 1;
@@ -63,7 +63,7 @@
         make.left.right.equalTo(posterImageView);
         make.top.equalTo(posterImageView.mas_bottom).offset(9);
     }];
-    //下边小字
+    //下边小字（改成作者名字）
     UILabel *typeLabel = [UILabel labelWithColor:kNightModeDescColor fontSize:13 text:@"" alignment:NSTextAlignmentLeft];
     self.typeLabel = typeLabel;
     typeLabel.numberOfLines = 1;
@@ -82,8 +82,8 @@
     [self.posterImageView setImageWithURL:[NSURL URLWithString:model.picture] placeholder:SZ_Place_F_T];
     self.nameLabel.text = model.bookname;
     
-    self.typeLabel.text = [model.type bookType];
-    
+//    self.typeLabel.text = [model.type bookType];
+    self.typeLabel.text = model.author;
     
 }
 

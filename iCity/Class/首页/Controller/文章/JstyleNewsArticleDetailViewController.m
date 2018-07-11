@@ -201,20 +201,20 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
     [self.view addSubview:self.naviBar];
     //返回
     self.backBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.backBtn.frame = CGRectMake(0, StatusBarHeight, 54, 44);
+    self.backBtn.frame = CGRectMake(0, YG_StatusBarH, 54, 44);
     [self.backBtn addTarget:self action:@selector(leftBarButtonAction) forControlEvents:UIControlEventTouchUpInside];
     
     [self.backBtn setContentMode:(UIViewContentModeCenter)];
     [self.naviBar addSubview:self.backBtn];
     //分享
     self.shareBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.shareBtn.frame = CGRectMake(kScreenWidth-54, StatusBarHeight, 54, 44);
+    self.shareBtn.frame = CGRectMake(kScreenWidth-54, YG_StatusBarH, 54, 44);
     [self.shareBtn addTarget:self action:@selector(rightBarButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [self.shareBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 5 * kScreenWidth / 375.0, 0, 0)];
     [self.naviBar addSubview:self.shareBtn];
     
     //title
-    self.titleLab = [[UILabel alloc]initWithFrame:CGRectMake(64, StatusBarHeight+10, SCREEN_W-128, 20)];
+    self.titleLab = [[UILabel alloc]initWithFrame:CGRectMake(64, YG_StatusBarH+10, SCREEN_W-128, 20)];
     self.titleLab.font = [UIFont systemFontOfSize:18];
     self.titleLab.textAlignment = NSTextAlignmentCenter;
     [self.naviBar addSubview:self.titleLab];

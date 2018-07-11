@@ -32,7 +32,8 @@
 #import "JstyleNewsVideoDetailViewController.h"
 #import "JstylePartyDetailsViewController.h"
 #import "JstyleNewsArticleDetailViewController.h"
-#import "NewspaperController.h"
+//#import "NewspaperController.h"
+#import "NewspaperMenuController.h"
 #import "NewMediaController.h"
 
 
@@ -301,7 +302,8 @@ static NSString * const ICityTouristAttractionsTableViewCellID = @"ICityTouristA
                     ICityBoardcastTableViewController *broadCastVC = [[ICityBoardcastTableViewController alloc] init];
                     [weakSelf.navigationController pushViewController:broadCastVC animated:YES];
                 } else if ([title isEqualToString:@"报纸"]){
-                    NewspaperController *vc = [[NewspaperController alloc] init];
+//                    NewspaperController *vc = [[NewspaperController alloc] init];
+                    NewspaperMenuController * vc = [[NewspaperMenuController alloc]init];
                     [weakSelf.navigationController pushViewController:vc animated:YES];
                 } else {//跳转新媒体
                     

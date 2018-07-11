@@ -679,6 +679,7 @@
 		FB425AE320D0F43D00286A9C /* AboutSearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB425AE220D0F43D00286A9C /* AboutSearchCollectionViewCell.m */; };
 		FB4FC93220C666070083E682 /* MyHomeBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4FC93120C666070083E682 /* MyHomeBaseViewController.m */; };
 		FB4FC93520C699B50083E682 /* ThemeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4FC93420C699B50083E682 /* ThemeTool.m */; };
+		FB6826B420F5DB0B00E080AA /* NewspaperMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6826B320F5DB0B00E080AA /* NewspaperMenuController.m */; };
 		FB68E7B820F5D070000834FA /* SGPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB68E7B720F5D070000834FA /* SGPlatform.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FB68E7BA20F5D078000834FA /* SGPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB68E7B920F5D078000834FA /* SGPlayer.framework */; };
 		FB6BE9E420D12DD3007666CD /* SearchPicturesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6BE9E320D12DD3007666CD /* SearchPicturesCell.m */; };
@@ -1938,6 +1939,8 @@
 		FB4FC93120C666070083E682 /* MyHomeBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyHomeBaseViewController.m; sourceTree = "<group>"; };
 		FB4FC93320C699B50083E682 /* ThemeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeTool.h; sourceTree = "<group>"; };
 		FB4FC93420C699B50083E682 /* ThemeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeTool.m; sourceTree = "<group>"; };
+		FB6826B220F5DB0B00E080AA /* NewspaperMenuController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewspaperMenuController.h; sourceTree = "<group>"; };
+		FB6826B320F5DB0B00E080AA /* NewspaperMenuController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewspaperMenuController.m; sourceTree = "<group>"; };
 		FB68E7B720F5D070000834FA /* SGPlatform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SGPlatform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB68E7B920F5D078000834FA /* SGPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SGPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB69EF0A20EC762D00DFE5DB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -4679,6 +4682,8 @@
 		FB2D253620D29E7500EF88DC /* 报纸 */ = {
 			isa = PBXGroup;
 			children = (
+				FB6826B220F5DB0B00E080AA /* NewspaperMenuController.h */,
+				FB6826B320F5DB0B00E080AA /* NewspaperMenuController.m */,
 				FB2D253A20D29FB900EF88DC /* NewspaperController.h */,
 				FB2D253B20D29FB900EF88DC /* NewspaperController.m */,
 				FB0A46D520D2C53B00F0C3DA /* NewspaperModel.h */,
@@ -5168,6 +5173,7 @@
 				9B2FD79F2089D7D200D319F0 /* UIImage+Extension.m in Sources */,
 				9BCF993D208F88B700CF5647 /* JstyleManagementVerificationAgreeProtocolView.m in Sources */,
 				9B2FD70D2089D7D200D319F0 /* JstyleDifferentAgreementViewController.m in Sources */,
+				FB6826B420F5DB0B00E080AA /* NewspaperMenuController.m in Sources */,
 				9B2FD7832089D7D200D319F0 /* JstyleNewsActivityWebViewController.m in Sources */,
 				9B2FD7242089D7D200D319F0 /* JstyleLiveSendGiftModel.m in Sources */,
 				9B2FD7D32089D7D200D319F0 /* TZPhotoPickerController.m in Sources */,
