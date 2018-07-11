@@ -260,7 +260,7 @@ static NSInteger typeInt;
         return;
     }
     if ([NSString stringContainsEmoji:comment]) {
-         ZTShowAlertMessage(@"昵称不能含有表情等特殊字符");
+         ZTShowAlertMessage(@"评论内容不能含有表情等特殊字符");
         return;
     }
     if (!(self.commentTextView.text == nil || [self.commentTextView.text isEqualToString:@""])) {

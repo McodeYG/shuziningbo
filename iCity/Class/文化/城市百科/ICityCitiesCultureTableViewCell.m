@@ -57,8 +57,8 @@
 }
 
 - (void)setCitiesCultureDataArray:(NSArray *)citiesCultureDataArray {
-    _citiesCultureDataArray = citiesCultureDataArray;
     
+    _citiesCultureDataArray = citiesCultureDataArray;
     self.citiesCultureCV.citiesCultureDataArray = citiesCultureDataArray;
 }
 

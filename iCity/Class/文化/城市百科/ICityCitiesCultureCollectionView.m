@@ -69,7 +69,7 @@ static NSString * const ICityCitiesCultureCollectionViewCellID = @"ICityCitiesCu
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 6;
+    return _citiesCultureDataArray.count;
 }
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {

@@ -274,7 +274,12 @@ static NSString * const ICityTouristAttractionsTableViewCellID = @"ICityTouristA
     if (indexPath.section == 0) {
         return 280*kScale;
     } else if (indexPath.section == 1) {
-        return 175*kScale;
+        if (self.citiesCultureArray.count>3) {
+            return 175*kScale;
+        } else {
+            return 105*kScale;
+        };
+        
     } else {
         return (((kScreenWidth - 10*4)/3.0)* 149.0 / 112.0 + 60);
     }
@@ -300,8 +305,10 @@ static NSString * const ICityTouristAttractionsTableViewCellID = @"ICityTouristA
                     [weakSelf.navigationController pushViewController:vc animated:YES];
                 } else {//跳转新媒体
                     
-                    NewMediaController *VC = [[NewMediaController alloc] init];
-                    [weakSelf.navigationController pushViewController:VC animated:YES];
+//                    NewMediaController *VC = [[NewMediaController alloc] init];
+//                    [weakSelf.navigationController pushViewController:VC animated:YES];
+                    JstyleNewsJMAttentionMoreViewController *TVVC = [[JstyleNewsJMAttentionMoreViewController alloc] init];
+                    [weakSelf.navigationController pushViewController:TVVC animated:YES];
                 }
             };
             return headerView;
