@@ -68,7 +68,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
             _webView.scrollView.scrollIndicatorInsets = _webView.scrollView.contentInset;
         }
         
-        CGFloat h = self.topContentInset>100?200*kScreenWidth/375.0:0;
+        CGFloat h = self.topContentInset>100?211*kScreenWidth/375.0:0;
         _progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, h, kScreenWidth, 2)];
         _progressView.tintColor = kGlobalGoldColor;
         _progressView.trackTintColor = [UIColor clearColor];
@@ -122,7 +122,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
     self.webView.backgroundColor = kNightModeBackColor;
     
     if ([self.titleModel.poster isNotBlank]) {//先从列表判断有没有图片，再从[self setupWKWebView];判断一下
-        self.topContentInset = 200*kScreenWidth/375.0;
+        self.topContentInset = 211*kScreenWidth/375.0;
     }else{
         self.topContentInset = YG_StatusAndNavightion_H;
     }
@@ -242,7 +242,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
 - (void)addNoSingleView{
     
     if ([[JstyleToolManager sharedManager] getCurrentNetStatus] == NotReachable) {
-        self.noSingleView = [[JstyleNewsNoSinglePlaceholderView alloc] initWithFrame:CGRectMake(0, 200*kScreenWidth/375.0, kScreenWidth, (kScreenHeight - 200*kScreenWidth/375.0 - (IS_iPhoneX ? 58 : 48)))];
+        self.noSingleView = [[JstyleNewsNoSinglePlaceholderView alloc] initWithFrame:CGRectMake(0, 211*kScreenWidth/375.0, kScreenWidth, (kScreenHeight - 211*kScreenWidth/375.0 - (IS_iPhoneX ? 58 : 48)))];
         [self.view addSubview:self.noSingleView];
         self.tableView.scrollEnabled = NO;
         __weak typeof(self)weakSelf = self;
@@ -301,7 +301,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
 {
     self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, self.topContentInset)];
     self.headerImageView.backgroundColor = [UIColor clearColor];
-    self.headerImageView.contentMode = UIViewContentModeScaleAspectFill;//UIViewContentModeScaleAspectFit
+    self.headerImageView.contentMode = UIViewContentModeScaleAspectFill;//UIViewContentModeScaleAspectFit;//
     self.headerImageView.clipsToBounds = YES;
     self.headerImageView.image = [UIImage imageNamed:@"placeholder"];
     [self.view addSubview:self.headerImageView];
@@ -749,7 +749,7 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
         _headerImageView.frame = frame;
     }else{
         _headerImageView.transform = CGAffineTransformMakeScale(1, 1);
-        _headerImageView.frame = CGRectMake(0, - (offsetY/4), kScreenWidth, 200*kScreenWidth/375.0);
+        _headerImageView.frame = CGRectMake(0, - (offsetY/4), kScreenWidth, 211*kScreenWidth/375.0);
     }
 }
 #pragma mark - 滑动无图的文章
@@ -1419,9 +1419,9 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
         
         if ([self.detailModel.poster isNotBlank]) {
             self.headerImageView.hidden = NO;
-            self.headerImageView.frame = CGRectMake(0, 0, kScreenWidth, 200*kScreenWidth/375.0);
+            self.headerImageView.frame = CGRectMake(0, 0, kScreenWidth, 211*kScreenWidth/375.0);
             self.titleModel.poster = self.detailModel.poster;
-            self.topContentInset = 200*kScreenWidth/375.0;
+            self.topContentInset = 211*kScreenWidth/375.0;
             [self.headerImageView setImageWithURL:[NSURL URLWithString:self.detailModel.poster] placeholder:SZ_Place_S_N];
         }else{
             self.headerImageView.hidden = YES;

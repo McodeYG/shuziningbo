@@ -113,7 +113,7 @@ static NSString *ICityCultureDetailTitleContentCellID = @"ICityCultureDetailTitl
             _webView.scrollView.scrollIndicatorInsets = _webView.scrollView.contentInset;
         }
         
-        _progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 200*kScreenWidth/375.0, kScreenWidth, 2)];
+        _progressView = [[UIProgressView alloc] initWithFrame:CGRectMake(0, 211*kScreenWidth/375.0, kScreenWidth, 2)];
         _progressView.tintColor = kGlobalGoldColor;
         _progressView.trackTintColor = [UIColor clearColor];
     }
@@ -221,7 +221,7 @@ static NSString *ICityCultureDetailTitleContentCellID = @"ICityCultureDetailTitl
 
 - (void)addNoSingleView{
     if ([[JstyleToolManager sharedManager] getCurrentNetStatus] == NotReachable) {
-        self.noSingleView = [[JstyleNewsNoSinglePlaceholderView alloc] initWithFrame:CGRectMake(0, 200*kScreenWidth/375.0, kScreenWidth, (kScreenHeight - 200*kScreenWidth/375.0 - (IS_iPhoneX ? 58 : 48)))];
+        self.noSingleView = [[JstyleNewsNoSinglePlaceholderView alloc] initWithFrame:CGRectMake(0, 211*kScreenWidth/375.0, kScreenWidth, (kScreenHeight - 211*kScreenWidth/375.0 - (IS_iPhoneX ? 58 : 48)))];
         [self.view addSubview:self.noSingleView];
         self.tableView.scrollEnabled = NO;
         __weak typeof(self)weakSelf = self;
@@ -293,7 +293,7 @@ static NSString *ICityCultureDetailTitleContentCellID = @"ICityCultureDetailTitl
 // 加载headerView
 - (void)addScaleImageView
 {
-    self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 200*kScreenWidth/375.0)];
+    self.headerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 211*kScreenWidth/375.0)];
     self.headerImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.headerImageView.clipsToBounds = YES;
     self.headerImageView.image = [UIImage imageNamed:@"placeholder"];
@@ -422,7 +422,7 @@ static NSString *ICityCultureDetailTitleContentCellID = @"ICityCultureDetailTitl
 {
     switch (indexPath.section) {
         case 0:
-            return 200*kScreenWidth/375.0;
+            return 211*kScreenWidth/375.0;
             break;
         case 1:
             return self.titleModel ? self.titleModel.cellHeight : self.detailModel.cellHeight;
@@ -527,7 +527,7 @@ static NSString *ICityCultureDetailTitleContentCellID = @"ICityCultureDetailTitl
         _headerImageView.frame = frame;
     }else{
         _headerImageView.transform = CGAffineTransformMakeScale(1, 1);
-        _headerImageView.frame = CGRectMake(0, - (offsetY/4), kScreenWidth, 200*kScreenWidth/375.0);
+        _headerImageView.frame = CGRectMake(0, - (offsetY/4), kScreenWidth, 211*kScreenWidth/375.0);
     }
 }
 

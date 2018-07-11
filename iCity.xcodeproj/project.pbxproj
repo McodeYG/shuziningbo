@@ -679,11 +679,11 @@
 		FB425AE320D0F43D00286A9C /* AboutSearchCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB425AE220D0F43D00286A9C /* AboutSearchCollectionViewCell.m */; };
 		FB4FC93220C666070083E682 /* MyHomeBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4FC93120C666070083E682 /* MyHomeBaseViewController.m */; };
 		FB4FC93520C699B50083E682 /* ThemeTool.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4FC93420C699B50083E682 /* ThemeTool.m */; };
+		FB68E7B820F5D070000834FA /* SGPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB68E7B720F5D070000834FA /* SGPlatform.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		FB68E7BA20F5D078000834FA /* SGPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB68E7B920F5D078000834FA /* SGPlayer.framework */; };
 		FB6BE9E420D12DD3007666CD /* SearchPicturesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6BE9E320D12DD3007666CD /* SearchPicturesCell.m */; };
 		FB6BE9E720D13B25007666CD /* SearchAllCityUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6BE9E620D13B24007666CD /* SearchAllCityUserCell.m */; };
 		FB7BA71120C527690089FE7B /* HomeRecommendSetTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7BA70F20C527690089FE7B /* HomeRecommendSetTopCell.m */; };
-		FBA4AC4A20C5212A00C3686B /* SGPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA4AC4920C5212A00C3686B /* SGPlayer.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		FBA4AC4C20C521D200C3686B /* SGPlatform.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA4AC4B20C521D200C3686B /* SGPlatform.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		FBDCF49920DBF92400B87346 /* ICityTVMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCF49820DBF92400B87346 /* ICityTVMenuViewController.m */; };
 		FBDCF49C20DBFEA200B87346 /* TVListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCF49B20DBFEA200B87346 /* TVListTableViewController.m */; };
 		FBE6A22C20D25ACF00D757D7 /* CitysCultureCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE6A22B20D25ACF00D757D7 /* CitysCultureCollectionViewController.m */; };
@@ -1938,6 +1938,8 @@
 		FB4FC93120C666070083E682 /* MyHomeBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyHomeBaseViewController.m; sourceTree = "<group>"; };
 		FB4FC93320C699B50083E682 /* ThemeTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeTool.h; sourceTree = "<group>"; };
 		FB4FC93420C699B50083E682 /* ThemeTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeTool.m; sourceTree = "<group>"; };
+		FB68E7B720F5D070000834FA /* SGPlatform.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SGPlatform.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB68E7B920F5D078000834FA /* SGPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SGPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB69EF0A20EC762D00DFE5DB /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		FB6B9F6220E6127700CDE104 /* ArticleDetailViewControllerHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ArticleDetailViewControllerHeader.h; sourceTree = "<group>"; };
 		FB6BE9E220D12DD3007666CD /* SearchPicturesCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPicturesCell.h; sourceTree = "<group>"; };
@@ -1962,7 +1964,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBA4AC4A20C5212A00C3686B /* SGPlayer.framework in Frameworks */,
+				FB68E7BA20F5D078000834FA /* SGPlayer.framework in Frameworks */,
+				FB68E7B820F5D070000834FA /* SGPlatform.framework in Frameworks */,
 				9B87DD78208B8205003C1A5D /* VideoToolbox.framework in Frameworks */,
 				9B87DD76208B81F8003C1A5D /* AudioToolbox.framework in Frameworks */,
 				9B87DD74208B81E2003C1A5D /* CoreMedia.framework in Frameworks */,
@@ -1971,7 +1974,6 @@
 				9B2FD86A2089D9DC00D319F0 /* libbz2.tbd in Frameworks */,
 				9B2FD8682089D9D300D319F0 /* libz.tbd in Frameworks */,
 				95030392538E4085883992BA /* libPods-iCity.a in Frameworks */,
-				FBA4AC4C20C521D200C3686B /* SGPlatform.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4596,6 +4598,8 @@
 		F5E50AF8536D4FE8FC3F2861 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB68E7B920F5D078000834FA /* SGPlayer.framework */,
+				FB68E7B720F5D070000834FA /* SGPlatform.framework */,
 				9B87DD77208B8204003C1A5D /* VideoToolbox.framework */,
 				9B87DD75208B81F8003C1A5D /* AudioToolbox.framework */,
 				9B87DD73208B81E2003C1A5D /* CoreMedia.framework */,
