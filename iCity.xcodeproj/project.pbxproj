@@ -5703,7 +5703,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = iCity/iCity.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = K4WM9Z287T;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5806,8 +5806,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shuziyuedong.iCity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d4f8b393-eaad-4fdc-a465-13558e8f1752";
+				PROVISIONING_PROFILE_SPECIFIER = "数字宁波6月16描述文件profile";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -5821,7 +5821,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = iCity/iCity.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = K4WM9Z287T;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5924,8 +5924,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shuziyuedong.iCity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d4f8b393-eaad-4fdc-a465-13558e8f1752";
+				PROVISIONING_PROFILE_SPECIFIER = "数字宁波6月16描述文件profile";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
