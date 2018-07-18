@@ -130,7 +130,7 @@
         self.subLab.text = [[NSString stringWithFormat:@"%@",model.author_name] stringByAppendingString:[NSString stringWithFormat:@"   %@",@"刚刚"]];
     }
     //[NSDate compareCurrentTimeWithTimeString:model.ctime]
-    if (index.row<3) {
+    if (index.row<2) {
         self.setTopLab.hidden = NO;
         [self.subLab mas_updateConstraints:^(MASConstraintMaker *make) {
             make.left.mas_equalTo(self.contentView.mas_left).mas_equalTo(10+30+8);

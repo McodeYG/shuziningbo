@@ -27,8 +27,8 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
         [self setupUI];
-       
     }
     return self;
 }
@@ -67,10 +67,12 @@
         ICityBaseMenuButton *menuButton = [ICityBaseMenuButton buttonWithImage:buttonImage title:buttonTitle];
         menuButton.frame = CGRectMake(i*buttonWidth, 0, buttonWidth, 98 * kScale);
         menuButton.tag = 3000 + i;
+        menuButton.hidden = YES;
         [menuButton setBackgroundColor:[UIColor clearColor]];
         [menuButton addTarget:self action:@selector(menuButtonClick:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:menuButton];
         [self.menuButtons addObject:menuButton];
+        
     }
     [self applyTheme];
 }
@@ -94,6 +96,9 @@
             NSString *title = [menuArray[i] name];
             [button setImageWithURL:imageUrl forState:UIControlStateNormal placeholder:SZ_Place_Header];
             [button setTitle:title forState:UIControlStateNormal];
+            button.hidden = NO;
+        }else{
+            button.hidden = YES;
         }
     }
 }

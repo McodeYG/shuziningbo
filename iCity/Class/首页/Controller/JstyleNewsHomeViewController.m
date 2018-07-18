@@ -307,6 +307,7 @@ static NSString *refresh = @"1";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section ==0) {
+        
         return self.setTopArray.count;
     }else{
         return self.dataArray.count;
@@ -429,7 +430,7 @@ static NSString *refresh = @"1";
             return cell;
         }
             break;
-        case 3:{//banner_type 1.文章 2.视频(没用)     3.广搞 4.热门推荐图书 5.活动
+        case 3:{//banner_type 1.文章 2.视频(没用)     3.广告 4.热门推荐图书 5.活动
             
             if ([model.banner_type integerValue]==4) {//热门推荐图书
                 

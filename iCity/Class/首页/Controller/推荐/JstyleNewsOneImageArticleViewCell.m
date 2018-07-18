@@ -100,7 +100,7 @@
     
     
      //置顶设置
-    if (index.section==0&&index.row<3) {
+    if (index.section==0&&index.row<2) {
         self.setTopLab.hidden = NO;
         
         [self.subjectLabel mas_updateConstraints:^(MASConstraintMaker *make) {

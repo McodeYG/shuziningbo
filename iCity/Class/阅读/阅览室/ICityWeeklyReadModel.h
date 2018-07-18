@@ -18,6 +18,8 @@
 @property (nonatomic, copy) NSString *h5_url;
 ///作者
 @property (nonatomic, copy) NSString *author;
+///期数
+@property (nonatomic, copy) NSString *issue;
 ///封面图
 @property (nonatomic, copy) NSString *picture;
 /**类型*/

@@ -12,6 +12,6 @@
 
 @interface NewspaperController : UIViewController<ZJScrollPageViewChildVcDelegate>
 
-@property (nonatomic, copy) NSString *sendId;
+@property (nonatomic, copy) NSString *npcid;
 
 @end

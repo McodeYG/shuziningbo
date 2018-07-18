@@ -116,7 +116,8 @@
     
     JstyleNewsNetworkManager *manager = [JstyleNewsNetworkManager shareManager];
     
-    [manager GETURL:Culture_TV_Menu_URL parameters:nil success:^(id responseObject) {
+    NSDictionary * para = @{@"type":@"1"};
+    [manager GETURL:Culture_TV_Menu_URL parameters:para success:^(id responseObject) {
         
         if ([responseObject[@"code"] integerValue] == 1) {
             [self.tvMenusArray removeAllObjects];

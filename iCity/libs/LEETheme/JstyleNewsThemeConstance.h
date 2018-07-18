@@ -31,6 +31,11 @@
 #define ThemeLogoHeaderImage    @"ThemeLogoHeaderImage"
 #define ThemeMineHeaderBackgroundImage @"ThemeMineHeaderBackgroundImage"
 
+/* 文化分类按钮文字主题颜色 */
+#define ThemeTypeBtnTitleColor       @"ThemeTypeBtnTitleColor"
+
+
+
 /* ↓选择频道标签相关↓ */
 #define ThemeChannelTagBackgroundColor          @"ThemeChannelTagBackgroundColor"
 #define ThemeChannelTagTitleNormalColor         @"ThemeChannelTagTitleNormalColor"

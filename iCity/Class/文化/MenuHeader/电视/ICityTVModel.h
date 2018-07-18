@@ -32,13 +32,15 @@
 
 
 @property(nonatomic,copy)NSString *name;
-@property(nonatomic,copy)NSString *sendId;
-
+@property(nonatomic,copy)NSString *sendId;//电视//报纸
 
 
 //为关注新添加的字段
 @property(nonatomic,copy)NSString *isShowAuthor;
 
 @property(nonatomic,copy)NSString *author_did;
+
+
+
 
 @end

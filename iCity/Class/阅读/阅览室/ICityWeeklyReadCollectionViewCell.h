@@ -16,4 +16,6 @@
 
 @property (nonatomic, strong) ICityWeeklyReadModel *model;
 
+- (void)setModel:(ICityWeeklyReadModel *)model isTop:(BOOL)istop;
+
 @end

@@ -14,4 +14,6 @@
 @property (nonatomic, strong) NSArray<ICityLifeMenuModel *> *menuArray;
 @property (nonatomic, copy) void(^menuButtonClickBlock)(NSString *title, NSString *html);
 
+
+
 @end

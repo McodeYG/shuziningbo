@@ -12,13 +12,19 @@
 #import "ICityCultureReuseModel.h"
 #import "JstylePartyDetailsViewController.h"//文化活动
 #import "ICityCultureDetailViewController.h"//文化地图
+#import "MoreListView.h"
 
 static NSInteger page = 1;
 static NSString * const ICityCultureListReuseTableViewCellID = @"ICityCultureListReuseTableViewCellID";
 
 @interface ICityCultureListReuseTableViewController ()
 
+@property (nonatomic, strong) NSArray *tagsArray;
+
 @property (nonatomic, strong) NSMutableArray *dataArray;
+
+/**tags*/
+@property (nonatomic, strong) MoreListView * tagsView;
 
 @end
 
@@ -47,6 +53,7 @@ static NSString * const ICityCultureListReuseTableViewCellID = @"ICityCultureLis
         page = 1;
         [weakSelf.dataArray removeAllObjects];
         [weakSelf loadData];
+        
     }];
     
     self.tableView.mj_footer = [JstyleRefreshAutoNormalFooter footerWithRefreshingBlock:^{
@@ -55,6 +62,15 @@ static NSString * const ICityCultureListReuseTableViewCellID = @"ICityCultureLis
     }];
     
     [self.tableView.mj_header beginRefreshing];
+    
+    [self creatMytagsView];
+}
+
+- (void)creatMytagsView {
+    self.tagsView = [[MoreListView alloc]initWithFrame:CGRectMake(0, YG_StatusAndNavightion_H, SCREEN_W, SCREEN_H)];
+    self.tagsView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.tagsView];
+    [self loadMoretagsData];
 }
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -127,7 +143,36 @@ static NSString * const ICityCultureListReuseTableViewCellID = @"ICityCultureLis
     
 }
 
-#pragma mark - LoadData
+#pragma mark - 下载更多 类型 标签数据
+- (void)loadMoretagsData {
+    NSString * type = @"4";//4.文化活动类型; 5.文化地图类型；6.旅游景点类型
+    if ([self.navigationTitle isEqualToString:@"文化活动"]) {
+        type = @"4";
+    } else if ([self.navigationTitle isEqualToString:@"文化地图"]) {
+        type = @"5";
+    } else {//旅游景点
+        type = @"6";
+    }
+    
+    JstyleNewsNetworkManager *manager = [JstyleNewsNetworkManager shareManager];
+    NSDictionary * para = @{@"type":type};
+    [manager GETURL:Culture_TV_Menu_URL parameters:para success:^(id responseObject) {
+        
+        if ([responseObject[@"code"] isEqualToString:@"1"]) {
+            
+            self.tagsArray = [NSArray modelArrayWithClass:[ICityLifeMenuModel class] json:responseObject[@"data"]];
+            [self.tagsView setTagWithTagArray:self.tagsArray andSelectIndex:0];
+            
+        }else {
+            
+        }
+        [self.tableView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        [self.tableView.mj_header endRefreshing];
+    }];
+    
+}
+#pragma mark - 下载列表数据
 
 - (void)loadData {
     
@@ -138,6 +183,8 @@ static NSString * const ICityCultureListReuseTableViewCellID = @"ICityCultureLis
                                  };
     
     [manager GETURL:self.dataURL parameters:paramaters success:^(id responseObject) {
+        
+        NSLog(@"%@",self.dataURL);
 
         if ([responseObject[@"code"] isEqualToString:@"1"]) {
             

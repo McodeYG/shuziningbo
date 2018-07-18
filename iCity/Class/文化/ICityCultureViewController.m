@@ -26,7 +26,9 @@
 #import "ICityPopularActivitiesTableViewCell.h"
 #import "ICityCultureMapTableViewCell.h"
 #import "ICityTouristAttractionsTableViewCell.h"
-#import "ICityCultureListReuseTableViewController.h"
+//#import "ICityCultureListReuseTableViewController.h"
+#import "CultureListReuseController.h"//列表页
+
 #import "ICityCultureDetailViewController.h"
 #import "ICityHotProgramModel.h"
 #import "JstyleNewsVideoDetailViewController.h"
@@ -60,6 +62,11 @@ static NSString * const ICityTouristAttractionsTableViewCellID = @"ICityTouristA
 @property (nonatomic, strong) NSMutableArray *remandArray;
 /**直播数据源数组*/
 @property (nonatomic, strong) NSMutableArray *modelArray;
+
+/**顶部四个按钮*/
+@property (nonatomic, strong) ICityCultureMenuHeaderView *headerView;
+//顶部四个按钮
+@property (nonatomic, strong) NSArray *topFourArray;
 
 @property (nonatomic, strong) NSArray *hotProgramArray;
 @property (nonatomic, strong) NSArray *citiesCultureArray;
@@ -108,9 +115,39 @@ static NSString * const ICityTouristAttractionsTableViewCellID = @"ICityTouristA
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self creatMyHeaderView];
     [self loadData];
+    
     self.navigationItem.title = @"文化服务";
     [self.view addSubview:self.tableView];
+}
+
+#pragma mark - 创建顶部四个按钮视图
+- (void) creatMyHeaderView{
+    self.headerView = [[ICityCultureMenuHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 98 *kScreenWidth)];
+    __weak typeof(self) weakSelf = self;
+    self.headerView.menuButtonClickBlock = ^(NSString *title, NSString *html) {
+        if ([title isEqualToString:@"电视"]) {
+            //                    ICityTVTableViewController *TVVC = [[ICityTVTableViewController alloc] init];
+            //                    [weakSelf.navigationController pushViewController:TVVC animated:YES];
+            ICityTVMenuViewController * tvc = [[ICityTVMenuViewController alloc] init];
+            [weakSelf.navigationController pushViewController:tvc animated:YES];
+        } else if ([title isEqualToString:@"广播"]) {
+            ICityBoardcastTableViewController *broadCastVC = [[ICityBoardcastTableViewController alloc] init];
+            [weakSelf.navigationController pushViewController:broadCastVC animated:YES];
+        } else if ([title isEqualToString:@"报纸"]){
+            //                    NewspaperController *vc = [[NewspaperController alloc] init];
+            NewspaperMenuController * vc = [[NewspaperMenuController alloc]init];
+            [weakSelf.navigationController pushViewController:vc animated:YES];
+        } else {//跳转新媒体
+            
+            //                    NewMediaController *VC = [[NewMediaController alloc] init];
+            //                    [weakSelf.navigationController pushViewController:VC animated:YES];
+            JstyleNewsJMAttentionMoreViewController *TVVC = [[JstyleNewsJMAttentionMoreViewController alloc] init];
+            [weakSelf.navigationController pushViewController:TVVC animated:YES];
+        }
+    };
+    
 }
 
 #pragma mark - UITableViewDataSource
@@ -265,7 +302,7 @@ static NSString * const ICityTouristAttractionsTableViewCellID = @"ICityTouristA
 //    if (indexPath.section == 0) {
 //        return 294;
 //    } else if (indexPath.section == 1) {
-//        return 67;
+//        return 67;//有公告时候
 //    } else if (indexPath.section == 2) {
 //        return 175;
 //    } else {
@@ -290,30 +327,13 @@ static NSString * const ICityTouristAttractionsTableViewCellID = @"ICityTouristA
     switch (section) {
         case 0:
         {
-            ICityCultureMenuHeaderView *headerView = [[ICityCultureMenuHeaderView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 98 *kScreenWidth)];
-            __weak typeof(self) weakSelf = self;
-            headerView.menuButtonClickBlock = ^(NSString *title, NSString *html) {
-                if ([title isEqualToString:@"电视"]) {
-//                    ICityTVTableViewController *TVVC = [[ICityTVTableViewController alloc] init];
-//                    [weakSelf.navigationController pushViewController:TVVC animated:YES];
-                    ICityTVMenuViewController * tvc = [[ICityTVMenuViewController alloc] init];
-                    [weakSelf.navigationController pushViewController:tvc animated:YES];
-                } else if ([title isEqualToString:@"广播"]) {
-                    ICityBoardcastTableViewController *broadCastVC = [[ICityBoardcastTableViewController alloc] init];
-                    [weakSelf.navigationController pushViewController:broadCastVC animated:YES];
-                } else if ([title isEqualToString:@"报纸"]){
-//                    NewspaperController *vc = [[NewspaperController alloc] init];
-                    NewspaperMenuController * vc = [[NewspaperMenuController alloc]init];
-                    [weakSelf.navigationController pushViewController:vc animated:YES];
-                } else {//跳转新媒体
-                    
-//                    NewMediaController *VC = [[NewMediaController alloc] init];
-//                    [weakSelf.navigationController pushViewController:VC animated:YES];
-                    JstyleNewsJMAttentionMoreViewController *TVVC = [[JstyleNewsJMAttentionMoreViewController alloc] init];
-                    [weakSelf.navigationController pushViewController:TVVC animated:YES];
-                }
-            };
-            return headerView;
+            if (self.topFourArray.count>0) {
+                return self.headerView;
+            }else{
+                UIView * headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 20)];
+                headView.backgroundColor = [UIColor clearColor];
+                return headView;
+            }
         }
             break;
 //        case 1:
@@ -338,36 +358,36 @@ static NSString * const ICityTouristAttractionsTableViewCellID = @"ICityTouristA
             ICityReadingTableViewHeaderView *headerView = [[ICityReadingTableViewHeaderView alloc] initWithTitleName:@"文化活动" showMoreBtn:YES];
             __weak typeof(self) weakSelf = self;
             headerView.moreBtnBlock = ^{//文化活动更多
-                ICityCultureListReuseTableViewController *cultureListReuseTableVC = [ICityCultureListReuseTableViewController new];
-                cultureListReuseTableVC.navigationTitle = @"文化活动";
-                cultureListReuseTableVC.dataURL = Culture_More_Activities_URL;
-                [weakSelf.navigationController pushViewController:cultureListReuseTableVC animated:YES];
+                CultureListReuseController *vc = [CultureListReuseController new];
+                vc.navigationTitle = @"文化活动";
+                vc.dataURL = Culture_More_Activities_URL;
+                [weakSelf.navigationController pushViewController:vc animated:YES];
             };
             return headerView;
         }
             break;
         case 3:
         {
-            ICityReadingTableViewHeaderView *headerView = [[ICityReadingTableViewHeaderView alloc] initWithTitleName:@"文化地图" showMoreBtn:YES];
+            ICityReadingTableViewHeaderView *headerView = [[ICityReadingTableViewHeaderView alloc] initWithTitleName:@"文化地图" showMoreBtn:YES];//文化地图更多
             __weak typeof(self) weakSelf = self;
             headerView.moreBtnBlock = ^{
-                ICityCultureListReuseTableViewController *cultureListReuseTableVC = [ICityCultureListReuseTableViewController new];
-                cultureListReuseTableVC.navigationTitle = @"文化地图";
-                cultureListReuseTableVC.dataURL = [Read_Knowledge_URL stringByAppendingString:@"?tag=3"];
-                [weakSelf.navigationController pushViewController:cultureListReuseTableVC animated:YES];
+                CultureListReuseController *vc = [CultureListReuseController new];
+                vc.navigationTitle = @"文化地图";
+                vc.dataURL = [Read_Knowledge_URL stringByAppendingString:@"?tag=3"];
+                [weakSelf.navigationController pushViewController:vc animated:YES];
             };
             return headerView;
         }
             break;
         case 4:
         {
-            ICityReadingTableViewHeaderView *headerView = [[ICityReadingTableViewHeaderView alloc] initWithTitleName:@"旅游景点" showMoreBtn:YES];
+            ICityReadingTableViewHeaderView *headerView = [[ICityReadingTableViewHeaderView alloc] initWithTitleName:@"旅游景点" showMoreBtn:YES];//旅游景点更多
             __weak typeof(self) weakSelf = self;
             headerView.moreBtnBlock = ^{
-                ICityCultureListReuseTableViewController *cultureListReuseTableVC = [ICityCultureListReuseTableViewController new];
-                cultureListReuseTableVC.navigationTitle = @"旅游景点";
-                cultureListReuseTableVC.dataURL = [Read_Knowledge_URL stringByAppendingString:@"?tag=4"];
-                [weakSelf.navigationController pushViewController:cultureListReuseTableVC animated:YES];
+                CultureListReuseController *vc = [CultureListReuseController new];
+                vc.navigationTitle = @"旅游景点";
+                vc.dataURL = [Read_Knowledge_URL stringByAppendingString:@"?tag=4"];
+                [weakSelf.navigationController pushViewController:vc animated:YES];
             };
             return headerView;
         }
@@ -380,7 +400,11 @@ static NSString * const ICityTouristAttractionsTableViewCellID = @"ICityTouristA
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        return 98+10;
+        if (self.topFourArray.count>0) {
+            return 98+10;
+        }else{
+            return 20;
+        }
     }else
         //if (section == 1) {
 //        return 50;
@@ -410,15 +434,37 @@ static NSString * const ICityTouristAttractionsTableViewCellID = @"ICityTouristA
     return [ThemeTool isWhiteModel]?UIStatusBarStyleDefault:UIStatusBarStyleLightContent;
 }
 
-#pragma mark - LoadData
-
+#pragma mark - 下载数据
 - (void)loadData {
+    [self loadTopIcon];
     [self loadHotProgramData];
     [self loadJstyleLiveHomeDataSource];
     [self loadCitiesCultureData];
     [self loadPopularActivitiesData];
     [self loadCultureMapData];
     [self loadTouristAttractionsData];
+    
+}
+#pragma mark - 顶部四个按钮
+- (void)loadTopIcon {
+
+    JstyleNewsNetworkManager *manager = [JstyleNewsNetworkManager shareManager];
+    NSDictionary * para = @{@"type":@"3"};
+    //参数：type: 1.电视；2.报纸; 3.文化页四个icon；4.文化活动类型; 5.文化地图类型；6.旅游景点类型
+    [manager GETURL:Culture_TV_Menu_URL parameters:para success:^(id responseObject) {
+    
+        if ([responseObject[@"code"] isEqualToString:@"1"]) {
+            self.headerView.hidden = NO;
+        }else {
+            self.headerView.hidden = YES;
+        }
+        self.topFourArray = [NSArray modelArrayWithClass:[ICityLifeMenuModel class] json:responseObject[@"data"]];
+        self.headerView.menuArray = self.topFourArray;
+        [self.tableView reloadSection:0 withRowAnimation:UITableViewRowAnimationNone];
+        [self.tableView.mj_header endRefreshing];
+    } failure:^(NSError *error) {
+        [self.tableView.mj_header endRefreshing];
+    }];
 }
 
 ///热门节目

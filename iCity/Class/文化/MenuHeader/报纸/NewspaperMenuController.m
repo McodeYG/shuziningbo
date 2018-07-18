@@ -90,7 +90,7 @@
     
     NewspaperController *listVC = [[NewspaperController alloc] init];
     ICityTVModel * model = self.tvMenusArray[index];
-    listVC.sendId = model.sendId;
+    listVC.npcid = model.sendId;
     
     [self addChildViewController:listVC];
     
@@ -118,8 +118,8 @@
 - (void)loadData {
     
     JstyleNewsNetworkManager *manager = [JstyleNewsNetworkManager shareManager];
-    
-    [manager GETURL:Culture_TV_Menu_URL parameters:nil success:^(id responseObject) {
+    NSDictionary * para = @{@"type":@"2"};
+    [manager GETURL:Culture_TV_Menu_URL parameters:para success:^(id responseObject) {
         
         if ([responseObject[@"code"] integerValue] == 1) {
             [self.tvMenusArray removeAllObjects];

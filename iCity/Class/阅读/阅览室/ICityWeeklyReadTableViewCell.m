@@ -68,13 +68,14 @@
 #pragma mark - 区分数据源——顶部数据
 - (void)setTopDataArray:(NSArray *)topDataArray {
     _topDataArray = topDataArray;
-    self.readRoomTopView.dataArray = topDataArray;
+    [self.readRoomTopView setDataArray:topDataArray isTop:YES];
     
 }
 
 -(void)setBottomDataArray:(NSArray *)bottomDataArray {
     _bottomDataArray = bottomDataArray;
-    self.readRoomBottomView.dataArray = bottomDataArray;
+     [self.readRoomBottomView setDataArray:bottomDataArray isTop:NO];
+    
     
 }
 

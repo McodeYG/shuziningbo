@@ -50,14 +50,14 @@
     [button setBackgroundImage:[UIImage imageWithColor:kWhiteColor] forState:UIControlStateSelected];
     
     //主题换肤
-//    button.lee_theme
-//    .LeeCustomConfig(ThemeMainBtnTitleOrBorderColor, ^(id item, id value) {
-//        UIButton *button = (UIButton *)item;
-//        [button setTitleColor:kWhiteColor forState:UIControlStateNormal];
-//        [button setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
-//        [button setBackgroundImage:[UIImage imageWithColor:value] forState:UIControlStateNormal];
-//        [button setBackgroundImage:[UIImage imageWithColor:kWhiteColor] forState:UIControlStateSelected];
-//    });
+    button.lee_theme
+    .LeeCustomConfig(ThemeMainBtnTitleOrBorderColor, ^(id item, id value) {
+        UIButton *button = (UIButton *)item;
+        [button setTitleColor:kWhiteColor forState:UIControlStateNormal];
+        [button setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+        [button setBackgroundImage:[UIImage imageWithColor:value] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageWithColor:kWhiteColor] forState:UIControlStateSelected];
+    });
 }
 
 - (void)setSelected:(BOOL)selected {

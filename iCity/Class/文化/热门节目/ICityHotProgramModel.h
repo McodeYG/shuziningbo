@@ -15,4 +15,6 @@
 @property (nonatomic, copy) NSString *url_sd;
 @property (nonatomic, copy) NSString *id;
 
+
+
 @end

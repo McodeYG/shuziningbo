@@ -27,7 +27,7 @@
     .leftSpaceToView(self.contentView, 10)
     .rightSpaceToView(self.contentView, 10)
     .topSpaceToView(self.nameLabel, 10)
-    .autoHeightRatio(130/345.0);
+    .autoHeightRatio(200/355.0);
     
     self.adLabel.sd_layout
     .rightEqualToView(self.backImageView).offset(-5)

@@ -11,7 +11,10 @@
 
 @interface ICityWeeklyReadCollectionView : JstyleNewsBaseCollectionView
 
-@property (nonatomic, strong) NSArray *dataArray;
+
+
 @property (nonatomic, copy) void(^weeklyReadCollectionViewBlock)(NSIndexPath *indexPath);
 
+- (void)setDataArray:(NSArray *)dataArray isTop:(BOOL)isTop;
+    
 @end

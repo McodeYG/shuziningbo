@@ -685,6 +685,9 @@
 		FB6BE9E420D12DD3007666CD /* SearchPicturesCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6BE9E320D12DD3007666CD /* SearchPicturesCell.m */; };
 		FB6BE9E720D13B25007666CD /* SearchAllCityUserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6BE9E620D13B24007666CD /* SearchAllCityUserCell.m */; };
 		FB7BA71120C527690089FE7B /* HomeRecommendSetTopCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB7BA70F20C527690089FE7B /* HomeRecommendSetTopCell.m */; };
+		FB8EE33920F87E02009D203F /* MoreListView.m in Sources */ = {isa = PBXBuildFile; fileRef = FB8EE33820F87E02009D203F /* MoreListView.m */; };
+		FBD0983320FC8D660088CFBB /* CultureListReuseController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD0983220FC8D660088CFBB /* CultureListReuseController.m */; };
+		FBD0983620FC95B80088CFBB /* RImageButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD0983520FC95B80088CFBB /* RImageButton.m */; };
 		FBDCF49920DBF92400B87346 /* ICityTVMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCF49820DBF92400B87346 /* ICityTVMenuViewController.m */; };
 		FBDCF49C20DBFEA200B87346 /* TVListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBDCF49B20DBFEA200B87346 /* TVListTableViewController.m */; };
 		FBE6A22C20D25ACF00D757D7 /* CitysCultureCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE6A22B20D25ACF00D757D7 /* CitysCultureCollectionViewController.m */; };
@@ -1951,8 +1954,14 @@
 		FB6BE9E620D13B24007666CD /* SearchAllCityUserCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchAllCityUserCell.m; sourceTree = "<group>"; };
 		FB7BA70E20C527690089FE7B /* HomeRecommendSetTopCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeRecommendSetTopCell.h; sourceTree = "<group>"; };
 		FB7BA70F20C527690089FE7B /* HomeRecommendSetTopCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeRecommendSetTopCell.m; sourceTree = "<group>"; };
+		FB8EE33720F87E02009D203F /* MoreListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MoreListView.h; sourceTree = "<group>"; };
+		FB8EE33820F87E02009D203F /* MoreListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MoreListView.m; sourceTree = "<group>"; };
 		FBA4AC4920C5212A00C3686B /* SGPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SGPlayer.framework; sourceTree = "<group>"; };
 		FBA4AC4B20C521D200C3686B /* SGPlatform.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SGPlatform.framework; sourceTree = "<group>"; };
+		FBD0983120FC8D660088CFBB /* CultureListReuseController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CultureListReuseController.h; sourceTree = "<group>"; };
+		FBD0983220FC8D660088CFBB /* CultureListReuseController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CultureListReuseController.m; sourceTree = "<group>"; };
+		FBD0983420FC95B80088CFBB /* RImageButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RImageButton.h; sourceTree = "<group>"; };
+		FBD0983520FC95B80088CFBB /* RImageButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RImageButton.m; sourceTree = "<group>"; };
 		FBDCF49720DBF92400B87346 /* ICityTVMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICityTVMenuViewController.h; sourceTree = "<group>"; };
 		FBDCF49820DBF92400B87346 /* ICityTVMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ICityTVMenuViewController.m; sourceTree = "<group>"; };
 		FBDCF49A20DBFEA200B87346 /* TVListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TVListTableViewController.h; sourceTree = "<group>"; };
@@ -4088,6 +4097,7 @@
 		9B6834B8209829F4004250BB /* 热门活动等 */ = {
 			isa = PBXGroup;
 			children = (
+				FB8EE33620F87DC2009D203F /* MoreList */,
 				9B6835132098BEF1004250BB /* Base */,
 				9B6835232098C07A004250BB /* 热门活动 */,
 				9B6835272098C07B004250BB /* 文化地图 */,
@@ -4192,10 +4202,14 @@
 		9B6835132098BEF1004250BB /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				9B68351A2098BEF1004250BB /* ICityCultureReuseModel.h */,
-				9B6835152098BEF1004250BB /* ICityCultureReuseModel.m */,
+				FBD0983420FC95B80088CFBB /* RImageButton.h */,
+				FBD0983520FC95B80088CFBB /* RImageButton.m */,
 				9B2A0DAD209AF7B000B5EF73 /* ICityCultureListReuseTableViewController.h */,
 				9B2A0DAE209AF7B000B5EF73 /* ICityCultureListReuseTableViewController.m */,
+				FBD0983120FC8D660088CFBB /* CultureListReuseController.h */,
+				FBD0983220FC8D660088CFBB /* CultureListReuseController.m */,
+				9B68351A2098BEF1004250BB /* ICityCultureReuseModel.h */,
+				9B6835152098BEF1004250BB /* ICityCultureReuseModel.m */,
 				9B2A0DB0209AF7DA00B5EF73 /* ICityCultureListReuseTableViewCell.h */,
 				9B2A0DB1209AF7DA00B5EF73 /* ICityCultureListReuseTableViewCell.m */,
 			);
@@ -4729,6 +4743,15 @@
 			path = "相关搜索";
 			sourceTree = "<group>";
 		};
+		FB8EE33620F87DC2009D203F /* MoreList */ = {
+			isa = PBXGroup;
+			children = (
+				FB8EE33720F87E02009D203F /* MoreListView.h */,
+				FB8EE33820F87E02009D203F /* MoreListView.m */,
+			);
+			path = MoreList;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -5064,6 +5087,7 @@
 				9B2FD8222089D7D200D319F0 /* JstyleNewsCommentModel.m in Sources */,
 				9B2FD81E2089D7D200D319F0 /* HXDatePhotoEditViewController.m in Sources */,
 				9B2FD7EC2089D7D200D319F0 /* TADotView.m in Sources */,
+				FBD0983620FC95B80088CFBB /* RImageButton.m in Sources */,
 				9B2FD6DC2089D7D200D319F0 /* JstyleEarningListViewController.m in Sources */,
 				9B2FD7B32089D7D200D319F0 /* UITabBarController+tabBarController.m in Sources */,
 				9B2FD7B82089D7D200D319F0 /* ActionButton.m in Sources */,
@@ -5155,6 +5179,7 @@
 				9B6834F2209866A7004250BB /* UIColor+Addition.m in Sources */,
 				9B8684992095C89C008F1526 /* ICityLifeTableViewCell.m in Sources */,
 				9B683505209883DA004250BB /* ICityCitiesCultureTableViewCell.m in Sources */,
+				FBD0983320FC8D660088CFBB /* CultureListReuseController.m in Sources */,
 				9B2FD7E72089D7D200D319F0 /* ZXYShineLayer.m in Sources */,
 				9B2FD80C2089D7D200D319F0 /* HXPhotoManager.m in Sources */,
 				9B2FD6D82089D7D200D319F0 /* JstyleRewardRulesView.m in Sources */,
@@ -5287,6 +5312,7 @@
 				9B0A5358209A09F600A966C7 /* SGQRCodeAlbumManager.m in Sources */,
 				9B2FD8012089D7D200D319F0 /* UIImageView+HXExtension.m in Sources */,
 				9B637CC4209766FB00EFFC5F /* JstyleNewsMyMessageViewController.m in Sources */,
+				FB8EE33920F87E02009D203F /* MoreListView.m in Sources */,
 				9B6835312098C4AB004250BB /* ICityCultureMapTableViewCell.m in Sources */,
 				9B2FD8312089D7D200D319F0 /* JstyleNewsBaseColumnView.m in Sources */,
 				9B2FD6FC2089D7D200D319F0 /* JstyleMyEarningsServiceTermsCell.m in Sources */,
@@ -5677,7 +5703,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = iCity/iCity.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K4WM9Z287T;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5780,8 +5806,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shuziyuedong.iCity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d4f8b393-eaad-4fdc-a465-13558e8f1752";
-				PROVISIONING_PROFILE_SPECIFIER = "数字宁波6月16描述文件profile";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -5795,7 +5821,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = iCity/iCity.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K4WM9Z287T;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -5898,8 +5924,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.shuziyuedong.iCity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d4f8b393-eaad-4fdc-a465-13558e8f1752";
-				PROVISIONING_PROFILE_SPECIFIER = "数字宁波6月16描述文件profile";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};

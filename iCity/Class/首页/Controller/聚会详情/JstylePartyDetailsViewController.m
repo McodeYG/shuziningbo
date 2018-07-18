@@ -879,58 +879,61 @@ static NSInteger typeInt;
 /**获取当前活动状态数据*/
 - (void)addJstylePartyCollectionDataSource
 {
-    NSDictionary *parameters = [NSDictionary dictionaryWithObjectsAndKeys:[[JstyleToolManager sharedManager] getUserId],@"uid",[[JstyleToolManager sharedManager] getUDID],@"uuid", self.partyId,@"rid",[NSString stringWithFormat:@"%ld",(long)typeInt], @"type", self.orderId, @"orderid", nil];
+    NSDictionary * param = @{@"uid":[[JstyleToolManager sharedManager] getUserId],
+                             @"uuid":[[JstyleToolManager sharedManager] getUDID],
+                             @"rid":self.partyId,
+                             @"type":@"4" };
     
     JstyleNewsNetworkManager *manager = [JstyleNewsNetworkManager shareManager];;
     
-    [manager GETURL:JM_COLLECTION_PRAISE_URL parameters:parameters success:^(id responseObject) {
+    [manager GETURL:GET_PRAISESTATE_URL parameters:param success:^(id responseObject) {
         if ([responseObject[@"code"] isEqualToString:@"1"]) {
             
             if (typeInt == 3) {
-                switch ([responseObject[@"data"][@"praise_num"] integerValue]) {
-                    case 0:
-                        self.baoMingBtn.userInteractionEnabled = YES;
-                        self.baoMingBtn.backgroundColor = kLightRedColor;
-                        [self.baoMingBtn setTitle:@"立即报名" forState:UIControlStateNormal];
-                        break;
-                    case 1:
-                        self.baoMingBtn.userInteractionEnabled = NO;
-                        self.baoMingBtn.backgroundColor = kDarkNineColor;
-                        [self.baoMingBtn setTitle:@"报名成功" forState:UIControlStateNormal];
-                        break;
-                    case 2:
-                        self.baoMingBtn.userInteractionEnabled = NO;
-                        self.baoMingBtn.backgroundColor = kDarkNineColor;
-                        [self.baoMingBtn setTitle:@"活动取消" forState:UIControlStateNormal];
-                        break;
-                    case 3:
-                        self.baoMingBtn.userInteractionEnabled = NO;
-                        self.baoMingBtn.backgroundColor = kDarkNineColor;
-                        [self.baoMingBtn setTitle:@"活动结束" forState:UIControlStateNormal];
-                        break;
-                    case 4:
-                        self.baoMingBtn.userInteractionEnabled = NO;
-                        self.baoMingBtn.backgroundColor = kDarkNineColor;
-                        [self.baoMingBtn setTitle:@"进行中" forState:UIControlStateNormal];
-                        break;
-                    case 5:
-                        self.baoMingBtn.userInteractionEnabled = NO;
-                        self.baoMingBtn.backgroundColor = kDarkNineColor;
-                        [self.baoMingBtn setTitle:@"报名取消" forState:UIControlStateNormal];
-                        break;
-                    case 6:
-                        self.baoMingBtn.userInteractionEnabled = NO;
-                        self.baoMingBtn.backgroundColor = kDarkNineColor;
-                        [self.baoMingBtn setTitle:@"名额已满" forState:UIControlStateNormal];
-                        break;
-                    default:
-                        self.baoMingBtn.userInteractionEnabled = YES;
-                        self.baoMingBtn.backgroundColor = kLightRedColor;
-                        [self.baoMingBtn setTitle:@"立即报名" forState:UIControlStateNormal];
-                        break;
-                }
+//                switch ([responseObject[@"data"][@"praise_num"] integerValue]) {
+//                    case 0:
+//                        self.baoMingBtn.userInteractionEnabled = YES;
+//                        self.baoMingBtn.backgroundColor = kLightRedColor;
+//                        [self.baoMingBtn setTitle:@"立即报名" forState:UIControlStateNormal];
+//                        break;
+//                    case 1:
+//                        self.baoMingBtn.userInteractionEnabled = NO;
+//                        self.baoMingBtn.backgroundColor = kDarkNineColor;
+//                        [self.baoMingBtn setTitle:@"报名成功" forState:UIControlStateNormal];
+//                        break;
+//                    case 2:
+//                        self.baoMingBtn.userInteractionEnabled = NO;
+//                        self.baoMingBtn.backgroundColor = kDarkNineColor;
+//                        [self.baoMingBtn setTitle:@"活动取消" forState:UIControlStateNormal];
+//                        break;
+//                    case 3:
+//                        self.baoMingBtn.userInteractionEnabled = NO;
+//                        self.baoMingBtn.backgroundColor = kDarkNineColor;
+//                        [self.baoMingBtn setTitle:@"活动结束" forState:UIControlStateNormal];
+//                        break;
+//                    case 4:
+//                        self.baoMingBtn.userInteractionEnabled = NO;
+//                        self.baoMingBtn.backgroundColor = kDarkNineColor;
+//                        [self.baoMingBtn setTitle:@"进行中" forState:UIControlStateNormal];
+//                        break;
+//                    case 5:
+//                        self.baoMingBtn.userInteractionEnabled = NO;
+//                        self.baoMingBtn.backgroundColor = kDarkNineColor;
+//                        [self.baoMingBtn setTitle:@"报名取消" forState:UIControlStateNormal];
+//                        break;
+//                    case 6:
+//                        self.baoMingBtn.userInteractionEnabled = NO;
+//                        self.baoMingBtn.backgroundColor = kDarkNineColor;
+//                        [self.baoMingBtn setTitle:@"名额已满" forState:UIControlStateNormal];
+//                        break;
+//                    default:
+//                        self.baoMingBtn.userInteractionEnabled = YES;
+//                        self.baoMingBtn.backgroundColor = kLightRedColor;
+//                        [self.baoMingBtn setTitle:@"立即报名" forState:UIControlStateNormal];
+//                        break;
+//                }
                 
-                if ([responseObject[@"data"][@"praise_type"]integerValue] == 1) {
+                if ([responseObject[@"data"][@"follow_type"]integerValue] == 1) {
                     [self addRightTwoBarButtonsWithFirstImage:[UIImage imageNamed:@"聚会分享"] firstAction:@selector(firstBarButtonAction) secondImage:[UIImage imageNamed:@"聚会点赞红色"] secondAction:@selector(secondBarButtonAction)];
 //                    [self addRightBarButtonWithFirstImage:[UIImage imageNamed:@"聚会点赞红色"] action:@selector(secondBarButtonAction)];
                     

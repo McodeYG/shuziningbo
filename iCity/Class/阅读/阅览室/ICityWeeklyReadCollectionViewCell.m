@@ -76,14 +76,21 @@
     [self applyTheme];
 }
 
-- (void)setModel:(ICityWeeklyReadModel *)model {
+- (void)setModel:(ICityWeeklyReadModel *)model isTop:(BOOL)istop {
+    
     _model = model;
     
     [self.posterImageView setImageWithURL:[NSURL URLWithString:model.picture] placeholder:SZ_Place_F_T];
-    self.nameLabel.text = model.bookname;
     
-//    self.typeLabel.text = [model.type bookType];
-    self.typeLabel.text = model.author;
+    if (istop) {
+        self.nameLabel.text = model.bookname;
+        self.typeLabel.text = [model.issue isNotBlank]?model.issue:@" ";//第几期
+    }else{
+        self.nameLabel.text = model.bookname;
+        self.typeLabel.text = model.author;
+    }
+    
+    
     
 }
 

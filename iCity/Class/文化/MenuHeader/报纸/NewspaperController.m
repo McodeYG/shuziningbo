@@ -111,7 +111,8 @@ static NSInteger page = 1;
 - (void)loadData {
     JstyleNewsNetworkManager *manger = [JstyleNewsNetworkManager shareManager];
     NSDictionary *paramaters = @{
-                                 @"page":[NSString stringWithFormat:@"%zd",page]
+                                 @"page":[NSString stringWithFormat:@"%zd",page],
+                                 @"npcid":_npcid
                                  };
     [manger GETURL:Culture_Newspaper_List_URL parameters:paramaters success:^(id responseObject) {
         

@@ -15,6 +15,10 @@ static NSString *const ICityWeeklyReadCollectionViewCellID = @"ICityWeeklyReadCo
 @interface ICityWeeklyReadCollectionView () <UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionViewFlowLayout *layout;
+//数据源
+@property (nonatomic, strong) NSArray *dataArray;
+/**是否是顶部的*/
+@property (nonatomic, assign) BOOL isTop;
 
 @end
 
@@ -22,9 +26,9 @@ static NSString *const ICityWeeklyReadCollectionViewCellID = @"ICityWeeklyReadCo
 
 #pragma mark - Propertys
 
-- (void)setDataArray:(NSArray *)dataArray {
+- (void)setDataArray:(NSArray *)dataArray isTop:(BOOL)isTop{
     _dataArray = dataArray;
-    
+    _isTop = isTop;
     [self reloadSections:[NSIndexSet indexSetWithIndex:0]];
 }
 
@@ -73,7 +77,8 @@ static NSString *const ICityWeeklyReadCollectionViewCellID = @"ICityWeeklyReadCo
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     ICityWeeklyReadCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ICityWeeklyReadCollectionViewCellID forIndexPath:indexPath];
     if (indexPath.item < self.dataArray.count) {
-        cell.model = self.dataArray[indexPath.item];
+        //赋值
+        [cell setModel:self.dataArray[indexPath.item] isTop:_isTop];
     }
     return cell;
 }

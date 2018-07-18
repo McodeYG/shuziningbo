@@ -83,7 +83,6 @@
 //#define JSTYLE_PARTY_HOME_URL            ICity_BASE @"homeicondata/homeparty.htm"
 //#define JSTYLE_PARTY_MORE_URL            ICity_BASE @"homeicondata/homepartymore.htm"
 /**文章点赞的判断*/
-#define JM_COLLECTION_PRAISE_URL         ICity_BASE @"articledata/addarticlepriase.htm"
 #define JSTYLE_PARTY_DESC_URL            ICity_BASE @"homeicondata/homepartydetail.htm"
 #define JSTYLE_PARTY_SIGNIN_URL          ICity_BASE @"homeicondata/partysigninfo.htm"
 #define JSTYLE_PARTY_INFOR_URL           ICity_BASE @"homeicondata/partysignup.htm"
@@ -117,6 +116,10 @@
 #define Culture_Popular_Activities_URL   ICity_BASE @"homeicondata/homeparty.htm"
 /**更多文化活动*/
 #define Culture_More_Activities_URL      ICity_BASE @"homeicondata/homepartymore.htm"
+//更过列表 地区标签
+#define Culture_Regionlist_URL           ICity_BASE @"other/regionlist.htm"
+//更过列表 时间标签
+#define Culture_Timelist_URL             ICity_BASE @"other/timelist.htm"
 
 
 /***********************************生活****************************************/
