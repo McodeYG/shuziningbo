@@ -5704,7 +5704,7 @@
 				CODE_SIGN_ENTITLEMENTS = iCity/iCity.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = K4WM9Z287T;
+				DEVELOPMENT_TEAM = 6UU243CA64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -5804,10 +5804,10 @@
 					"-weak_framework",
 					"\"UserNotifications\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shuziyuedong.iCity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.longyuan.iCity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9e8d5fc4-aabc-4df8-96f9-970bbc6ee9d6";
-				PROVISIONING_PROFILE_SPECIFIER = "数字宁波6月27日发布Distribution描述文件profile";
+				PROVISIONING_PROFILE = "fd91629f-d224-4030-ba5b-9e4dc865e3d9";
+				PROVISIONING_PROFILE_SPECIFIER = iCity_Distribution_Profile;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -5822,7 +5822,7 @@
 				CODE_SIGN_ENTITLEMENTS = iCity/iCity.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = K4WM9Z287T;
+				DEVELOPMENT_TEAM = 6UU243CA64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -5922,10 +5922,10 @@
 					"-weak_framework",
 					"\"UserNotifications\"",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.shuziyuedong.iCity;
+				PRODUCT_BUNDLE_IDENTIFIER = com.longyuan.iCity;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "9e8d5fc4-aabc-4df8-96f9-970bbc6ee9d6";
-				PROVISIONING_PROFILE_SPECIFIER = "数字宁波6月27日发布Distribution描述文件profile";
+				PROVISIONING_PROFILE = "fd91629f-d224-4030-ba5b-9e4dc865e3d9";
+				PROVISIONING_PROFILE_SPECIFIER = iCity_Distribution_Profile;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};

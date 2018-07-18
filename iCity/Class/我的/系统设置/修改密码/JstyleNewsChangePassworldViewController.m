@@ -158,6 +158,7 @@
 - (void)doneBtnClick {
     [self.view endEditing:YES];
     
+
     if ([self.oldPassworldTextField.text isEqualToString:self.newPassworldTextField.text]) {
         ZTShowAlertMessage(@"两次密码输入不能一致");
         return;
@@ -165,6 +166,10 @@
     
     if (![self.newPassworldTextField.text isEqualToString:self.newPassworldAgainTextField.text]) {
         ZTShowAlertMessage(@"两次密码输入不一致");
+        return;
+    }
+    if (self.newPassworldTextField.text.length<6) {
+        ZTShowAlertMessage(@"密码不能低于六位！");
         return;
     }
     

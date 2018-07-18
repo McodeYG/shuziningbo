@@ -189,6 +189,10 @@
         ZTShowAlertMessage(@"两次密码输入不一致");
         return;
     }
+    if (self.passwordTextField.text.length<6) {
+        ZTShowAlertMessage(@"密码不能低于六位！");
+        return;
+    }
     
     [self uploadPassword];
 }
