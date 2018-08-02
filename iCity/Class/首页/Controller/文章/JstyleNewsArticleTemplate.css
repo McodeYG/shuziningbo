@@ -1,83 +1,83 @@
 @CHARSET "UTF-8";
 html, body {
-	width: 100%;
-	padding: 0px;
-	margin: 0px;
-	font-family: "\5FAE\8F6F\96C5\9ED1", "微软雅黑";
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-	-webkit-tap-highlight-color: transparent;
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    font-family: "\5FAE\8F6F\96C5\9ED1", "微软雅黑";
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
 }
 
 html {
-	font-size: 62.5%;
+    font-size: 62.5%;
 }
+img{width:100%;max-width:100%;}
 
-ul, li {
-	list-style: none;
-}
+
 
 body {
-	font-size: 1.8rem;
-	color: #222;
+    font-size: 1.8rem;
+    color: #222;
 }
 
 a {
-	color: #222;
-	text-decoration: none;
+    color: #222;
+    text-decoration: none;
 }
 
 .content {
-	width: 90%;
-	margin: 0 auto;
-	display: block;
-	clear: both;
-	overflow-x: hidden;
-	font-size: 1.80rem;
-	text-align:justify;
+    width: 90%;
+    margin: 0 auto;
+    display: block;
+    clear: both;
+    overflow-x: hidden;
+    font-size: 1.80rem;
+    text-align:justify;
 }
 
 .content img {
-	border: 0;
-	max-width: 100%;
-	margin: 0px auto;
-	display: block;
-	width:auto;
-	height:auto;
+    margin: 0px auto;
+    display: block;
+    height:auto;
 }
 
 .content p {
-	line-height: 2.60rem;
-	margin: 1.60rem auto;
+    line-height: 2.60rem;
+    margin: 1.60rem auto;
+    text-align:justify;
 }
 
 
 .content a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .content p img {
-	border: 0;
-	max-width: 100%;
-	margin: 0px auto;
-	display: block;
-	width:auto;
+    margin: 0px auto;
+    display: block;
     height:auto;
 }
 
 .videoframe {
-	width: 100% !important;
+    width: 100% !important;
 }
 /*.content p{line-height:120%;-webkit-margin-before: 0.2rem;-webkit-margin-after:0.2rem;-webkit-margin-start: 0px;-webkit-margin-end: 0px;} */
 .gapbar {
-	width: 100%;
-	height: 1.0rem;
-	background-color: #f8f8f8;
-	clear: both;
+    width: 100%;
+    height: 1.0rem;
+    background-color: #f8f8f8;
+    clear: both;
 }
 
 .gapbar50 {
-	width: 100%;
-	height: 3.0rem;
-	background-color: #f8f8f8;
-	clear: both;
+    width: 100%;
+    height: 3.0rem;
+    background-color: #f8f8f8;
+    clear: both;
 }
+blockquote{ padding:5px 30px; background-color:#f0f0f0; position:relative;  -webkit-margin-before:0;-webkit-margin-after: 0;-webkit-margin-start: 0;-webkit-margin-end: 0;}
+blockquote::before{content:"";position:absolute;background:url(http://data.aba.com.cn:12000/iCity_CMS/images/yin1.png) 0 0 no-repeat; width:24px; height:24px; background-size:24px 24px; top:5px; left:5px; }
+blockquote::after{content:"";position:absolute;background:url(http://data.aba.com.cn:12000/iCity_CMS/images/yin2.png) 0 0 no-repeat; width:24px; height:24px; background-size:24px 24px; bottom:5px; right:5px; }
+sub{ font-size: 12px; color:#666; text-align:center;width:100%;display:block;}
+em{font-style: italic}
+strong{font-weight:700;}

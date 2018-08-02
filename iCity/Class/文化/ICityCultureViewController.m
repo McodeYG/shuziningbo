@@ -343,7 +343,7 @@ static NSString * const ICityTouristAttractionsTableViewCellID = @"ICityTouristA
 //            break;
         case 1:
         {
-            ICityReadingTableViewHeaderView *headerView = [[ICityReadingTableViewHeaderView alloc] initWithTitleName:@"城市百科" showMoreBtn:NO];
+            ICityReadingTableViewHeaderView *headerView = [[ICityReadingTableViewHeaderView alloc] initWithTitleName:@"城市名片" showMoreBtn:NO];
             headerView.line.hidden = YES;
             __weak typeof(self) weakSelf = self;
             headerView.moreBtnBlock = ^{//

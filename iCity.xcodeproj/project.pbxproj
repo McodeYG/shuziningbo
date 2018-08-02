@@ -5808,6 +5808,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d4f8b393-eaad-4fdc-a465-13558e8f1752";
 				PROVISIONING_PROFILE_SPECIFIER = "数字宁波6月16描述文件profile";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -5926,6 +5927,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d4f8b393-eaad-4fdc-a465-13558e8f1752";
 				PROVISIONING_PROFILE_SPECIFIER = "数字宁波6月16描述文件profile";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};

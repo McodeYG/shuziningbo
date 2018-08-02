@@ -348,10 +348,10 @@ static NSString *refresh = @"1";
     }else{
         NSLog(@"超了");
     }
-//    if (indexPath.section == 1) {
-//        NSLog(@"---%ld----%ld",(long)indexPath.section,(long)indexPath.row);
-//        NSLog(@"type=%@--head_type=%@--\n-isImageArticle=%@--\n-title=%@---poster=%@",model.type,model.head_type,model.isImageArticle ,model.title,model.poster);
-//    }
+    if (indexPath.section == 1) {
+        NSLog(@"---%ld----%ld",(long)indexPath.section,(long)indexPath.row);
+        NSLog(@"type=%@--head_type=%@--\n-isImageArticle=%@--\n-title=%@---poster=%@",model.type,model.head_type,model.isImageArticle ,model.title,model.poster);
+    }
     
     switch ([model.type integerValue]) {
         case 1:{//
@@ -485,8 +485,8 @@ static NSString *refresh = @"1";
         model = self.setTopArray[indexPath.row];
     }else{
         model = self.dataArray[indexPath.row];
-
     }
+    
     
     
     switch ([model.type integerValue]) {
@@ -524,6 +524,8 @@ static NSString *refresh = @"1";
                 
                 return img_H+text_H+35;
             }
+            //JstyleNewsAdvertisementViewCell
+            NSLog(@"马永刚====%f",[self.tableView cellHeightForIndexPath:indexPath model:model keyPath:@"model" cellClass:[JstyleNewsAdvertisementViewCell class] contentViewWidth:kScreenWidth]);
             return [self.tableView cellHeightForIndexPath:indexPath model:model keyPath:@"model" cellClass:[JstyleNewsAdvertisementViewCell class] contentViewWidth:kScreenWidth];
         }
             break;

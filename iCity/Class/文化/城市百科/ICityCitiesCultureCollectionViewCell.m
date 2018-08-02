@@ -78,7 +78,7 @@
     }];
     [self applyTheme];
 }
-//城市百科
+//城市名片
 - (void)setModel:(ICityKnowledgeBaseModel *)model {
     _model = model;
     
