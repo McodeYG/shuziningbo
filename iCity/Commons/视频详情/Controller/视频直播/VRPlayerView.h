@@ -2,7 +2,7 @@
 //  VRPlayerView.h
 //  VRVr
 //
-//  Created by 赵涛 on 2017/5/2.
+//  Created by 数字宁波 on 2017/5/2.
 //  Copyright © 2017年 赵涛. All rights reserved.
 //
 

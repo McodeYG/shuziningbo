@@ -2,7 +2,7 @@
 //  SegmentTapView.h
 //  haha
 //
-//  Created by 赵涛 on 16/3/23.
+//  Created by 数字宁波 on 16/3/23.
 //  Copyright © 2016年 Dark Knight. All rights reserved.
 //
 

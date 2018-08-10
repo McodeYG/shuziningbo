@@ -2,7 +2,7 @@
 //  JstylePlaceholderView.m
 //  Exquisite
 //
-//  Created by 赵涛 on 2016/12/1.
+//  Created by 数字宁波 on 2016/12/1.
 //  Copyright © 2016年 LanBao. All rights reserved.
 //
 

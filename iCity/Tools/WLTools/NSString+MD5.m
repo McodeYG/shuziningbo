@@ -2,7 +2,7 @@
 //  NSString+Base64.h
 //  MD5加密
 //
-//  Created by 赵涛 on 16/3/14.
+//  Created by 数字宁波 on 16/3/14.
 //  Copyright © 2016年 Dark Knight. All rights reserved.
 //
 

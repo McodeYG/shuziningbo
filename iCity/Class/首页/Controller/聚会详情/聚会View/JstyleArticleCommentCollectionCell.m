@@ -2,7 +2,7 @@
 //  JstyleArticleCommentCollectionCell.m
 //  Exquisite
 //
-//  Created by 赵涛 on 2017/6/22.
+//  Created by 数字宁波 on 2017/6/22.
 //  Copyright © 2017年 Jstyle. All rights reserved.
 //
 

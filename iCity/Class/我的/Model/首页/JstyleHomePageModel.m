@@ -2,7 +2,7 @@
 //  JstyleHomePageModel.m
 //  Exquisite
 //
-//  Created by 赵涛 on 2016/11/28.
+//  Created by 数字宁波 on 2016/11/28.
 //  Copyright © 2016年 LanBao. All rights reserved.
 //
 

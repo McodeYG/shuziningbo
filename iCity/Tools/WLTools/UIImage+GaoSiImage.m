@@ -2,7 +2,7 @@
 //  UIImage+GaoSiImage.m
 //  Exquisite
 //
-//  Created by 赵涛 on 16/5/3.
+//  Created by 数字宁波 on 16/5/3.
 //  Copyright © 2016年 LanBao. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  JstyleMyMemuViewCell.h
 //  Exquisite
 //
-//  Created by 赵涛 on 2016/11/24.
+//  Created by 数字宁波 on 2016/11/24.
 //  Copyright © 2016年 LanBao. All rights reserved.
 //
 

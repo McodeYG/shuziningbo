@@ -2,7 +2,7 @@
 //  JMMyFootPrintModel.m
 //  Exquisite
 //
-//  Created by 赵涛 on 16/6/15.
+//  Created by 数字宁波 on 16/6/15.
 //  Copyright © 2016年 LanBao. All rights reserved.
 //
 

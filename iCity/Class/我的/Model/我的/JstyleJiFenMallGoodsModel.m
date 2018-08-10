@@ -2,7 +2,7 @@
 //  JstyleJiFenMallGoodsModel.m
 //  Exquisite
 //
-//  Created by 赵涛 on 2017/2/28.
+//  Created by 数字宁波 on 2017/2/28.
 //  Copyright © 2017年 Jstyle. All rights reserved.
 //
 

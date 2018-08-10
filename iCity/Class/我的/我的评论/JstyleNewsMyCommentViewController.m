@@ -53,7 +53,6 @@ static NSString *JstyleNewsMyCommentTableViewCellID = @"JstyleNewsMyCommentTable
         __weak typeof(self)weakSelf = self;
         _tableView.mj_header = [JstyleRefreshGiftHeader headerWithRefreshingBlock:^{
             page = 1;
-            [weakSelf.dataArray removeAllObjects];
             [weakSelf loadDatas];
         }];
         _tableView.mj_footer = [JstyleRefreshAutoNormalFooter footerWithRefreshingBlock:^{
@@ -194,6 +193,9 @@ static NSString *JstyleNewsMyCommentTableViewCellID = @"JstyleNewsMyCommentTable
         
         NSDictionary *dictionary = responseObject;
         
+        if (page==1) {
+            [self.dataArray removeAllObjects];
+        }
         if ([dictionary[@"code"] isEqualToString:@"1"]) {
             NSArray *currentData = [NSArray modelArrayWithClass:[JstyleNewsMyCommentListModel class] json:dictionary[@"data"]];
             [self.placeholderView removeFromSuperview];
@@ -220,12 +222,15 @@ static NSString *JstyleNewsMyCommentTableViewCellID = @"JstyleNewsMyCommentTable
                 [self.tableView.mj_header endRefreshing];
             }
         } else {
-            page = 1;
+            
             [self.tableView reloadData];
             [self.tableView.mj_footer endRefreshingWithNoMoreData];
             [self.tableView.mj_header endRefreshing];
             
-            [self.tableView addSubview:self.placeholderView];
+            if (page==1&&self.dataArray.count==0) {
+                [self.tableView addSubview:self.placeholderView];
+            }
+            page = 1;
         }
         
     } failure:^(NSError *error) {

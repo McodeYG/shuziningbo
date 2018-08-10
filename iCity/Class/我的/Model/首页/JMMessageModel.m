@@ -2,7 +2,7 @@
 //  JMHomeMessageModel.m
 //  Exquisite
 //
-//  Created by 赵涛 on 16/7/5.
+//  Created by 数字宁波 on 16/7/5.
 //  Copyright © 2016年 LanBao. All rights reserved.
 //
 

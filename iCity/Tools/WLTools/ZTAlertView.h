@@ -2,7 +2,7 @@
 //  ViewController.m
 //  ZTAlertView
 //
-//  Created by 赵涛 on 16/5/23.
+//  Created by 数字宁波 on 16/5/23.
 //  Copyright © 2016年 赵涛. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  NSString+attributedString.h
 //  Exquisite
 //
-//  Created by 赵涛 on 2016/11/29.
+//  Created by 数字宁波 on 2016/11/29.
 //  Copyright © 2016年 LanBao. All rights reserved.
 //
 

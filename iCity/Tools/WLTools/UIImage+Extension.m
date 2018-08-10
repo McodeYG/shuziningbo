@@ -2,7 +2,7 @@
 //  UIImage+Extension.m
 //  Exquisite
 //
-//  Created by 赵涛 on 2017/4/6.
+//  Created by 数字宁波 on 2017/4/6.
 //  Copyright © 2017年 Jstyle. All rights reserved.
 //
 

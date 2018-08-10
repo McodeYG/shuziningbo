@@ -937,7 +937,15 @@ static NSString *JstyleNewsArticleDetailTitleContentCellID = @"JstyleNewsArticle
         if ([responseObject[@"code"] integerValue] == 1) {
             JstyleNewsCommentModel *model = self.commentArray[indexPath.row];
             model.is_praise = responseObject[@"data"][@"praise_type"];
-            model.praise_num = [NSString stringWithFormat:@"%ld",[model.praise_num integerValue] + ([model.is_praise integerValue] == 1 ? 1: - 1)];
+            NSInteger praise = [model.praise_num integerValue];
+            if ([model.is_praise integerValue] == 1) {
+                praise +=1;
+            } else {
+                if (praise>0) {
+                    praise-=1;
+                }
+            }
+            model.praise_num = [NSString stringWithFormat:@"%ld",praise];
             
             JstyleNewsCommentViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
             cell.thumbNumLabel.text = [NSString stringWithFormat:@"%@",model.praise_num];

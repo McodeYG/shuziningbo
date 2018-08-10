@@ -2,7 +2,7 @@
 //  JstyleLiveWatchBuyModel.m
 //  Exquisite
 //
-//  Created by 赵涛 on 16/10/14.
+//  Created by 数字宁波 on 16/10/14.
 //  Copyright © 2016年 LanBao. All rights reserved.
 //
 

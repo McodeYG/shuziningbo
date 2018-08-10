@@ -2,7 +2,7 @@
 //  JMMyCollectionGoodsModel.h
 //  Exquisite
 //
-//  Created by 赵涛 on 16/6/13.
+//  Created by 数字宁波 on 16/6/13.
 //  Copyright © 2016年 LanBao. All rights reserved.
 //
 

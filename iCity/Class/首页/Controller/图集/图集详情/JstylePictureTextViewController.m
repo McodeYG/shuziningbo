@@ -2,7 +2,7 @@
 //  JstylePictureTextViewController.m
 //  Exquisite
 //
-//  Created by 赵涛 on 2017/4/26.
+//  Created by 数字宁波 on 2017/4/26.
 //  Copyright © 2017年 Jstyle. All rights reserved.
 //
 
@@ -586,8 +586,15 @@
                 //ZTShowAlertMessage(@"取消点赞");
                 [self.dianZanBtn setImage:[UIImage imageNamed:@"图文点赞"] forState:UIControlStateNormal];
             }
+        }else{
+            [SVProgressHUD showWithStatus:@"网络繁忙，请稍后重试"];
+            [SVProgressHUD dismissWithDelay:0.4];
         }
-    } failure:nil];
+        
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络错误,请重试"];
+        [SVProgressHUD dismissWithDelay:0.4];
+    }];
 }
 
 /**获取点赞、收藏的数据*/
@@ -623,9 +630,14 @@
                     self.commentLabel.text = [NSString stringWithFormat:@"%@  ",responseObject[@"data"][@"comment_num"]];
                 }
             }
+        }else{
+            [SVProgressHUD showWithStatus:@"网络繁忙，请稍后重试"];
+            [SVProgressHUD dismissWithDelay:0.4];
         }
-    } failure:^(NSError *error) {
         
+    } failure:^(NSError *error) {
+        [SVProgressHUD showErrorWithStatus:@"网络错误,请重试"];
+        [SVProgressHUD dismissWithDelay:0.4];
     }];
 }
 

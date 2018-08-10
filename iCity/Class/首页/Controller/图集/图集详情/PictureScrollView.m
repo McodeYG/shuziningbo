@@ -2,7 +2,7 @@
 //  PictureScrollView.m
 //  图片浏览
 //
-//  Created by 赵涛 on 2017/4/25.
+//  Created by 数字宁波 on 2017/4/25.
 //  Copyright © 2017年 赵涛. All rights reserved.
 //
 
