@@ -187,7 +187,7 @@ static NSString *JstyleNewsMyCommentTableViewCellID = @"JstyleNewsMyCommentTable
     
     NSDictionary *paramagers = @{
                                  @"uid":[tool getUserId],
-                                 @"page":[NSString stringWithFormat:@"%zd",page]
+                                 @"page":[NSString stringWithFormat:@"%ld",(long)page]
                                  };
     [manager GETURL:USERINFO_COMMENTLIST_URL parameters:paramagers success:^(id responseObject) {
         
