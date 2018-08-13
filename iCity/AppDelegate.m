@@ -17,19 +17,16 @@
 
 #import "JstyleNewsGuidePagesViewController.h"
 #import "JstyleNewsAdvertisementViewController.h"
-
 // 跳转所需控制器
 //文章 图集
 #import "JstyleNewsArticleDetailViewController.h"
 #import "JstylePictureTextViewController.h"
-
 
 //视频 直播
 #import "JstyleNewsVideoDetailViewController.h"
 //活动
 #import "JstyleNewsActivityWebViewController.h"
 //消息 通知
-
 
 // iOS10注册APNs所需头文件
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
@@ -104,7 +101,7 @@
     // 友盟统计方法
     [self umengTrack];
     // 友盟分享
-    [[UMSocialManager defaultManager] setUmSocialAppkey:@"5aedb973b27b0a244300020d"];
+    [[UMSocialManager defaultManager] setUmSocialAppkey:UMAPPKey];
     [self configUSharePlatforms];
     [self confitUShareSettings];
     
@@ -198,8 +195,15 @@
 - (void)umengTrack
 {
     [MobClick setCrashReportEnabled:YES];
-    [UMConfigure initWithAppkey:@"5a40c4ecb27b0a1ebe000023" channel:@"App Store"];
+    [UMConfigure setLogEnabled:YES];//设置打开日志
+    [UMConfigure initWithAppkey:UMAPPKey channel:@"App Store"];
+    
+    //集成测试
+    NSString* deviceID =  [UMConfigure deviceIDForIntegration];
+    
 }
+
+
 
 // 支持所有iOS系统
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation

@@ -19,7 +19,9 @@ pod 'JPush'
 pod 'SVProgressHUD'
 pod 'MJRefresh'
 
+pod 'UMCCommon'
 pod 'UMCAnalytics'
+pod 'UMCSecurityPlugins'
 pod 'UMengUShare/UI'
 # 集成微信(精简版0.2M)
 pod 'UMengUShare/Social/ReducedWeChat'

@@ -191,15 +191,14 @@
 #define WXAPPKey        @"wx2d08b9bd349eaedb"
 #define WXAPPSecret     @"54c142299bddd4da47a36bd2bc7e67d3"
 
-
 /**QQ*/
 #define QQAPPKey        @"1106806431"
-
 
 /**新浪*/
 #define SinaAPPKey      @"3449170107"
 #define SinaAPPSecret   @"4bffa8f6849900d2fb5450ca3dd353dc"
-
+//友盟
+#define UMAPPKey        @"5aedb973b27b0a244300020d"
 
 
 
