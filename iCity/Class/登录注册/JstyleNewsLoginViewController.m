@@ -366,7 +366,7 @@
             NSString *address = [userinfo.originalResponse[@"province"] stringByAppendingString:userinfo.originalResponse[@"city"]];
             
             self.userInfo = @{@"openid":userinfo.uid,
-                              @"unionid":userinfo.unionId,
+                              @"unionid":userinfo.openid,
                               @"type":@"1",
                               @"nickname":userinfo.name,
                               @"avator":userinfo.iconurl,

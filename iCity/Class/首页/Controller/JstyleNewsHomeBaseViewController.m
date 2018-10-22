@@ -456,7 +456,7 @@
                                  @"uid":[[JstyleToolManager sharedManager] getUDID],
                                  @"userid":[[JstyleToolManager sharedManager] getUserId]
                                  };
-    [[JstyleNewsNetworkManager shareManager] GETURL:CHANNEL_LIST_URL parameters:parameters success:^(id responseObject) {
+    [[JstyleNewsNetworkManager shareManager] GETTURL:CHANNEL_LIST_URL parameters:parameters success:^(id responseObject) {
         
         [self.tjTitlesArray removeAllObjects];
         [self.cacheDict setObject:responseObject forKey:@"tjchannel"];
