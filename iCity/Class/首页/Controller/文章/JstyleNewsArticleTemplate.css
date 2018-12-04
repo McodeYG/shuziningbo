@@ -11,7 +11,7 @@ html, body {
 html {
     font-size: 62.5%;
 }
-img{width:100%;max-width:100%;}
+img{max-width:100% !important;}
 
 
 
@@ -39,6 +39,7 @@ a {
     margin: 0px auto;
     display: block;
     height:auto;
+    max-width:100% !important;
 }
 
 .content p {
@@ -56,6 +57,7 @@ a {
     margin: 0px auto;
     display: block;
     height:auto;
+    max-width:100% !important;
 }
 
 .videoframe {
