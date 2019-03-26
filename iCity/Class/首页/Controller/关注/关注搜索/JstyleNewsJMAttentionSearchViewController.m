@@ -56,7 +56,9 @@
 @end
 
 @interface JstyleNewsJMAttentionSearchViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
-
+{
+    NSInteger page;
+}
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *dataArray;
 @property (nonatomic, strong) JstyleNewsSearchBar *searchBar;
@@ -66,7 +68,7 @@
 @end
 
 static NSString *JstyleNewsJMAttentionSearchCellID = @"JstyleNewsJMAttentionSearchCellID";
-static NSInteger page = 1;
+
 
 @implementation JstyleNewsJMAttentionSearchViewController
 
@@ -118,6 +120,7 @@ static NSInteger page = 1;
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    page = 1;
     [self loadData];
     [self.view addSubview:self.tableView];
     

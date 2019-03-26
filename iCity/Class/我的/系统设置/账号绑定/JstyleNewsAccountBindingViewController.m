@@ -124,7 +124,7 @@
         case 1:{
             //QQ
             if (model.number.length > 5) {
-                [self showRemoveBindAlertWithMessage:@"确定要接触账号与QQ的关联吗？" Unionid:model.number type:@"1"];
+                [self showRemoveBindAlertWithMessage:@"确定要解除账号与QQ的关联吗？" Unionid:model.number type:@"1"];
             }else{
                 [self qqBindAction];
             }
@@ -133,7 +133,7 @@
         case 2:{
             //微信
             if (model.number.length > 5) {
-                [self showRemoveBindAlertWithMessage:@"确定要接触账号与微信的关联吗？" Unionid:model.number type:@"2"];
+                [self showRemoveBindAlertWithMessage:@"确定要解除账号与微信的关联吗？" Unionid:model.number type:@"2"];
             }else{
                 [self wechatBindAction];
             }
@@ -142,7 +142,7 @@
         case 3:{
             //新浪微博
             if (model.number.length > 5) {
-                [self showRemoveBindAlertWithMessage:@"确定要接触账号与微博的关联吗？" Unionid:model.number type:@"3"];
+                [self showRemoveBindAlertWithMessage:@"确定要解除账号与微博的关联吗？" Unionid:model.number type:@"3"];
             }else{
                 [self sinaBindAction];
             }
