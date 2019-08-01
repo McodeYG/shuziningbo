@@ -7,7 +7,7 @@
 //
 
 #import "MoreListView.h"
-#import "ZTTagListView.h"
+
 
 #define LEFT_MARGIN        20.0f
 #define LABEL_MARGIN       15.0f            //左右间距
